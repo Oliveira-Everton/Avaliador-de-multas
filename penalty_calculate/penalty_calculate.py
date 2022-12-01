@@ -5,3 +5,4 @@ class PenaltyCalculate:
 
     def calculate_penalty(self):
         return True
+
