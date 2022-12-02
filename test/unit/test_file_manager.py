@@ -26,6 +26,6 @@ class TestFileManager(unittest.TestCase):
     def test_take_license_plate(self):
         file = FileManager("Transit Ticket input 1.csv")
 
-        take_license_plate = file._take_license_plate()
+        take_license_plate = file.take_license_plate()
 
         self.assertEqual(take_license_plate, ["ARE-9420", "KVI-2310", "KVI-2310", "ARE-9420", "BIO-9626", "SOS-3257"])
