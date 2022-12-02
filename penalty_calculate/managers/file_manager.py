@@ -22,7 +22,7 @@ class FileManager:
             if line != 0:
                 national_name_identity_cards.append(column[-1])
         return national_name_identity_cards
-
+    
     def take_national_identity_cards(self):
         national_number_and_name_identity_cards = []
         list = []
@@ -35,7 +35,7 @@ class FileManager:
                     national_number_and_name_identity_cards.append(list.copy())
         return national_number_and_name_identity_cards
 
-    def _take_license_plate(self):
+    def take_license_plate(self):
         license_plate = []
         for line, column in self._open_file():
             if line != 0:
@@ -44,6 +44,5 @@ class FileManager:
     
     def take_national_identity_cards_with_license_plate(self):
         national_identity_cards = self.take_national_identity_cards()
-        license_plates = self._take_license_plate()
-        national_identity_cards.append(license_plates)
-        return license_plates
+        national_identity_cards.append(self.take_license_plate())
+        return national_identity_cards

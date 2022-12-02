@@ -20,3 +20,5 @@ class TestIntegration(unittest.TestCase):
                 ["ARE-9420", "KVI-2310", "KVI-2310", "ARE-9420", "BIO-9626", "SOS-3257"]
             ]
         )
+
+    
