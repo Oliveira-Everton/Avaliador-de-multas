@@ -1,15 +1,17 @@
 import unittest
 
-from penalty_calculate.managers.file_manager import FileManager
+from penalty_calculate.penalty_calculate import PenaltyCalculate
+
 
 class TestIntegration(unittest.TestCase):
-    def test_receive_file_and_evaluate(self):
-        file = FileManager("Transit Ticket input 1.csv")
-        
-        take_national_identity_cards_with_license_plate = file.take_national_identity_cards_with_license_plate()
+
+    def test_penalty_calculate(self):
+        penalty_calculate = PenaltyCalculate("Transit Ticket input 1.csv")
+
+        national_identity_cards_with_license_plate = penalty_calculate.csv_reader()
 
         self.assertEqual(
-            take_national_identity_cards_with_license_plate, 
+            national_identity_cards_with_license_plate, 
             [
                 ["467191153", "Josevaldo Cal. O. Teiro"], 
                 ["467191153", "Josevaldo Cal. O. Teiro"],
@@ -20,5 +22,3 @@ class TestIntegration(unittest.TestCase):
                 ["ARE-9420", "KVI-2310", "KVI-2310", "ARE-9420", "BIO-9626", "SOS-3257"]
             ]
         )
-
-    
