@@ -3,16 +3,21 @@ import csv
 class FileParser:
     def __init__(self, file_name):
         self._file_name = file_name
+        self._open_file()
     
     def _open_file(self):
         with open(self._file_name, mode="r") as file:
             reader_csv = csv.reader(file, delimiter=";")
-            return list(enumerate(reader_csv))
+            self._csv_file = list(enumerate(reader_csv))
+            if file:
+                return True
+            else:
+                return False
 
     def _take_national_name_and_number_identity_cards(self):
         national_number_identity_cards = []
         national_name_identity_cards = []
-        for line, column in self._open_file():
+        for line, column in self._csv_file:
                 if line != 0:
                     national_number_identity_cards.append(column[5])
                     national_name_identity_cards.append(column[-1])
@@ -38,7 +43,7 @@ class FileParser:
 
     def take_license_plate(self):
         license_plate = []
-        for line, column in self._open_file():
+        for line, column in self._csv_file:
             if line != 0:
                 license_plate.append(column[0])
         return license_plate
