@@ -1,6 +1,6 @@
 import csv
 
-class FileManager:
+class FileParser:
     def __init__(self, file_name):
         self._file_name = file_name
     
@@ -9,25 +9,26 @@ class FileManager:
             reader_csv = csv.reader(file, delimiter=";")
             return list(enumerate(reader_csv))
 
-    def _take_national_number_identity_cards(self):
+    def _take_national_name_and_number_identity_cards(self):
         national_number_identity_cards = []
+        national_name_identity_cards = []
         for line, column in self._open_file():
                 if line != 0:
                     national_number_identity_cards.append(column[5])
-        return national_number_identity_cards
-
-    def _take_national_name_identity_cards(self):
-        national_name_identity_cards = []
-        for line, column in self._open_file():
-            if line != 0:
-                national_name_identity_cards.append(column[-1])
-        return national_name_identity_cards
+                    national_name_identity_cards.append(column[-1])
+        self._national_number_identity_cards = national_number_identity_cards
+        self._national_name_identity_cards = national_name_identity_cards
+        if national_name_identity_cards and national_number_identity_cards:
+            return True
+        else:
+            return False
     
     def take_national_identity_cards(self):
+        self._take_national_name_and_number_identity_cards()
         national_number_and_name_identity_cards = []
         list = []
-        for line_numbers, number_identity_cards in enumerate(self._take_national_number_identity_cards()):
-            for line_names, name_identity_cards in enumerate(self._take_national_name_identity_cards()):
+        for line_numbers, number_identity_cards in enumerate(self._national_number_identity_cards):
+            for line_names, name_identity_cards in enumerate(self._national_name_identity_cards):
                 list.clear()
                 if line_numbers == line_names:
                     list.append(number_identity_cards)
