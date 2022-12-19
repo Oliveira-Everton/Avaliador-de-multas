@@ -1,6 +1,8 @@
 import csv
 
 from penalty_calculate.models.identity_cards import IdentityCards
+from penalty_calculate.models.license_plates import LicensePlates
+from penalty_calculate.managers.id_cards_manager import IdCardsManager
 
 
 class FileParser:
@@ -24,35 +26,18 @@ class FileParser:
             identity_numbers=national_number_identity_cards,
             identity_names=national_name_identity_cards
         )
-        if national_name_identity_cards and national_number_identity_cards:
-            return True
-        else:
-            return False
 
     def take_national_identity_cards(self):
         self._take_national_name_and_number_identity_cards()
-        national_number_and_name_identity_cards = []
-        list = []
-        for line_numbers, number_identity_cards in enumerate(
-            self._identity_cards.check_numbers()
-        ):
-            for line_names, name_identity_cards in enumerate(
-                self._identity_cards.check_names()
-            ):
-                list.clear()
-                if line_numbers == line_names:
-                    list.append(number_identity_cards)
-                    list.append(name_identity_cards)
-# Parei aqui!!! Pensando como usar meu modelo de dados pra me ajudar!
-                    national_number_and_name_identity_cards.append(list.copy())
-        return national_number_and_name_identity_cards
+        return IdCardsManager(self._identity_cards).take_id_cards()
 
     def take_license_plate(self):
-        license_plate = []
+        license_plates = []
         for line, column in self._csv_file:
             if line != 0:
-                license_plate.append(column[0])
-        return license_plate
+                license_plates.append(column[0])
+        self._license_plates = LicensePlates(license_plates)
+        return self._license_plates.check_plates()
 
     def take_id_cards_with_license_plate(self):
         national_identity_cards = self.take_national_identity_cards()
