@@ -15,7 +15,7 @@ class FileParser:
             reader_csv = csv.reader(file, delimiter=";")
             return list(enumerate(reader_csv))
 
-    def _take_national_name_and_number_identity_cards(self):
+    def _take_name_and_number_identity_cards(self):
         national_number_identity_cards = []
         national_name_identity_cards = []
         for line, column in self._csv_file:
@@ -28,7 +28,7 @@ class FileParser:
         )
 
     def take_national_identity_cards(self):
-        self._take_national_name_and_number_identity_cards()
+        self._take_name_and_number_identity_cards()
         return IdCardsManager(self._identity_cards).take_id_cards()
 
     def take_license_plate(self):
@@ -36,8 +36,7 @@ class FileParser:
         for line, column in self._csv_file:
             if line != 0:
                 license_plates.append(column[0])
-        self._license_plates = LicensePlates(license_plates)
-        return self._license_plates.check_plates()
+        return LicensePlates(license_plates).check_plates()
 
     def take_id_cards_with_license_plate(self):
         national_identity_cards = self.take_national_identity_cards()
