@@ -50,7 +50,6 @@ class FileParser:
     # tenho que fazer um modelo de dados pra cada placa
     # e retornar uma lista com eles
 
-
     def take_id_cards_with_license_plate(self):
         national_identity_cards = self.take_national_identity_cards()
         national_identity_cards.append(self.take_license_plate())
