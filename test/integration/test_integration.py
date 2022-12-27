@@ -22,6 +22,7 @@ class TestIntegration(unittest.TestCase):
                     "ARE-9420", "BIO-9626", "SOS-3257"]
             ]
         )
+
 # Tenho que fazer esse teste passar!
-# só que não da forma atual, 
+# só que não da forma atual,
 # tenho que usar os modelos de dados únicos

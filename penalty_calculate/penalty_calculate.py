@@ -11,6 +11,8 @@ class PenaltyCalculate:
             self._csv_file
         ).take_id_cards_with_license_plate()
 
+        # O retorno dele vai ser o output_serializer e não o file_parser
+
     # Essa função não retornar o file parser
     # pq o file parser não tem que retornar essas coisas...
     # Ele apenas lê o arquivo e joga tudo num modelo de dados...
