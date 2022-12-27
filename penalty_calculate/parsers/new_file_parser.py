@@ -2,8 +2,8 @@ import csv
 
 from penalty_calculate.models.identity_card import IdentityCard
 from penalty_calculate.models.license_plates import LicensePlates
-from penalty_calculate.managers.new_id_cards_manager import NewIdCardsManager
 from penalty_calculate.models.traffic_violation import TrafficViolation
+from penalty_calculate.serializers.output_serializer import OutputSerializer
 
 
 class NewFileParser:
@@ -48,3 +48,10 @@ class NewFileParser:
 
 # Agora provavelmente esse cara vai chamar o TrafficViolation
 # E depois o OutputSerializer...O que vc acha?
+    def output_file(self):
+        traffic_violation = TrafficViolation(
+            models_id=self._models_id_cards,
+            license_plates=self._models_license_plates
+        )
+        output_file = OutputSerializer(traffic_violation).output_string()
+        return output_file
