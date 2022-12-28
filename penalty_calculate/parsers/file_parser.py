@@ -1,14 +1,16 @@
 import csv
 
-from penalty_calculate.models.identity_cards import IdentityCards
-from penalty_calculate.models.license_plates import LicensePlates
-from penalty_calculate.managers.id_cards_manager import IdCardsManager
+from penalty_calculate.models.identity_card import IdentityCard
+from penalty_calculate.models.license_plate import LicensePlate
+from penalty_calculate.models.traffic_violation import TrafficViolation
+from penalty_calculate.serializers.output_serializer import OutputSerializer
 
 
 class FileParser:
 
     _IDENTITY_NAME = -1
-    _IDENITTY_NUMBER = 5
+    _IDENTITY_NUMBER = 5
+    _LICENSE_PLATE = 0
 
     def __init__(self, file_name):
         self._file_name = file_name
@@ -19,38 +21,30 @@ class FileParser:
             reader_csv = csv.reader(file, delimiter=";")
             return list(enumerate(reader_csv))
 
-    def _take_name_and_number_identity_cards(self):
-        national_number_identity_cards = []
-        national_name_identity_cards = []
+    def _organize_models(self):
+        list_models_id = []
+        list_models_plate = []
         for line, column in self._csv_file:
             if line != 0:
-                national_number_identity_cards.append(
-                    column[self._IDENITTY_NUMBER]
+                list_models_id.append(
+                    IdentityCard(
+                        id_name=column[self._IDENTITY_NAME],
+                        id_number=column[self._IDENTITY_NUMBER]
+                    )
                 )
-                national_name_identity_cards.append(
-                    column[self._IDENTITY_NAME]
+                list_models_plate.append(
+                    LicensePlate(
+                        plate_car=column[self._LICENSE_PLATE]
+                    )
                 )
-        self._identity_cards = IdentityCards(
-            identity_numbers=national_number_identity_cards,
-            identity_names=national_name_identity_cards
+        self._models_id_cards = list_models_id
+        self._models_license_plates = list_models_plate
+
+    def output_file(self):
+        self._organize_models()
+        traffic_violation = TrafficViolation(
+            models_id=self._models_id_cards,
+            license_plates=self._models_license_plates
         )
-    # retorna uma lista com vários modelos de dados
-    # que tem como atributos RG e Nome
-
-    def take_national_identity_cards(self):
-        self._take_name_and_number_identity_cards()
-        return IdCardsManager(self._identity_cards).take_id_cards()
-
-    def take_license_plate(self):
-        license_plates = []
-        for line, column in self._csv_file:
-            if line != 0:
-                license_plates.append(column[0])
-        return LicensePlates(license_plates).check_plates()
-    # tenho que fazer um modelo de dados pra cada placa
-    # e retornar uma lista com eles
-
-    def take_id_cards_with_license_plate(self):
-        national_identity_cards = self.take_national_identity_cards()
-        national_identity_cards.append(self.take_license_plate())
-        return national_identity_cards
+        output_string = OutputSerializer(traffic_violation).output_string()
+        return output_string

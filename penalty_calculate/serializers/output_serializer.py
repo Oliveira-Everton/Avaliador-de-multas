@@ -1,29 +1,22 @@
 class OutputSerializer:
-    FIRST_ELEMENT = FIRST_LIST = ID_NUMBER = 0
-    SECOND_ELEMENT = ID_NAME = 1
 
     def __init__(self, traffic_violation_model):
         self._model = traffic_violation_model
+        self._output = []
 
-    def output_id(self):
-        id_models = []
+    def _output_id(self):
         for model in self._model.id_cards:
-            id_models.append(
-                (model.number, model.name)
+            self._output.append(
+                f'{model.number}; {model.name}'
             )
-        return id_models
 
-    def output_plate(self):
-        plates_models = []
+    def _output_plate(self):
         for model in self._model.license_plates:
-            plates_models.append(model.number)
-        return plates_models
+            self._output.append(
+                f'{model.number}'
+            )
 
     def output_string(self):
-        output = []
-        list_models = [self.output_id(), self.output_plate()]
-        for index, model in enumerate(list_models):
-            if index == self.FIRST_LIST:
-                print(model)
-        return output
-        #USE UM DICIONÁRIO PRA RETORNAR AS LISTAS, TALVEZ AJUDE
+        self._output_id()
+        self._output_plate()
+        return self._output
