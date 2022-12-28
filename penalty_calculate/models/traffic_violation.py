@@ -1,4 +1,5 @@
 class TrafficViolation:
+
     def __init__(self, models_id=[], license_plates=[]):
         self._models_id = models_id
         self._license_plates = license_plates
