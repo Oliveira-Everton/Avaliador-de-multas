@@ -21,29 +21,29 @@ class FileParser:
             reader_csv = csv.reader(file, delimiter=";")
             return list(enumerate(reader_csv))
 
-    def _organize_models(self):
-        list_models_id = []
-        list_models_plate = []
+    def _build_models(self):
+        models_id_cards = []
+        models_plates = []
         for line, column in self._csv_file:
             if line != 0:
-                list_models_id.append(
+                models_id_cards.append(
                     IdentityCard(
                         id_name=column[self._IDENTITY_NAME],
                         id_number=column[self._IDENTITY_NUMBER]
                     )
                 )
-                list_models_plate.append(
+                models_plates.append(
                     LicensePlate(
-                        plate_car=column[self._LICENSE_PLATE]
+                        number=column[self._LICENSE_PLATE]
                     )
                 )
-        self._models_id_cards = list_models_id
-        self._models_license_plates = list_models_plate
+        self._models_id_cards = models_id_cards
+        self._models_license_plates = models_plates
 
     def output_file(self):
-        self._organize_models()
+        self._build_models()
         traffic_violation = TrafficViolation(
-            models_id=self._models_id_cards,
+            models_id_cards=self._models_id_cards,
             license_plates=self._models_license_plates
         )
         output_string = OutputSerializer(traffic_violation).output_string()

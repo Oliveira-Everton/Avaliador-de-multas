@@ -15,7 +15,7 @@ class TestOutputSerializer(unittest.TestCase):
         second_plate = LicensePlate("OXH-2070")
         output_serializer = OutputSerializer(
             TrafficViolation(
-                models_id=[first_id_card, second_id_card],
+                models_id_cards=[first_id_card, second_id_card],
                 license_plates=[first_plate, second_plate]
             )
         )
