@@ -1,6 +1,6 @@
 class IdentityCard:
 
-    def __init__(self, id_number, id_name):
+    def __init__(self, id_number='', id_name=''):
         self._number = id_number
         self._name = id_name
 

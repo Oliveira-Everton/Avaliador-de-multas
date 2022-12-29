@@ -3,6 +3,7 @@ import csv
 from penalty_calculate.models.identity_card import IdentityCard
 from penalty_calculate.models.license_plate import LicensePlate
 from penalty_calculate.models.traffic_violation import TrafficViolation
+from penalty_calculate.models.traffic_violations import TrafficViolations
 from penalty_calculate.serializers.output_serializer import OutputSerializer
 
 
@@ -22,29 +23,24 @@ class FileParser:
             return list(enumerate(reader_csv))
 
     def _build_models(self):
-        models_id_cards = []
-        models_plates = []
+        traffic_violations = []
         for line, column in self._csv_file:
             if line != 0:
-                models_id_cards.append(
-                    IdentityCard(
-                        id_name=column[self._IDENTITY_NAME],
-                        id_number=column[self._IDENTITY_NUMBER]
+                traffic_violations.append(
+                    TrafficViolation(
+                        IdentityCard(
+                            id_name=column[self._IDENTITY_NAME],
+                            id_number=column[self._IDENTITY_NUMBER]
+                        ),
+                        LicensePlate(
+                            number=column[self._LICENSE_PLATE]
+                        )
                     )
                 )
-                models_plates.append(
-                    LicensePlate(
-                        number=column[self._LICENSE_PLATE]
-                    )
-                )
-        self._models_id_cards = models_id_cards
-        self._models_license_plates = models_plates
+        self._traffic_violations = traffic_violations
 
     def output_file(self):
         self._build_models()
-        traffic_violation = TrafficViolation(
-            models_id_cards=self._models_id_cards,
-            license_plates=self._models_license_plates
-        )
-        output_string = OutputSerializer(traffic_violation).output_string()
+        traffic_violations = TrafficViolations(self._traffic_violations)
+        output_string = OutputSerializer(traffic_violations).output_string()
         return output_string
