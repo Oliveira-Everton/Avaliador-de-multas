@@ -1,6 +1,6 @@
 class LicensePlate:
 
-    def __init__(self, number):
+    def __init__(self, number=''):
         self._number = number
 
     @property

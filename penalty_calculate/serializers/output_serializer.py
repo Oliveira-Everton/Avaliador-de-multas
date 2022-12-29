@@ -1,19 +1,19 @@
 class OutputSerializer:
 
-    def __init__(self, traffic_violation_model):
-        self._traffic_violation_model = traffic_violation_model
+    def __init__(self, traffic_violations):
+        self._traffic_violations = traffic_violations.violations
         self._output = []
 
     def _output_id_cards(self):
-        for model in self._traffic_violation_model.id_cards:
+        for violation in self._traffic_violations:
             self._output.append(
-                f'{model.number}; {model.name}'
+                f'{violation.id_card.number}; {violation.id_card.name}'
             )
 
     def _output_license_plates(self):
-        for model in self._traffic_violation_model.license_plates:
+        for violation in self._traffic_violations:
             self._output.append(
-                f'{model.number}'
+                f'{violation.license_plate.number}'
             )
 
     def output_string(self):
