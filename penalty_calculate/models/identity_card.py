@@ -1,13 +1,13 @@
 class IdentityCard:
 
     def __init__(self, id_number, id_name):
-        self._id_number = id_number
-        self._id_name = id_name
+        self._number = id_number
+        self._name = id_name
 
     @property
     def number(self):
-        return self._id_number
+        return self._number
 
     @property
     def name(self):
-        return self._id_name
+        return self._name
