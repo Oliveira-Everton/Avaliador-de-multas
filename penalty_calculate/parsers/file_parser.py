@@ -22,7 +22,7 @@ class FileParser:
             reader_csv = csv.reader(file, delimiter=";")
             return list(enumerate(reader_csv))
 
-    def _build_models(self):
+    def _build_traffic_violation_models(self):
         traffic_violations = []
         for line, column in self._csv_file:
             if line != 0:
@@ -40,7 +40,7 @@ class FileParser:
         self._traffic_violations = traffic_violations
 
     def output_file(self):
-        self._build_models()
+        self._build_traffic_violation_models()
         traffic_violations = TrafficViolations(self._traffic_violations)
         output_string = OutputSerializer(traffic_violations).output_string()
         return output_string
