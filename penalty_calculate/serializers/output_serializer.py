@@ -1,7 +1,7 @@
 class OutputSerializer:
 
-    def __init__(self, traffic_violations):
-        self._traffic_violations = traffic_violations.traffic_violations
+    def __init__(self, violations_manager):
+        self._traffic_violations = violations_manager.traffic_violations
         self._output = []
 
     def _output_id_cards(self):
