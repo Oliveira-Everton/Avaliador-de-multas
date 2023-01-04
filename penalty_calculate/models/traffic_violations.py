@@ -4,5 +4,5 @@ class TrafficViolations:
         self._traffic_violations = traffic_violations
 
     @property
-    def violations(self):
+    def traffic_violations(self):
         return self._traffic_violations
