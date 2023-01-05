@@ -3,8 +3,8 @@ import unittest
 from penalty_calculate.serializers.output_serializer import OutputSerializer
 from penalty_calculate.models.identity_card import IdentityCard
 from penalty_calculate.models.traffic_violation import TrafficViolation
+from penalty_calculate.models.traffic_violations import TrafficViolations
 from penalty_calculate.models.license_plate import LicensePlate
-from penalty_calculate.managers.violations_manager import ViolationsManager
 
 
 class TestOutputSerializer(unittest.TestCase):
@@ -18,7 +18,7 @@ class TestOutputSerializer(unittest.TestCase):
             IdentityCard("35.595.089-3", "José de Queiroz"),
             LicensePlate("OXH-2070")
         )
-        traffic_violations = ViolationsManager(
+        traffic_violations = TrafficViolations(
             [first_traffic_violation, second_traffic_violation]
         )
 
