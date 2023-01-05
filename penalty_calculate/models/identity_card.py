@@ -1,8 +1,8 @@
 class IdentityCard:
 
-    def __init__(self, id_number='', id_name=''):
-        self._number = id_number
-        self._name = id_name
+    def __init__(self, number='', name=''):
+        self._number = number
+        self._name = name
 
     @property
     def number(self):
