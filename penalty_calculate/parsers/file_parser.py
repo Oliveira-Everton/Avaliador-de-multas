@@ -29,8 +29,8 @@ class FileParser:
                 traffic_violations.append(
                     TrafficViolation(
                         IdentityCard(
-                            id_name=column[self._IDENTITY_NAME],
-                            id_number=column[self._IDENTITY_NUMBER]
+                            name=column[self._IDENTITY_NAME],
+                            number=column[self._IDENTITY_NUMBER]
                         ),
                         LicensePlate(
                             number=column[self._LICENSE_PLATE]

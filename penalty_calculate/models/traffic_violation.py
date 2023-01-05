@@ -6,11 +6,11 @@ class TrafficViolation:
 
     def __init__(
         self,
-        model_id_card=IdentityCard(),
-        model_license_plate=LicensePlate()
+        id_card=IdentityCard(),
+        license_plate=LicensePlate()
     ):
-        self._id_card = model_id_card
-        self._license_plate = model_license_plate
+        self._id_card = id_card
+        self._license_plate = license_plate
 
     @property
     def id_card(self):
