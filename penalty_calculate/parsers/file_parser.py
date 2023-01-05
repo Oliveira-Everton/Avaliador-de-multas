@@ -3,7 +3,7 @@ import csv
 from penalty_calculate.models.identity_card import IdentityCard
 from penalty_calculate.models.license_plate import LicensePlate
 from penalty_calculate.models.traffic_violation import TrafficViolation
-from penalty_calculate.managers.violations_manager import ViolationsManager
+from penalty_calculate.models.traffic_violations import TrafficViolations
 from penalty_calculate.serializers.output_serializer import OutputSerializer
 
 
@@ -41,6 +41,6 @@ class FileParser:
 
     def output_file(self):
         self._build_traffic_violation_models()
-        traffic_violations = ViolationsManager(self._traffic_violations)
+        traffic_violations = TrafficViolations(self._traffic_violations)
         output_string = OutputSerializer(traffic_violations).output_string()
         return output_string

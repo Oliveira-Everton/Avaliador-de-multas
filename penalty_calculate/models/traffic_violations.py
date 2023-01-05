@@ -1,5 +1,6 @@
-class ViolationsManager:
-    def __init__(self, traffic_violations):
+class TrafficViolations:
+
+    def __init__(self, traffic_violations=[]):
         self._traffic_violations = traffic_violations
 
     @property
