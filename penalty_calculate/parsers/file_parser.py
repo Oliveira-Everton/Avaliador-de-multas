@@ -15,9 +15,9 @@ class FileParser:
 
     def __init__(self, file_name):
         self._file_name = file_name
-        self._csv_file = self._open_file()
+        self._csv_file = self._serialize_file()
 
-    def _open_file(self):
+    def _serialize_file(self):
         with open(self._file_name, mode="r") as file:
             reader_csv = csv.reader(file, delimiter=";")
             return list(enumerate(reader_csv))
