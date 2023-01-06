@@ -9,14 +9,14 @@ class TestTrafficViolation(unittest.TestCase):
 
     def test_property_model_id(self):
         traffic_violation = TrafficViolation(
-            id_card=IdentityCard("13.386.966-0", "Miho")
+            identity_card=IdentityCard("13.386.966-0", "Miho")
         )
 
-        id_card_name = traffic_violation.id_card.name
-        id_card_number = traffic_violation.id_card.number
+        identity_card_name = traffic_violation.identity_card.name
+        identity_card_number = traffic_violation.identity_card.number
 
-        self.assertEqual(id_card_name, 'Miho')
-        self.assertEqual(id_card_number, '13.386.966-0')
+        self.assertEqual(identity_card_name, 'Miho')
+        self.assertEqual(identity_card_number, '13.386.966-0')
 
     def test_property_model_plate(self):
         traffic_violation = TrafficViolation(

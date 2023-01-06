@@ -4,10 +4,10 @@ class OutputSerializer:
         self._traffic_violations = traffic_violations.traffic_violations
         self._output = []
 
-    def _output_id_cards(self):
+    def _output_identity_cards(self):
         for violation in self._traffic_violations:
             self._output.append(
-                f'{violation.id_card.number}; {violation.id_card.name}'
+                f'{violation.identity_card.number}; {violation.identity_card.name}'
             )
 
     def _output_license_plates(self):
@@ -17,6 +17,6 @@ class OutputSerializer:
             )
 
     def output_string(self):
-        self._output_id_cards()
+        self._output_identity_cards()
         self._output_license_plates()
         return self._output

@@ -8,10 +8,10 @@ class TestIntegration(unittest.TestCase):
     def test_penalty_calculate(self):
         penalty_calculate = PenaltyCalculate("Transit Ticket input 1.csv")
 
-        national_id_cards_with_license_plate = penalty_calculate.csv_reader()
+        national_identity_cards_with_license_plate = penalty_calculate.csv_reader()
 
         self.assertEqual(
-            national_id_cards_with_license_plate, [
+            national_identity_cards_with_license_plate, [
                 '467191153; Josevaldo Cal. O. Teiro',
                 '467191153; Josevaldo Cal. O. Teiro',
                 '467191153; Josevaldo Cal. O. Teiro',
