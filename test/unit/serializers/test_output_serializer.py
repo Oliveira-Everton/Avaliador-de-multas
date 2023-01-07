@@ -18,9 +18,9 @@ class TestOutputSerializer(unittest.TestCase):
             IdentityCard("35.595.089-3", "José de Queiroz"),
             LicensePlate("OXH-2070")
         )
-        traffic_violations = TrafficViolations(
-            [first_traffic_violation, second_traffic_violation]
-        )
+        traffic_violations = [
+            first_traffic_violation, second_traffic_violation
+        ]
 
         output_string = OutputSerializer(traffic_violations).output_string()
 

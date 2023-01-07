@@ -16,11 +16,10 @@ class FileParser:
     _SEMICOLON = ';'
 
     def __init__(self, file_name):
-        self._file_name = file_name
-        self._csv_file = self._serialize_file()
+        self._csv_file = self._serialize_file(file_name)
 
-    def _serialize_file(self):
-        with open(self._file_name, mode=self._READ) as file:
+    def _serialize_file(self, file_name):
+        with open(file_name, mode=self._READ) as file:
             reader_csv = csv.reader(file, delimiter=self._SEMICOLON)
             return list(enumerate(reader_csv))
 
@@ -39,10 +38,10 @@ class FileParser:
                         )
                     )
                 )
-        self._traffic_violations = traffic_violations
+        return traffic_violations
 
     def output_file(self):
-        self._build_traffic_violation_models()
-        traffic_violations = TrafficViolations(self._traffic_violations)
-        output_string = OutputSerializer(traffic_violations).output_string()
+        output_string = OutputSerializer(
+            self._build_traffic_violation_models()
+        ).output_string()
         return output_string
