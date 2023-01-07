@@ -12,13 +12,11 @@ class TestFileParser(unittest.TestCase):
 
         self.assertEqual(
             output_file, [
-                '467191153; Josevaldo Cal. O. Teiro',
-                '467191153; Josevaldo Cal. O. Teiro',
-                '467191153; Josevaldo Cal. O. Teiro',
-                '467191153; Josevaldo Cal. O. Teiro',
-                '276787067; Osvaldo Plinio',
-                '149178360; Gerusa Juventina',
-                'ARE-9420', 'KVI-2310', 'KVI-2310',
-                'ARE-9420', 'BIO-9626', 'SOS-3257'
+                '467191153; Josevaldo Cal. O. Teiro; ARE-9420',
+                '467191153; Josevaldo Cal. O. Teiro; KVI-2310',
+                '467191153; Josevaldo Cal. O. Teiro; KVI-2310',
+                '467191153; Josevaldo Cal. O. Teiro; ARE-9420',
+                '276787067; Osvaldo Plinio; BIO-9626',
+                '149178360; Gerusa Juventina; SOS-3257'
             ]
         )
