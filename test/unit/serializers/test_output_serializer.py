@@ -26,8 +26,7 @@ class TestOutputSerializer(unittest.TestCase):
 
         self.assertEqual(
             output_string, [
-                "22.193.598-8; Ericka",
-                "35.595.089-3; José de Queiroz",
-                "QTB-0067", "OXH-2070"
+                "22.193.598-8; Ericka; QTB-0067",
+                "35.595.089-3; José de Queiroz; OXH-2070"
             ]
         )
