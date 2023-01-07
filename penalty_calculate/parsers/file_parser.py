@@ -3,8 +3,6 @@ import csv
 from penalty_calculate.models.identity_card import IdentityCard
 from penalty_calculate.models.license_plate import LicensePlate
 from penalty_calculate.models.traffic_violation import TrafficViolation
-from penalty_calculate.models.traffic_violations import TrafficViolations
-from penalty_calculate.serializers.output_serializer import OutputSerializer
 
 
 class FileParser:
@@ -16,9 +14,9 @@ class FileParser:
     _SEMICOLON = ';'
 
     def __init__(self, file_name):
-        self._csv_file = self._serialize_file(file_name)
+        self._csv_file = self._convert_file(file_name)
 
-    def _serialize_file(self, file_name):
+    def _convert_file(self, file_name):
         with open(file_name, mode=self._READ) as file:
             reader_csv = csv.reader(file, delimiter=self._SEMICOLON)
             return list(enumerate(reader_csv))
@@ -40,8 +38,5 @@ class FileParser:
                 )
         return traffic_violations
 
-    def output_file(self):
-        output_string = OutputSerializer(
-            self._build_traffic_violation_models()
-        ).output_string()
-        return output_string
+    def traffic_violations(self):
+        return self._build_traffic_violation_models()

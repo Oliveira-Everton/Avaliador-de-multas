@@ -3,7 +3,6 @@ import unittest
 from penalty_calculate.serializers.output_serializer import OutputSerializer
 from penalty_calculate.models.identity_card import IdentityCard
 from penalty_calculate.models.traffic_violation import TrafficViolation
-from penalty_calculate.models.traffic_violations import TrafficViolations
 from penalty_calculate.models.license_plate import LicensePlate
 
 

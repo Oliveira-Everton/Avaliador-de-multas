@@ -1,4 +1,5 @@
 from .parsers.file_parser import FileParser
+from .serializers.output_serializer import OutputSerializer
 
 
 class PenaltyCalculate:
@@ -7,6 +8,5 @@ class PenaltyCalculate:
         self._csv_file = csv_file
 
     def csv_reader(self):
-        file_parser = FileParser(self._csv_file)
-        output_string = file_parser.output_file()
-        return output_string
+        traffic_violations = FileParser(self._csv_file).traffic_violations()
+        return OutputSerializer(traffic_violations).output_string()
