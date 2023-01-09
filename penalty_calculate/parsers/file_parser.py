@@ -27,11 +27,11 @@ class FileParser:
             if line != self._FIRST_LINE:
                 traffic_violations.append(
                     TrafficViolation(
-                        IdentityCard(
+                        identity_card=IdentityCard(
                             name=column[self._IDENTITY_NAME],
                             number=column[self._IDENTITY_NUMBER]
                         ),
-                        LicensePlate(
+                        license_plate=LicensePlate(
                             number=column[self._LICENSE_PLATE]
                         )
                     )

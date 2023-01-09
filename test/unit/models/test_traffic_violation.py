@@ -9,7 +9,8 @@ class TestTrafficViolation(unittest.TestCase):
 
     def test_property_model_id(self):
         traffic_violation = TrafficViolation(
-            identity_card=IdentityCard("13.386.966-0", "Miho")
+            identity_card=IdentityCard("13.386.966-0", "Miho"),
+            license_plate=LicensePlate('RXO-0694')
         )
 
         identity_card_name = traffic_violation.identity_card.name
@@ -20,6 +21,7 @@ class TestTrafficViolation(unittest.TestCase):
 
     def test_property_model_plate(self):
         traffic_violation = TrafficViolation(
+            identity_card=IdentityCard("13.386.966-0", "Miho"),
             license_plate=LicensePlate('RXO-0694')
         )
 
