@@ -4,11 +4,7 @@ from penalty_calculate.models.license_plate import LicensePlate
 
 class TrafficViolation:
 
-    def __init__(
-        self,
-        identity_card=IdentityCard(),
-        license_plate=LicensePlate()
-    ):
+    def __init__(self, identity_card, license_plate):
         self._identity_card = identity_card
         self._license_plate = license_plate
 
