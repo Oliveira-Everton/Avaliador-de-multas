@@ -1,5 +1,4 @@
 class IdentityCard:
-
     def __init__(self, number, name):
         self._number = number
         self._name = name

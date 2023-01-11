@@ -1,5 +1,4 @@
 class TrafficViolation:
-
     def __init__(self, identity_card, license_plate):
         self._identity_card = identity_card
         self._license_plate = license_plate
