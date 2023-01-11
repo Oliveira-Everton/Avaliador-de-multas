@@ -9,21 +9,22 @@ class FileParser:
 
     _IDENTITY_NAME = -1
     _IDENTITY_NUMBER = 5
-    _LICENSE_PLATE = _FIRST_LINE = 0
-    _READ = 'r'
-    _SEMICOLON = ';'
+    _LICENSE_PLATE = 0
+    _FIRST_LINE = 0
+    _READ_PARAMETER = 'r'
+    _DELIMITER = ';'
 
     def __init__(self, file_name):
-        self._csv_file = self._convert_file(file_name)
+        self._file_name = file_name
 
-    def _convert_file(self, file_name):
-        with open(file_name, mode=self._READ) as file:
-            reader_csv = csv.reader(file, delimiter=self._SEMICOLON)
+    def _convert_file(self):
+        with open(self._file_name, mode=self._READ_PARAMETER) as file:
+            reader_csv = csv.reader(file, delimiter=self._DELIMITER)
             return list(enumerate(reader_csv))
 
     def _build_traffic_violation_models(self):
         traffic_violations = []
-        for line, column in self._csv_file:
+        for line, column in self._convert_file():
             if line != self._FIRST_LINE:
                 traffic_violations.append(
                     TrafficViolation(
