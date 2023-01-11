@@ -7,7 +7,6 @@ from penalty_calculate.models.license_plate import LicensePlate
 
 
 class TestOutputSerializer(unittest.TestCase):
-
     def test_output_string(self):
         first_traffic_violation = TrafficViolation(
             IdentityCard("22.193.598-8", "Ericka"),

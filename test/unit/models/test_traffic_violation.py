@@ -6,7 +6,6 @@ from penalty_calculate.models.license_plate import LicensePlate
 
 
 class TestTrafficViolation(unittest.TestCase):
-
     def test_property_model_id(self):
         traffic_violation = TrafficViolation(
             identity_card=IdentityCard("13.386.966-0", "Miho"),

@@ -6,7 +6,6 @@ from penalty_calculate.models.traffic_violation import TrafficViolation
 
 
 class FileParser:
-
     _IDENTITY_NAME = -1
     _IDENTITY_NUMBER = 5
     _LICENSE_PLATE = 0
