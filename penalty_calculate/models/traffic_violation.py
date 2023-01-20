@@ -5,11 +5,11 @@ class TrafficViolation:
 
     @property
     def identity_card(self):
-        return self._identity_card
+        return self._identity_card.number, self._identity_card.name
 
     @property
     def license_plate(self):
-        return self._license_plate
+        return self._license_plate.number
 
     def __eq__(self, other):
         return (

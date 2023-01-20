@@ -12,11 +12,9 @@ class TestTrafficViolation(unittest.TestCase):
             license_plate=LicensePlate('RXO-0694')
         )
 
-        identity_card_name = traffic_violation.identity_card.name
-        identity_card_number = traffic_violation.identity_card.number
+        identity_card = traffic_violation.identity_card
 
-        self.assertEqual(identity_card_name, 'Miho')
-        self.assertEqual(identity_card_number, '13.386.966-0')
+        self.assertEqual(identity_card, ('13.386.966-0', 'Miho'))
 
     def test_property_model_plate(self):
         traffic_violation = TrafficViolation(
@@ -24,6 +22,6 @@ class TestTrafficViolation(unittest.TestCase):
             license_plate=LicensePlate('RXO-0694')
         )
 
-        license_plate = traffic_violation.license_plate.number
+        license_plate = traffic_violation.license_plate
 
         self.assertEqual(license_plate, 'RXO-0694')
