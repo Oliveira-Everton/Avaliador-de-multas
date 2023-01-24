@@ -4,8 +4,12 @@ class TrafficViolation:
         self._license_plate = license_plate
 
     @property
-    def identity_card(self):
-        return self._identity_card.number, self._identity_card.name
+    def identity_card_number(self):
+        return self._identity_card.number
+
+    @property
+    def identity_card_name(self):
+        return self._identity_card.name
 
     @property
     def license_plate(self):
@@ -13,6 +17,6 @@ class TrafficViolation:
 
     def __eq__(self, other):
         return (
-            self.identity_card == other.identity_card,
+            self.identity_card_number == other.identity_card_number,
             self.license_plate == other.license_plate
         )
