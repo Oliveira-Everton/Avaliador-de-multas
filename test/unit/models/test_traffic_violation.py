@@ -32,6 +32,6 @@ class TestTrafficViolation(unittest.TestCase):
             license_plate=LicensePlate('RXO-0694')
         )
 
-        license_plate = traffic_violation.license_plate_number
+        license_plate = traffic_violation.license_plate
 
         self.assertEqual(license_plate, 'RXO-0694')

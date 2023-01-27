@@ -11,7 +11,7 @@ class OutputSerializer:
                 self._OFFENDER_DATA.format(
                     violation.identity_card_number,
                     violation.identity_card_name,
-                    violation.license_plate_number
+                    violation.license_plate
                 )
             )
         return offender_data
