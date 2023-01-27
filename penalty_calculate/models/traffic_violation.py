@@ -12,7 +12,7 @@ class TrafficViolation:
         return self._identity_card.name
 
     @property
-    def license_plate(self):
+    def license_plate_number(self):
         return self._license_plate.number
 
     def __eq__(self, other):
