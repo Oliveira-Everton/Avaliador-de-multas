@@ -10,7 +10,7 @@ class TestFileParser(unittest.TestCase):
     def test_traffic_violations(self):
         csv_parser = FileParser("Transit Ticket input 1.csv")
 
-        traffic_violations = csv_parser.traffic_violations()
+        traffic_violations = csv_parser.build_traffic_violations()
 
         self.assertEqual(
             traffic_violations, [
