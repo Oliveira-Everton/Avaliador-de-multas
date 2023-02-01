@@ -21,7 +21,7 @@ class FileParser:
             reader_csv = csv.reader(file, delimiter=self._DELIMITER)
             return list(enumerate(reader_csv))
 
-    def _build_traffic_violation_models(self):
+    def build_traffic_violations(self):
         traffic_violations = []
         for line, column in self._convert_file():
             if line != self._FIRST_LINE:
@@ -37,6 +37,3 @@ class FileParser:
                     )
                 )
         return traffic_violations
-
-    def traffic_violations(self):
-        return self._build_traffic_violation_models()

@@ -4,7 +4,7 @@ class OutputSerializer:
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
 
-    def _output(self):
+    def output_string(self):
         offender_data = []
         for violation in self._traffic_violations:
             offender_data.append(
@@ -15,6 +15,3 @@ class OutputSerializer:
                 )
             )
         return offender_data
-
-    def output_string(self):
-        return self._output()

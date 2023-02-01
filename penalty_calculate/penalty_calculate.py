@@ -7,5 +7,7 @@ class PenaltyCalculate:
         self._file_name = file_name
 
     def csv_reader(self):
-        traffic_violations = FileParser(self._file_name).traffic_violations()
+        traffic_violations = FileParser(
+            self._file_name
+        ).build_traffic_violations()
         return OutputSerializer(traffic_violations).output_string()
