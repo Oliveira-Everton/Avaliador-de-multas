@@ -4,7 +4,7 @@ from penalty_calculate.penalty_calculate import PenaltyCalculate
 
 
 class TestIntegration(unittest.TestCase):
-    def test_penalty_calculate(self):
+    def test_penalty_calculate_csv_reader(self):
         penalty_calculate = PenaltyCalculate("Transit Ticket input 1.csv")
 
         identity_cards_and_license_plate = penalty_calculate.csv_reader()

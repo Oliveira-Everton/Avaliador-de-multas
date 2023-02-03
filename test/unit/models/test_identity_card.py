@@ -11,7 +11,7 @@ class TestIdentityCard(unittest.TestCase):
 
         self.assertEqual(identity_name, "Dtcv. Olivera")
 
-    def test_identity_number(self):
+    def test_identity_card_number(self):
         identity_card = IdentityCard("37.594.403-5", "Dtcv. Olivera")
 
         identity_number = identity_card.number

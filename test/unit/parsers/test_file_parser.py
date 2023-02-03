@@ -7,7 +7,7 @@ from penalty_calculate.models.traffic_violation import TrafficViolation
 
 
 class TestFileParser(unittest.TestCase):
-    def test_traffic_violations(self):
+    def test_build_traffic_violations(self):
         csv_parser = FileParser("Transit Ticket input 1.csv")
 
         traffic_violations = csv_parser.build_traffic_violations()
