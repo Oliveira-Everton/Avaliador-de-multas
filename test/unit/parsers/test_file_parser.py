@@ -45,7 +45,7 @@ class TestFileParser(unittest.TestCase):
                 ),
                 TrafficViolation(
                     IdentityCard(
-                        name="Josevaldo Cal. Teiro",
+                        name="Josevaldo Cal. O. Teiro",
                         number="467191153"
                     ),
                     LicensePlate(
