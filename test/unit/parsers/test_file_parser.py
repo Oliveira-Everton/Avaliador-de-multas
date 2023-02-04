@@ -1,9 +1,11 @@
 import unittest
 
-from penalty_calculate.parsers.file_parser import FileParser
-from penalty_calculate.models.identity_card import IdentityCard
-from penalty_calculate.models.license_plate import LicensePlate
-from penalty_calculate.models.traffic_violation import TrafficViolation
+from penalty_calculate.parsers import FileParser
+from penalty_calculate.models import (
+    TrafficViolation,
+    IdentityCard,
+    LicensePlate,
+)
 
 
 class TestFileParser(unittest.TestCase):
@@ -43,7 +45,7 @@ class TestFileParser(unittest.TestCase):
                 ),
                 TrafficViolation(
                     IdentityCard(
-                        name="Josevaldo Cal. O. Teiro",
+                        name="Josevaldo Cal. Teiro",
                         number="467191153"
                     ),
                     LicensePlate(

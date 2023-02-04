@@ -1,8 +1,10 @@
 import csv
 
-from penalty_calculate.models.identity_card import IdentityCard
-from penalty_calculate.models.license_plate import LicensePlate
-from penalty_calculate.models.traffic_violation import TrafficViolation
+from ..models import (
+    TrafficViolation,
+    IdentityCard,
+    LicensePlate
+)
 
 
 class FileParser:
