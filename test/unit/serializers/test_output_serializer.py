@@ -1,9 +1,11 @@
 import unittest
 
-from penalty_calculate.serializers.output_serializer import OutputSerializer
-from penalty_calculate.models.identity_card import IdentityCard
-from penalty_calculate.models.traffic_violation import TrafficViolation
-from penalty_calculate.models.license_plate import LicensePlate
+from penalty_calculate.models import (
+    TrafficViolation,
+    IdentityCard,
+    LicensePlate,
+)
+from penalty_calculate.serializers import OutputSerializer
 
 
 class TestOutputSerializer(unittest.TestCase):

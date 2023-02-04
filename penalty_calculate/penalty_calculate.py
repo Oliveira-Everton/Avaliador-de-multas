@@ -1,5 +1,5 @@
-from .parsers.file_parser import FileParser
-from .serializers.output_serializer import OutputSerializer
+from .parsers import FileParser
+from .serializers import OutputSerializer
 
 
 class PenaltyCalculate:

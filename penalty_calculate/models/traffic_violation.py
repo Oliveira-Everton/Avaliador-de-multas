@@ -17,7 +17,7 @@ class TrafficViolation:
 
     def __eq__(self, other):
         return (
-            self.identity_card_name == other.identity_card_name 
+            self.identity_card_name == other.identity_card_name
             and
             self.identity_card_number == other.identity_card_number
             and
