@@ -1,6 +1,6 @@
 import unittest
 
-from penalty_calculate.models import LicensePlate
+from main_penalty_calculate.models import LicensePlate
 
 
 class TestLicensePlate(unittest.TestCase):

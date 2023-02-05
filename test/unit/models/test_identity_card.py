@@ -1,6 +1,6 @@
 import unittest
 
-from penalty_calculate.models import IdentityCard
+from main_penalty_calculate.models import IdentityCard
 
 
 class TestIdentityCard(unittest.TestCase):

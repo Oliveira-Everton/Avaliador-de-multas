@@ -1,6 +1,6 @@
 import unittest
 
-from penalty_calculate.penalty_calculate import PenaltyCalculate
+from main_penalty_calculate.penalty_calculate import PenaltyCalculate
 
 
 class TestIntegration(unittest.TestCase):

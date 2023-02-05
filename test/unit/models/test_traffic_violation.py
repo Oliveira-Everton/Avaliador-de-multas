@@ -1,6 +1,6 @@
 import unittest
 
-from penalty_calculate.models import (
+from main_penalty_calculate.models import (
     TrafficViolation,
     IdentityCard,
     LicensePlate
