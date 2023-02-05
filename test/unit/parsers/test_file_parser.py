@@ -1,7 +1,7 @@
 import unittest
 
-from penalty_calculate.parsers import FileParser
-from penalty_calculate.models import (
+from main_penalty_calculate.parsers import FileParser
+from main_penalty_calculate.models import (
     TrafficViolation,
     IdentityCard,
     LicensePlate,
@@ -9,7 +9,7 @@ from penalty_calculate.models import (
 
 
 class TestFileParser(unittest.TestCase):
-    def test_build_traffic_violations(self):
+    def test_file_parser_build_traffic_violations(self):
         csv_parser = FileParser("Transit Ticket input 1.csv")
 
         traffic_violations = csv_parser.build_traffic_violations()

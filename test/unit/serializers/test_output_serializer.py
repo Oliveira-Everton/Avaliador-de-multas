@@ -1,15 +1,15 @@
 import unittest
 
-from penalty_calculate.models import (
+from main_penalty_calculate.models import (
     TrafficViolation,
     IdentityCard,
     LicensePlate,
 )
-from penalty_calculate.serializers import OutputSerializer
+from main_penalty_calculate.serializers import OutputSerializer
 
 
 class TestOutputSerializer(unittest.TestCase):
-    def test_output_string(self):
+    def test_output_serializer_output_string(self):
         first_traffic_violation = TrafficViolation(
             IdentityCard("22.193.598-8", "Ericka"),
             LicensePlate("QTB-0067")
