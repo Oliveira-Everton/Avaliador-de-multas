@@ -1,5 +1,4 @@
 # Avaliador-de-multas
-  - Criando um avaliador de multas
 
 https://hackmd.io/ce0sYTdATrGaeGGm8iWDFA?edit
 
