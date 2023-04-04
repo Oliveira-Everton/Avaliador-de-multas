@@ -8,10 +8,11 @@ from ..models import (
 
 
 class FileParser:
-    _IDENTITY_NAME = -1
+    _FIRST_LINE = 0
+    _IDENTITY_NAME = 6
     _IDENTITY_NUMBER = 5
     _LICENSE_PLATE = 0
-    _FIRST_LINE = 0
+    _TYPE_INFRACTION = 1
     _READ_PARAMETER = 'r'
     _DELIMITER = ';'
 
@@ -34,7 +35,8 @@ class FileParser:
                             number=column[self._IDENTITY_NUMBER]
                         ),
                         license_plate=LicensePlate(
-                            number=column[self._LICENSE_PLATE]
+                            number=column[self._LICENSE_PLATE],
+                            type_infraction=column[self._TYPE_INFRACTION]
                         )
                     )
                 )

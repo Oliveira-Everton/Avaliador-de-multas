@@ -12,11 +12,11 @@ class TestOutputSerializer(unittest.TestCase):
     def test_output_serializer_output_string(self):
         first_traffic_violation = TrafficViolation(
             IdentityCard("22.193.598-8", "Ericka"),
-            LicensePlate("QTB-0067")
+            LicensePlate("QTB-0067", "Leve")
         )
         second_traffic_violation = TrafficViolation(
             IdentityCard("35.595.089-3", "José de Queiroz"),
-            LicensePlate("OXH-2070")
+            LicensePlate("OXH-2070", "Grave")
         )
         traffic_violations = [
             first_traffic_violation, second_traffic_violation
@@ -26,7 +26,7 @@ class TestOutputSerializer(unittest.TestCase):
 
         self.assertEqual(
             output_string, [
-                "22.193.598-8; Ericka; QTB-0067",
-                "35.595.089-3; José de Queiroz; OXH-2070"
+                "22.193.598-8; Ericka; QTB-0067; Leve",
+                "35.595.089-3; José de Queiroz; OXH-2070; Grave"
             ]
         )
