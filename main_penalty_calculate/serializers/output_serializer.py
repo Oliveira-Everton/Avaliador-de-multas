@@ -1,5 +1,5 @@
 class OutputSerializer:
-    _OFFENDER_DATA = '{0}; {1}; {2}'
+    _OFFENDER_DATA = '{0}; {1}; {2}; {3}'
 
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
@@ -11,7 +11,8 @@ class OutputSerializer:
                 self._OFFENDER_DATA.format(
                     violation.identity_card_number,
                     violation.identity_card_name,
-                    violation.license_plate_number
+                    violation.license_plate_number,
+                    violation.license_plate_type_infraction
                 )
             )
         return offender_data

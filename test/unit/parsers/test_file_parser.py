@@ -22,7 +22,8 @@ class TestFileParser(unittest.TestCase):
                         number="467191153"
                     ),
                     LicensePlate(
-                        number='ARE-9420'
+                        number='ARE-9420',
+                        type_infraction='Gravíssima'
                     )
                 ),
                 TrafficViolation(
@@ -31,7 +32,8 @@ class TestFileParser(unittest.TestCase):
                         number="467191153"
                     ),
                     LicensePlate(
-                        number='KVI-2310'
+                        number='KVI-2310',
+                        type_infraction='Gravíssima'
                     )
                 ),
                 TrafficViolation(
@@ -40,7 +42,8 @@ class TestFileParser(unittest.TestCase):
                         number="467191153"
                     ),
                     LicensePlate(
-                        number='KVI-2310'
+                        number='KVI-2310',
+                        type_infraction='Grave'
                     )
                 ),
                 TrafficViolation(
@@ -49,7 +52,8 @@ class TestFileParser(unittest.TestCase):
                         number="467191153"
                     ),
                     LicensePlate(
-                        number='ARE-9420'
+                        number='ARE-9420',
+                        type_infraction='Gravíssima'
                     )
                 ),
                 TrafficViolation(
@@ -58,7 +62,8 @@ class TestFileParser(unittest.TestCase):
                         number="276787067"
                     ),
                     LicensePlate(
-                        number='BIO-9626'
+                        number='BIO-9626',
+                        type_infraction='Grave'
                     )
                 ),
                 TrafficViolation(
@@ -67,7 +72,8 @@ class TestFileParser(unittest.TestCase):
                         number="149178360"
                     ),
                     LicensePlate(
-                        number='SOS-3257'
+                        number='SOS-3257',
+                        type_infraction='Média'
                     )
                 )
             ]
