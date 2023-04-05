@@ -22,9 +22,9 @@ class TestFileParser(unittest.TestCase):
                         number="467191153"
                     ),
                     LicensePlate(
-                        number='ARE-9420',
-                        type_infraction='Gravíssima'
-                    )
+                        number='ARE-9420'
+                    ),
+                    type_infraction='Gravíssima'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -32,9 +32,9 @@ class TestFileParser(unittest.TestCase):
                         number="467191153"
                     ),
                     LicensePlate(
-                        number='KVI-2310',
-                        type_infraction='Gravíssima'
-                    )
+                        number='KVI-2310'
+                    ),
+                    type_infraction='Gravíssima'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -42,9 +42,9 @@ class TestFileParser(unittest.TestCase):
                         number="467191153"
                     ),
                     LicensePlate(
-                        number='KVI-2310',
-                        type_infraction='Grave'
-                    )
+                        number='KVI-2310'
+                    ),
+                    type_infraction='Grave'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -52,9 +52,9 @@ class TestFileParser(unittest.TestCase):
                         number="467191153"
                     ),
                     LicensePlate(
-                        number='ARE-9420',
-                        type_infraction='Gravíssima'
-                    )
+                        number='ARE-9420'
+                    ),
+                    type_infraction='Gravíssima'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -62,9 +62,9 @@ class TestFileParser(unittest.TestCase):
                         number="276787067"
                     ),
                     LicensePlate(
-                        number='BIO-9626',
-                        type_infraction='Grave'
-                    )
+                        number='BIO-9626'
+                    ),
+                    type_infraction='Grave'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -72,9 +72,9 @@ class TestFileParser(unittest.TestCase):
                         number="149178360"
                     ),
                     LicensePlate(
-                        number='SOS-3257',
-                        type_infraction='Média'
-                    )
+                        number='SOS-3257'
+                    ),
+                    type_infraction='Média'
                 )
             ]
         )

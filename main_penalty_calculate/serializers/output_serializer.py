@@ -12,7 +12,7 @@ class OutputSerializer:
                     violation.identity_card_number,
                     violation.identity_card_name,
                     violation.license_plate_number,
-                    violation.license_plate_type_infraction
+                    violation.type_infraction
                 )
             )
         return offender_data
