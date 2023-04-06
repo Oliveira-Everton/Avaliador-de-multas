@@ -3,12 +3,14 @@ class TrafficViolation:
                 identity_card, 
                 license_plate, 
                 type_infraction,
-                infraction_date
+                infraction_date,
+                notification_date
     ):
         self._identity_card = identity_card
         self._license_plate = license_plate
         self._type_infraction = type_infraction
         self._infraction_date = infraction_date
+        self._notification_date = notification_date
 
     @property
     def identity_card_number(self):
@@ -29,6 +31,10 @@ class TrafficViolation:
     @property
     def infraction_date(self):
         return self._infraction_date
+
+    @property
+    def notification_date(self):
+        return self._notification_date
 
     def _compare_properties(self, traffic_violation):
         return [
