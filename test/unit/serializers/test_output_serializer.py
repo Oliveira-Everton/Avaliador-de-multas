@@ -11,14 +11,12 @@ from main_penalty_calculate.serializers import OutputSerializer
 class TestOutputSerializer(unittest.TestCase):
     def test_output_serializer_output_string(self):
         first_traffic_violation = TrafficViolation(
-            identity_card=IdentityCard("22.193.598-8", "Ericka"),
-            license_plate=LicensePlate("QTB-0067"),
-            type_infraction="Leve"
+            IdentityCard("22.193.598-8", "Ericka"),
+            LicensePlate("QTB-0067", "Leve")
         )
         second_traffic_violation = TrafficViolation(
-            identity_card=IdentityCard("35.595.089-3", "José de Queiroz"),
-            license_plate=LicensePlate("OXH-2070"),
-            type_infraction="Grave"
+            IdentityCard("35.595.089-3", "José de Queiroz"),
+            LicensePlate("OXH-2070", "Grave")
         )
         traffic_violations = [
             first_traffic_violation, second_traffic_violation
