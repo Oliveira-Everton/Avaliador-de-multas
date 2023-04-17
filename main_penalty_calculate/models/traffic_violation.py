@@ -15,10 +15,6 @@ class TrafficViolation:
     def license_plate_number(self):
         return self._license_plate.number
 
-    @property
-    def license_plate_type_infraction(self):
-        return self._license_plate.type_infraction
-
     def __eq__(self, other):
         return (
             self.identity_card_name == other.identity_card_name
