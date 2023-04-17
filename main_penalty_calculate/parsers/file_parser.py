@@ -40,9 +40,9 @@ class FileParser:
                             number=column[self._IDENTITY_NUMBER]
                         ),
                         license_plate=LicensePlate(
-                            number=column[self._LICENSE_PLATE]
-                        ),
-                        type_infraction=column[self._TYPE_INFRACTION]
+                            number=column[self._LICENSE_PLATE],
+                            type_infraction=column[self._TYPE_INFRACTION]
+                        )
                     )
                 )
         return traffic_violations
