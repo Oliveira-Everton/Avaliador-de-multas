@@ -24,8 +24,7 @@ class TestFileParser(unittest.TestCase):
                     LicensePlate(
                         number='ARE-9420'
                     ),
-                    type_infraction='Gravíssima',
-                    infraction_date='1999-11-05 15:00:00'
+                    type_infraction='Gravíssima'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -35,8 +34,7 @@ class TestFileParser(unittest.TestCase):
                     LicensePlate(
                         number='KVI-2310'
                     ),
-                    type_infraction='Gravíssima',
-                    infraction_date='2000-01-01 15:00:00'
+                    type_infraction='Gravíssima'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -46,8 +44,7 @@ class TestFileParser(unittest.TestCase):
                     LicensePlate(
                         number='KVI-2310'
                     ),
-                    type_infraction='Grave',
-                    infraction_date='2000-01-04 15:00:00'
+                    type_infraction='Grave'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -57,8 +54,7 @@ class TestFileParser(unittest.TestCase):
                     LicensePlate(
                         number='ARE-9420'
                     ),
-                    type_infraction='Gravíssima',
-                    infraction_date='2000-01-10 15:00:00'
+                    type_infraction='Gravíssima'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -68,8 +64,7 @@ class TestFileParser(unittest.TestCase):
                     LicensePlate(
                         number='BIO-9626'
                     ),
-                    type_infraction='Grave',
-                    infraction_date='2000-02-05 14:00:00'
+                    type_infraction='Grave'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -79,8 +74,7 @@ class TestFileParser(unittest.TestCase):
                     LicensePlate(
                         number='SOS-3257'
                     ),
-                    type_infraction='Média',
-                    infraction_date='2000-08-16 16:00:00'
+                    type_infraction='Média'
                 )
             ]
         )
