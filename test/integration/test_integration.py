@@ -11,11 +11,11 @@ class TestIntegration(unittest.TestCase):
 
         self.assertEqual(
             identity_cards_and_license_plate, [
-                '467191153; Josevaldo Cal. O. Teiro; ARE-9420; Gravíssima',
-                '467191153; Josevaldo Cal. O. Teiro; KVI-2310; Gravíssima',
-                '467191153; Josevaldo Cal. O. Teiro; KVI-2310; Grave',
-                '467191153; Josevaldo Cal. O. Teiro; ARE-9420; Gravíssima',
-                '276787067; Osvaldo Plinio; BIO-9626; Grave',
-                '149178360; Gerusa Juventina; SOS-3257; Média'
+                '467191153; Josevaldo Cal. O. Teiro; ARE-9420',
+                '467191153; Josevaldo Cal. O. Teiro; KVI-2310',
+                '467191153; Josevaldo Cal. O. Teiro; KVI-2310',
+                '467191153; Josevaldo Cal. O. Teiro; ARE-9420',
+                '276787067; Osvaldo Plinio; BIO-9626',
+                '149178360; Gerusa Juventina; SOS-3257'
             ]
         )
