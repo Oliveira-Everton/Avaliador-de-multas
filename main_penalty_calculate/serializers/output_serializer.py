@@ -1,10 +1,13 @@
 class OutputSerializer:
-    _OFFENDER_DATA = '{0}; {1}; {2}; {3}; {4}; {5}; {6}'
+    _OFFENDER_DATA = '{0}; {1}; {2}; {3}; {4}; {5}'
 
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
 
     def output_string(self):
+        # talvez dividir essa função em várias, uma pro IdentityCard, uma pro license Plate, outras pras datas de notificação e infração... e etc...
+
+        # ooou gerar atributos pra esses dados
         offender_data = []
         for violation in self._traffic_violations:
             offender_data.append(
@@ -14,8 +17,7 @@ class OutputSerializer:
                     violation.license_plate_number,
                     violation.type_infraction,
                     violation.infraction_date,
-                    violation.notification_date,
-                    violation.pay_date
+                    violation.notification_date
                 )
             )
         return offender_data
