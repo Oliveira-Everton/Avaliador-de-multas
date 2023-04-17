@@ -14,8 +14,7 @@ class TestTrafficViolation(unittest.TestCase):
             license_plate=LicensePlate("RXO-0694"),
             type_infraction="Média",
             infraction_date="1865-10-06 12:00:00",
-            notification_date="1865-10-10 07:27:42",
-            pay_date="1865-10-12 09:11:31"
+            notification_date="1865-10-09 07:14:03"
         )
 
         identity_card_name = traffic_violation.identity_card_name
@@ -28,8 +27,7 @@ class TestTrafficViolation(unittest.TestCase):
             license_plate=LicensePlate("RXO-0694"),
             type_infraction="Média",
             infraction_date="1865-10-06 12:00:00",
-            notification_date="1865-10-10 07:27:42",
-            pay_date="1865-10-12 09:11:31"
+            notification_date="1865-10-09 07:14:03"
         )
 
         identity_card_number = traffic_violation.identity_card_number
@@ -42,8 +40,7 @@ class TestTrafficViolation(unittest.TestCase):
             license_plate=LicensePlate("RXO-0694"),
             type_infraction="Média",
             infraction_date="1865-10-06 12:00:00",
-            notification_date="1865-10-10 07:27:42",
-            pay_date="1865-10-12 09:11:31"
+            notification_date="1865-10-09 07:14:03"
         )
 
         license_plate_number = traffic_violation.license_plate_number
@@ -56,8 +53,7 @@ class TestTrafficViolation(unittest.TestCase):
             license_plate=LicensePlate("RXO-0694"),
             type_infraction="Média",
             infraction_date="1865-10-06 12:00:00",
-            notification_date="1865-10-10 07:27:42",
-            pay_date="1865-10-12 09:11:31"
+            notification_date="1865-10-10 07:27:42"
         )
 
         type_infraction = traffic_violation.type_infraction
@@ -70,8 +66,7 @@ class TestTrafficViolation(unittest.TestCase):
             license_plate=LicensePlate("MWR-5226"),
             type_infraction="Grave",
             infraction_date="1864-16-02 11:30:00",
-            notification_date="1864-16-11 13:00:00",
-            pay_date="1864-20-11 12:00:00"
+            notification_date="1864-16-11 13:00:00"
         )
 
         infraction_date = traffic_violation.infraction_date
@@ -84,24 +79,9 @@ class TestTrafficViolation(unittest.TestCase):
             license_plate=LicensePlate("MWR-5226"),
             type_infraction="Grave",
             infraction_date="1864-16-02 11:30:00",
-            notification_date="1864-16-11 13:00:00",
-            pay_date="1864-20-11 12:00:00"
+            notification_date="1864-16-11 13:00:00"
         )
 
         notification_date = traffic_violation.notification_date
 
         self.assertEqual(notification_date, "1864-16-11 13:00:00")
-
-    def test_traffic_violation_pay_date(self):
-        traffic_violation = TrafficViolation(
-            identity_card=IdentityCard("20.478.823-7", "Takashi"),
-            license_plate=LicensePlate("MWR-5226"),
-            type_infraction="Grave",
-            infraction_date="1864-16-02 11:30:00",
-            notification_date="1864-16-11 13:00:00",
-            pay_date="1864-20-11 12:00:00"
-        )
-
-        pay_date = traffic_violation.pay_date
-
-        self.assertEqual(pay_date, "1864-20-11 12:00:00")
