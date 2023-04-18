@@ -11,7 +11,8 @@ class TestTrafficViolation(unittest.TestCase):
     def test_traffic_violation_identity_card_name(self):
         traffic_violation = TrafficViolation(
             identity_card=IdentityCard("13.386.966-0", "Miho"),
-            license_plate=LicensePlate('RXO-0694')
+            license_plate=LicensePlate('RXO-0694'),
+            type_infraction="Média"
         )
 
         identity_card_name = traffic_violation.identity_card_name
@@ -21,7 +22,8 @@ class TestTrafficViolation(unittest.TestCase):
     def test_traffic_violation_identity_card_number(self):
         traffic_violation = TrafficViolation(
             identity_card=IdentityCard("13.386.966-0", "Miho"),
-            license_plate=LicensePlate('RXO-0694')
+            license_plate=LicensePlate('RXO-0694'),
+            type_infraction="Média"
         )
 
         identity_card_number = traffic_violation.identity_card_number
@@ -31,7 +33,8 @@ class TestTrafficViolation(unittest.TestCase):
     def test_traffic_violation_license_plate_number(self):
         traffic_violation = TrafficViolation(
             identity_card=IdentityCard("13.386.966-0", "Miho"),
-            license_plate=LicensePlate('RXO-0694')
+            license_plate=LicensePlate('RXO-0694'),
+            type_infraction="Média"
         )
 
         license_plate = traffic_violation.license_plate_number
