@@ -23,7 +23,8 @@ class TestFileParser(unittest.TestCase):
                     ),
                     LicensePlate(
                         number='ARE-9420'
-                    )
+                    ),
+                    type_infraction='Gravíssima'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -32,7 +33,8 @@ class TestFileParser(unittest.TestCase):
                     ),
                     LicensePlate(
                         number='KVI-2310'
-                    )
+                    ),
+                    type_infraction='Gravíssima'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -41,7 +43,8 @@ class TestFileParser(unittest.TestCase):
                     ),
                     LicensePlate(
                         number='KVI-2310'
-                    )
+                    ),
+                    type_infraction='Grave'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -50,7 +53,8 @@ class TestFileParser(unittest.TestCase):
                     ),
                     LicensePlate(
                         number='ARE-9420'
-                    )
+                    ),
+                    type_infraction='Gravíssima'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -59,7 +63,8 @@ class TestFileParser(unittest.TestCase):
                     ),
                     LicensePlate(
                         number='BIO-9626'
-                    )
+                    ),
+                    type_infraction='Grave'
                 ),
                 TrafficViolation(
                     IdentityCard(
@@ -68,7 +73,8 @@ class TestFileParser(unittest.TestCase):
                     ),
                     LicensePlate(
                         number='SOS-3257'
-                    )
+                    ),
+                    type_infraction='Média'
                 )
             ]
         )
