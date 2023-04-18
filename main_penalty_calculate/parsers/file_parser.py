@@ -15,6 +15,7 @@ class FileParser:
     _TYPE_INFRACTION = 1
     _INFRACTION_DATE = 2
     _NOTIFICATION_DATE = 3
+    _PAY_DATE = 4
     _READ_PARAMETER = 'r'
     _DELIMITER = ';'
     _UNICODE = 'utf-8'
@@ -46,7 +47,8 @@ class FileParser:
                         ),
                         type_infraction=column[self._TYPE_INFRACTION],
                         infraction_date=column[self._INFRACTION_DATE],
-                        notification_date=column[self._NOTIFICATION_DATE]
+                        notification_date=column[self._NOTIFICATION_DATE],
+                        pay_date=column[self._PAY_DATE]
                     )
                 )
         return traffic_violations
