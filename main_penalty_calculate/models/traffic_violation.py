@@ -1,8 +1,15 @@
 class TrafficViolation:
-    def __init__(self, identity_card, license_plate, type_infraction):
+    def __init__(
+        self,
+        identity_card,
+        license_plate,
+        type_infraction,
+        infraction_date
+    ):
         self._identity_card = identity_card
         self._license_plate = license_plate
         self._type_infraction = type_infraction
+        self._infraction_date = infraction_date
 
     @property
     def identity_card_number(self):
@@ -20,12 +27,17 @@ class TrafficViolation:
     def type_infraction(self):
         return self._type_infraction
 
+    @property
+    def infraction_date(self):
+        return self._infraction_date
+
     def _compare_properties(self, traffic_violation):
         return [
             traffic_violation.identity_card_name,
             traffic_violation.identity_card_number,
             traffic_violation.license_plate_number,
-            traffic_violation.type_infraction
+            traffic_violation.type_infraction,
+            traffic_violation.infraction_date
         ]
 
     def __eq__(self, other):
