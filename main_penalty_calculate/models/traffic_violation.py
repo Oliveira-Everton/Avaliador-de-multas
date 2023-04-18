@@ -15,11 +15,11 @@ class TrafficViolation:
     def license_plate_number(self):
         return self._license_plate.number
 
+    def _compare_properties(self, traffic_violation):
+        return [
+            traffic_violation.identity_card_name,
+            traffic_violation.identity_card_number,
+            traffic_violation.license_plate_number        ]
+
     def __eq__(self, other):
-        return (
-            self.identity_card_name == other.identity_card_name
-            and
-            self.identity_card_number == other.identity_card_number
-            and
-            self.license_plate_number == other.license_plate_number
-        )
+        return self._compare_properties(self) == self._compare_properties(other)
