@@ -1,7 +1,6 @@
 # Avaliador-de-multas
 
 https://hackmd.io/ce0sYTdATrGaeGGm8iWDFA?edit
-<<<<<<< HEAD
 
 ## Requisitos
 - [Python 3.11.0](https://www.python.org/downloads/release/python-3110/)
@@ -40,5 +39,3 @@ Para Mostrar o resultado rode
 ```
 coverage report
 ```
-=======
->>>>>>> main
