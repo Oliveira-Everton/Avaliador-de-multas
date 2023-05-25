@@ -14,6 +14,7 @@ class FileParser:
     _FIRST_LINE = 0
     _READ_PARAMETER = 'r'
     _DELIMITER = ';'
+    _UNICODE = 'utf-8'
 
     def __init__(self, file_name):
         self._file_name = file_name
