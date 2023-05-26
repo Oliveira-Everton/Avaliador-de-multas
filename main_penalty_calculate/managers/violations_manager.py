@@ -16,13 +16,13 @@ class ViolationsManager:
             uniq = True
             for revised_violator in revised_violators:
                 if violator.identity_card_number == \
-                    revised_violator.identity_card_number:
-                        uniq = False
-                        if violator.license_plate_numbers not in \
+                        revised_violator.identity_card_number:
+                    uniq = False
+                    if violator.license_plate_numbers not in \
                             revised_violator.license_plate_numbers:
-                                revised_violator.license_plate_numbers.append(
-                                    violator.license_plate_numbers
-                                )
+                        revised_violator.license_plate_numbers.append(
+                            violator.license_plate_numbers
+                        )
             if uniq:
                 revised_violators.append(
                     ViolatorAvaliation(
@@ -34,6 +34,7 @@ class ViolationsManager:
                             [
                                 violator.license_plate_numbers
                             ]
+
                         )
                     )
                 )
