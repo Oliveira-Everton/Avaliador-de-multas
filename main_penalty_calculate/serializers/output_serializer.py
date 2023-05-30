@@ -26,8 +26,13 @@ class OutputSerializer:
         return offender_data
 
     def _unpacks_list(self, text_list):
-        text_without_left_bracket = text_list[:].replace("[", "")
-        unpacked_text = text_without_left_bracket[:].replace("]", "")
+        unpacked_text = (
+            text_list[:].replace(
+                "[", ""
+            )
+        )[:].replace(
+            "]", ""
+        )
         return unpacked_text.replace("'", '')
 
     def _removes_quotes(self, text):
