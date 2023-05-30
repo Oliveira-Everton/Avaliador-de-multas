@@ -12,12 +12,24 @@ class OutputSerializer:
     ):
         offender_data = []
         for violation in self._violators_avaliations:
-            plates = str(violation.license_plate_numbers).replace("]", "")
             offender_data.append(
                 self._OFFENDER_DATA.format(
                     violation.identity_card_number,
                     violation.identity_card_name,
-                    plates.replace("[", "")
+                    self._unpacks_list(
+                        str(
+                            violation.license_plate_numbers
+                        )
+                    )
                 )
             )
         return offender_data
+
+    def _unpacks_list(self, text_list):
+        text_without_left_bracket = text_list[:].replace("[", "")
+        unpacked_text = text_without_left_bracket[:].replace("]", "")
+        return unpacked_text.replace("'", '')
+
+    def _removes_quotes(self, text):
+        return text
+    
