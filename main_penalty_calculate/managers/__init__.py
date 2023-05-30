@@ -1,5 +1,1 @@
-from ..models import (
-    LicensePlates,
-    ViolatorAvaliation,
-    IdentityCard
-)
+from .violations_manager import ViolationsManager

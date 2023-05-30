@@ -1,5 +1,5 @@
 from .parsers import FileParser
-from .managers.violations_manager import ViolationsManager
+from .managers import ViolationsManager
 from .serializers import OutputSerializer
 
 

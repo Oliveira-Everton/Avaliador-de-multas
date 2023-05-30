@@ -1,7 +1,7 @@
-from . import (
+from ..models import (
+    LicensePlates,
     ViolatorAvaliation,
-    IdentityCard,
-    LicensePlates
+    IdentityCard
 )
 
 

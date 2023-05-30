@@ -37,4 +37,3 @@ class OutputSerializer:
 
     def _removes_quotes(self, text):
         return text
-    

@@ -1,6 +1,6 @@
 import unittest
 
-from main_penalty_calculate.managers.violations_manager import ViolationsManager
+from main_penalty_calculate.managers import ViolationsManager
 from main_penalty_calculate.models import (
     TrafficViolation,
     IdentityCard,
