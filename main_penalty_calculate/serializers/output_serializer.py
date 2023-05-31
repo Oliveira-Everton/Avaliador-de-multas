@@ -33,7 +33,4 @@ class OutputSerializer:
         )[:].replace(
             "]", ""
         )
-        return self._removes_quotes(unpacked_text)
-
-    def _removes_quotes(self, text):
-        return text[:].replace("'", '')
+        return unpacked_text[:].replace("'", '')
