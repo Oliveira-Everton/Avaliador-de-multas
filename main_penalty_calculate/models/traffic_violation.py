@@ -43,7 +43,7 @@ class TrafficViolation:
     def pay_date(self):
         return self._pay_date
 
-    def _compare_properties(self, traffic_violation):
+    def _property_list(self, traffic_violation):
         return [
             traffic_violation.identity_card_name,
             traffic_violation.identity_card_number,
@@ -55,5 +55,5 @@ class TrafficViolation:
 
     def __eq__(self, other):
         return (
-            self._compare_properties(self) == self._compare_properties(other)
+            self._property_list(self) == self._property_list(other)
         )
