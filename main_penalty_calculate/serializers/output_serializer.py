@@ -16,7 +16,7 @@ class OutputSerializer:
                 self._OFFENDER_DATA.format(
                     violation.identity_card_number,
                     violation.identity_card_name,
-                    self._unpacks_list(
+                    self._unpack_list(
                         str(
                             violation.license_plate_numbers
                         )
@@ -25,7 +25,7 @@ class OutputSerializer:
             )
         return offender_data
 
-    def _unpacks_list(self, text_list):
+    def _unpack_list(self, text_list):
         unpacked_text = (
             text_list[:].replace(
                 "[", ""

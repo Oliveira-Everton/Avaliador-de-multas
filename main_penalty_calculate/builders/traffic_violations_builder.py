@@ -10,7 +10,7 @@ class TrafficViolationsBuilder:
         self._traffic_violations = traffic_violations
         self._violators_avaliations = []
 
-    def _agroupes_violators_avaliations(self):
+    def _agroup_violators_avaliations(self):
         revised_violators = []
         for violator in self._violators_avaliations:
             uniq = True
@@ -55,4 +55,4 @@ class TrafficViolationsBuilder:
                     )
                 )
             )
-        return self._agroupes_violators_avaliations()
+        return self._agroup_violators_avaliations()
