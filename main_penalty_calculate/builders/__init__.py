@@ -1,1 +1,1 @@
-from .traffic_violations_builder import TrafficViolationsBuilder
+from .violators_avaliations_builder import ViolatorsAvaliationsBuilder

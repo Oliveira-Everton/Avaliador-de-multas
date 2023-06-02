@@ -5,7 +5,7 @@ from ..models import (
 )
 
 
-class TrafficViolationsBuilder:
+class ViolatorsAvaliationsBuilder:
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
         self._violators_avaliations = []
@@ -34,7 +34,6 @@ class TrafficViolationsBuilder:
                             [
                                 violator.license_plate_numbers
                             ]
-
                         )
                     )
                 )

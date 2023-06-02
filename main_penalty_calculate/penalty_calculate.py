@@ -1,5 +1,5 @@
 from .parsers import FileParser
-from .builders import TrafficViolationsBuilder
+from .builders import ViolatorsAvaliationsBuilder
 from .serializers import OutputSerializer
 
 
@@ -13,7 +13,7 @@ class PenaltyCalculate:
         ).build_traffic_violations()
 
     def evaluates_infractors(self):
-        violators_avaliations = TrafficViolationsBuilder(
+        violators_avaliations = ViolatorsAvaliationsBuilder(
             self._csv_reader()
         ).build_violator_avaliation()
         return OutputSerializer(violators_avaliations).output_string()

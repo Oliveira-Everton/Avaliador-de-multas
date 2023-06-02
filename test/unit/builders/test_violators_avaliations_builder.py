@@ -1,6 +1,6 @@
 import unittest
 
-from main_penalty_calculate.builders import TrafficViolationsBuilder
+from main_penalty_calculate.builders import ViolatorsAvaliationsBuilder
 from main_penalty_calculate.models import (
     TrafficViolation,
     IdentityCard,
@@ -10,7 +10,7 @@ from main_penalty_calculate.models import (
 )
 
 
-class TestViolationsManager(unittest.TestCase):
+class TestViolatorsAvaliationsBuilder(unittest.TestCase):
     def test_violations_manager_build_violator_avaliation(self):
         traffic_violations = [
             TrafficViolation(
@@ -30,9 +30,9 @@ class TestViolationsManager(unittest.TestCase):
                 pay_date=""
             )
         ]
-        violations_manager = TrafficViolationsBuilder(traffic_violations)
+        violators_avaliations = ViolatorsAvaliationsBuilder(traffic_violations)
 
-        violator_avaliation = violations_manager.build_violator_avaliation()
+        violator_avaliation = violators_avaliations.build_violator_avaliation()
 
         self.assertEqual(
             violator_avaliation, [
