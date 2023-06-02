@@ -1,6 +1,6 @@
 import unittest
 
-from main_penalty_calculate.managers import ViolationsManager
+from main_penalty_calculate.builders import TrafficViolationsBuilder
 from main_penalty_calculate.models import (
     TrafficViolation,
     IdentityCard,
@@ -30,7 +30,7 @@ class TestViolationsManager(unittest.TestCase):
                 pay_date=""
             )
         ]
-        violations_manager = ViolationsManager(traffic_violations)
+        violations_manager = TrafficViolationsBuilder(traffic_violations)
 
         violator_avaliation = violations_manager.build_violator_avaliation()
 
