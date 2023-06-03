@@ -39,7 +39,7 @@ class ViolatorsAvaliationsBuilder:
                 )
         return revised_violators
 
-    def build_violator_avaliation(self):
+    def build_violators_avaliations(self):
         for traffic_violation in self._traffic_violations:
             self._violators_avaliations.append(
                 ViolatorAvaliation(

@@ -1,19 +1,25 @@
 from .parsers import FileParser
-from .builders import ViolatorsAvaliationsBuilder
 from .serializers import OutputSerializer
+from .builders import (
+    ViolatorsAvaliationsBuilder,
+    TrafficViolationBuilder
+)
 
 
 class PenaltyCalculate:
     def __init__(self, file_name):
         self._file_name = file_name
 
-    def _csv_reader(self):
-        return FileParser(
-            self._file_name
-        ).build_traffic_violations()
-
     def evaluates_infractors(self):
+        converted_file = FileParser(
+            self._file_name
+        ).convert_file()
+        traffic_violations = TrafficViolationBuilder(
+            converted_file
+        ).build_traffic_violations()
         violators_avaliations = ViolatorsAvaliationsBuilder(
-            self._csv_reader()
-        ).build_violator_avaliation()
-        return OutputSerializer(violators_avaliations).output_string()
+            traffic_violations
+        ).build_violators_avaliations()
+        return OutputSerializer(
+            violators_avaliations
+        ).output_string()

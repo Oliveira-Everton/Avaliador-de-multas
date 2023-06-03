@@ -32,7 +32,9 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
         ]
         violators_avaliations = ViolatorsAvaliationsBuilder(traffic_violations)
 
-        violator_avaliation = violators_avaliations.build_violator_avaliation()
+        violator_avaliation = (
+            violators_avaliations.build_violators_avaliations()
+        )
 
         self.assertEqual(
             violator_avaliation, [
