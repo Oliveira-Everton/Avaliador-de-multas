@@ -6,7 +6,7 @@ from main_penalty_calculate.parsers import FileParser
 class TestFileParser(unittest.TestCase):
     def test_file_parser_build_traffic_violations(self):
         csv_parser = FileParser(
-            "Transit Ticket input 1.csv"
+            'Transit Ticket input 1.csv'
         )
 
         converted_file = csv_parser.convert_file()

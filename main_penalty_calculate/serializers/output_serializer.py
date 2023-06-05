@@ -3,7 +3,7 @@ import re
 
 class OutputSerializer:
     _OFFENDER_DATA = '{0}; {1}; {2}'
-    _PATTERN_FOR_REGEX = r"\[|\]|\'"
+    _PATTERN_FOR_REGEX = r'\[|\]|\''
     _EMPTY_STRING = ''
 
     def __init__(
