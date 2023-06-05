@@ -1,5 +1,10 @@
+import re
+
+
 class OutputSerializer:
     _OFFENDER_DATA = '{0}; {1}; {2}'
+    _PATTERN_FOR_REGEX = r"\[|\]|\'"
+    _EMPTY_STRING = ''
 
     def __init__(
         self,
@@ -16,21 +21,11 @@ class OutputSerializer:
                 self._OFFENDER_DATA.format(
                     violation.identity_card_number,
                     violation.identity_card_name,
-                    self._unpack_list(
-                        str(
-                            violation.license_plate_numbers
-                        )
+                    re.sub(
+                        self._PATTERN_FOR_REGEX,
+                        self._EMPTY_STRING,
+                        str(violation.license_plate_numbers)
                     )
                 )
             )
         return offender_data
-
-    def _unpack_list(self, text_list):
-        unpacked_text = (
-            text_list[:].replace(
-                "[", ""
-            )
-        )[:].replace(
-            "]", ""
-        )
-        return unpacked_text[:].replace("'", '')
