@@ -47,10 +47,7 @@ class TrafficViolation:
         return [
             traffic_violation.identity_card_name,
             traffic_violation.identity_card_number,
-            traffic_violation.license_plate_number,
-            traffic_violation.type_infraction,
-            traffic_violation.infraction_date,
-            traffic_violation.pay_date
+            traffic_violation.license_plate_number
         ]
 
     def __eq__(self, other):
