@@ -5,7 +5,6 @@ from main_penalty_calculate.models import (
     TrafficViolation,
     IdentityCard,
     LicensePlate,
-    LicensePlates,
     ViolatorAvaliation
 )
 
@@ -40,11 +39,11 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             violator_avaliation, [
                 ViolatorAvaliation(
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                    license_plates=LicensePlates([['IDE-3516']])
+                    license_plates=LicensePlate([['IDE-3516']])
                 ),
                 ViolatorAvaliation(
                     identity_card=IdentityCard('13.386.966-0', 'Miho'),
-                    license_plates=LicensePlates([['RXO-0694']])
+                    license_plates=LicensePlate([['RXO-0694']])
                 )
             ]
         )

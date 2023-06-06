@@ -18,7 +18,7 @@ class ViolatorsAvaliationsBuilder:
                 if violator.identity_card_number == \
                         revised_violator.identity_card_number:
                     uniq = False
-                    if violator.license_plate_numbers not in \
+                    if violator.license_plate_numbers != \
                             revised_violator.license_plate_numbers:
                         revised_violator.license_plate_numbers.append(
                             violator.license_plate_numbers
@@ -26,15 +26,13 @@ class ViolatorsAvaliationsBuilder:
             if uniq:
                 revised_violators.append(
                     ViolatorAvaliation(
-                        IdentityCard(
+                        identity_card=IdentityCard(
                             violator.identity_card_number,
                             violator.identity_card_name
                         ),
-                        LicensePlates(
-                            [
-                                violator.license_plate_numbers
-                            ]
-                        )
+                        license_plates=[
+                            violator.license_plate_numbers
+                        ]
                     )
                 )
         return revised_violators
@@ -47,11 +45,9 @@ class ViolatorsAvaliationsBuilder:
                         number=traffic_violation.identity_card_number,
                         name=traffic_violation.identity_card_name
                     ),
-                    license_plates=LicensePlates(
-                        numbers=[
+                    license_plates=[
                             traffic_violation.license_plate_number
                         ]
-                    )
                 )
             )
         return self._agroup_violators_avaliations()
