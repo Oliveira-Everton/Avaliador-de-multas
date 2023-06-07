@@ -29,21 +29,23 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 pay_date=''
             )
         ]
-        violators_avaliations = ViolatorsAvaliationsBuilder(traffic_violations)
+        violator_avaliation_builder = ViolatorsAvaliationsBuilder(
+            traffic_violations
+        )
 
-        violator_avaliation = (
-            violators_avaliations.build_violators_avaliations()
+        violators_avaliations = (
+            violator_avaliation_builder.build_violators_avaliations()
         )
 
         self.assertEqual(
-            violator_avaliation, [
+            violators_avaliations, [
                 ViolatorAvaliation(
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                    license_plates=LicensePlate([['IDE-3516']])
+                    license_plates=['IDE-3516']
                 ),
                 ViolatorAvaliation(
                     identity_card=IdentityCard('13.386.966-0', 'Miho'),
-                    license_plates=LicensePlate([['RXO-0694']])
+                    license_plates=['RXO-0694']
                 )
             ]
         )

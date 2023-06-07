@@ -37,5 +37,5 @@ class TrafficViolationBuilder:
                         pay_date=column[self._PAY_DATE]
                     )
                 )
-            traffic_violations
+
         return traffic_violations

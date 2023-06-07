@@ -17,11 +17,7 @@ class ViolatorAvaliation:
 
     @property
     def license_plate_numbers(self):
-        return self._check_license_plates()
-
-    
-    def _check_license_plates(self):
-        return list(map(lambda p: p.number, self._license_plates))
+        return self._license_plates
 
     def _properties_value_list(self, violator_avaliation):
         return [
@@ -32,5 +28,6 @@ class ViolatorAvaliation:
 
     def __eq__(self, other):
         return (
-            self._properties_value_list(self) == self._properties_value_list(other)
+            self._properties_value_list(self) ==
+            self._properties_value_list(other)
         )

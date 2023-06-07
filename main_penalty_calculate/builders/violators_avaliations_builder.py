@@ -1,5 +1,4 @@
 from ..models import (
-    LicensePlates,
     ViolatorAvaliation,
     IdentityCard
 )
@@ -18,23 +17,13 @@ class ViolatorsAvaliationsBuilder:
                 if violator.identity_card_number == \
                         revised_violator.identity_card_number:
                     uniq = False
-                    if violator.license_plate_numbers != \
+                    if violator.license_plate_numbers[0] not in \
                             revised_violator.license_plate_numbers:
                         revised_violator.license_plate_numbers.append(
-                            violator.license_plate_numbers
+                            violator.license_plate_numbers[0]
                         )
             if uniq:
-                revised_violators.append(
-                    ViolatorAvaliation(
-                        identity_card=IdentityCard(
-                            violator.identity_card_number,
-                            violator.identity_card_name
-                        ),
-                        license_plates=[
-                            violator.license_plate_numbers
-                        ]
-                    )
-                )
+                revised_violators.append(violator)
         return revised_violators
 
     def build_violators_avaliations(self):
@@ -46,8 +35,8 @@ class ViolatorsAvaliationsBuilder:
                         name=traffic_violation.identity_card_name
                     ),
                     license_plates=[
-                            traffic_violation.license_plate_number
-                        ]
+                        traffic_violation.license_plate_number
+                    ]
                 )
             )
         return self._agroup_violators_avaliations()
