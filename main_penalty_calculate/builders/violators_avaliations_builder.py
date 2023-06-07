@@ -5,6 +5,8 @@ from ..models import (
 
 
 class ViolatorsAvaliationsBuilder:
+    _LICENSE_PLATE_IN_LIST = 0
+
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
         self._violators_avaliations = []
@@ -17,10 +19,13 @@ class ViolatorsAvaliationsBuilder:
                 if violator.identity_card_number == \
                         revised_violator.identity_card_number:
                     uniq = False
-                    if violator.license_plate_numbers[0] not in \
-                            revised_violator.license_plate_numbers:
+                    if violator.license_plate_numbers[
+                        self._LICENSE_PLATE_IN_LIST
+                    ] not in revised_violator.license_plate_numbers:
                         revised_violator.license_plate_numbers.append(
-                            violator.license_plate_numbers[0]
+                            violator.license_plate_numbers[
+                                self._LICENSE_PLATE_IN_LIST
+                            ]
                         )
             if uniq:
                 revised_violators.append(violator)
