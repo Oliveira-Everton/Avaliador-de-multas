@@ -42,15 +42,3 @@ class TrafficViolation:
     @property
     def pay_date(self):
         return self._pay_date
-
-    def _property_list(self, traffic_violation):
-        return [
-            traffic_violation.identity_card_name,
-            traffic_violation.identity_card_number,
-            traffic_violation.license_plate_number
-        ]
-
-    def __eq__(self, other):
-        return (
-            self._property_list(self) == self._property_list(other)
-        )
