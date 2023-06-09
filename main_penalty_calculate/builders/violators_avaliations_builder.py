@@ -13,21 +13,27 @@ class ViolatorsAvaliationsBuilder:
 
     def _search_identity_card_number(
         self,
-        id_card_number,
-        violators_list
+        identity_card_number_to_be_checked,
+        identity_card_number_list
     ):
-        for violators in violators_list:
-            if violators.identity_card_number == id_card_number:
+        for identity_card in identity_card_number_list:
+            if (
+                identity_card.identity_card_number ==
+                identity_card_number_to_be_checked
+            ):
                 return True
         return False
 
     def _search_license_plate_number(
         self,
-        license_plate_number,
-        violators_list
+        license_plate_number_to_be_checked,
+        license_plate_list
     ):
-        for violators in violators_list:
-            if violators == license_plate_number:
+        for license_plate_number in license_plate_list:
+            if (
+                license_plate_number ==
+                license_plate_number_to_be_checked
+            ):
                 return True
         return False
 
