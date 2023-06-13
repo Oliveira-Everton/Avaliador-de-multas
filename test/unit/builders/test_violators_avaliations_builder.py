@@ -14,19 +14,11 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('IDE-3516'),
-                type_infraction='Gravíssima',
-                infraction_date='1999-10-01 06:12:22',
-                notification_date='1999-11-04 08:00:00',
-                pay_date='1999-11-04 08:00:00'
+                license_plate=LicensePlate('IDE-3516')
             ),
             TrafficViolation(
                 identity_card=IdentityCard('13.386.966-0', 'Miho'),
-                license_plate=LicensePlate('RXO-0694'),
-                type_infraction='Média',
-                infraction_date='2000-01-01 12:00:00',
-                notification_date='2000-01-05 07:27:42',
-                pay_date=''
+                license_plate=LicensePlate('RXO-0694')
             )
         ]
         violator_avaliation_builder = ViolatorsAvaliationsBuilder(
