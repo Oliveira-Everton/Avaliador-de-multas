@@ -11,7 +11,7 @@ class ViolatorsAvaliationsBuilder:
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
 
-    def _search_identity_card_number(
+    def _is_identity_card_number_already_present(
         self,
         identity_card_number_to_be_checked,
         identity_card_number_list
@@ -24,7 +24,7 @@ class ViolatorsAvaliationsBuilder:
                 return True
         return False
 
-    def _search_license_plate_number(
+    def _is_license_plate_number_already_present(
         self,
         license_plate_number_to_be_checked,
         license_plate_list
@@ -43,7 +43,7 @@ class ViolatorsAvaliationsBuilder:
         violators_list
     ):
         for violator in violators_list:
-            if not self._search_license_plate_number(
+            if not self._is_license_plate_number_already_present(
                 license_plate_to_be_checked,
                 violator.license_plate_numbers
             ):
@@ -54,7 +54,7 @@ class ViolatorsAvaliationsBuilder:
     def build_violators_avaliations(self):
         violators_avaliations = []
         for traffic_violation in self._traffic_violations:
-            if self._search_identity_card_number(
+            if self._is_identity_card_number_already_present(
                 traffic_violation.identity_card_number,
                 violators_avaliations
             ):
