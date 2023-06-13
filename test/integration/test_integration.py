@@ -9,7 +9,7 @@ class TestIntegration(unittest.TestCase):
             'Transit Ticket input 1.csv'
         )
 
-        violators_avaliations = penalty_calculate.evaluates_infractors()
+        violators_avaliations = penalty_calculate.evaluate_infractors()
 
         self.assertEqual(
             violators_avaliations, [

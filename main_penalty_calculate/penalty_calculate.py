@@ -10,7 +10,7 @@ class PenaltyCalculate:
     def __init__(self, file_name):
         self._file_name = file_name
 
-    def evaluates_infractors(self):
+    def evaluate_infractors(self):
         converted_file = FileParser(
             self._file_name
         ).convert_file()
