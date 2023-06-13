@@ -19,15 +19,14 @@ class ViolatorAvaliation:
     def license_plate_numbers(self):
         return self._license_plates
 
-    def _properties_value_list(self, violator_avaliation):
+    def _properties_values(self):
         return [
-            violator_avaliation.identity_card_number,
-            violator_avaliation.identity_card_name,
-            violator_avaliation.license_plate_numbers
+            self.identity_card_number,
+            self.identity_card_name,
+            self.license_plate_numbers
         ]
 
     def __eq__(self, other):
         return (
-            self._properties_value_list(self) ==
-            self._properties_value_list(other)
+            self._properties_values() == other._properties_values()
         )
