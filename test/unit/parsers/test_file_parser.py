@@ -4,7 +4,7 @@ from main_penalty_calculate.parsers import FileParser
 
 
 class TestFileParser(unittest.TestCase):
-    def test_file_parser_build_traffic_violations(self):
+    def test_convert_file(self):
         csv_parser = FileParser(
             'Transit Ticket input 1.csv'
         )

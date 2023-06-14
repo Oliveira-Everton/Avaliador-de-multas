@@ -10,7 +10,7 @@ from main_penalty_calculate.models import (
 
 
 class TestViolatorsAvaliationsBuilder(unittest.TestCase):
-    def test_violations_manager_build_violator_avaliation(self):
+    def test_build_violator_avaliation(self):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),

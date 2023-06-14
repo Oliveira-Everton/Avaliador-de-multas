@@ -8,7 +8,7 @@ from main_penalty_calculate.serializers import OutputSerializer
 
 
 class TestOutputSerializer(unittest.TestCase):
-    def test_output_serializer_output_string(self):
+    def test_output_string(self):
         first_violator_avaliation = ViolatorAvaliation(
             identity_card=IdentityCard('29.441.369-8', 'Aoki'),
             license_plates=['UCH-6237']
