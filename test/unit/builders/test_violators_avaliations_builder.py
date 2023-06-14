@@ -41,3 +41,75 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 )
             ]
         )
+
+    def test_build_violator_avaliation_with_more_plates_in_identity_card(self):
+        traffic_violations = [
+            TrafficViolation(
+                identity_card=IdentityCard('19.632.142-6', 'Takashi'),
+                license_plate=LicensePlate('IDE-3516')
+            ),
+            TrafficViolation(
+                identity_card=IdentityCard('19.632.142-6', 'Takashi'),
+                license_plate=LicensePlate('NAQ-5775')
+            ),
+        ]
+        violator_avaliation_builder = ViolatorsAvaliationsBuilder(
+            traffic_violations
+        )
+
+        violators_avaliations = (
+            violator_avaliation_builder.build_violators_avaliations()
+        )
+
+        self.assertEqual(
+            violators_avaliations, [
+                ViolatorAvaliation(
+                    identity_card=IdentityCard('19.632.142-6', 'Takashi'),
+                    license_plates=['IDE-3516', 'NAQ-5775']
+                )
+            ]
+        )
+
+    def test_build_violator_avaliation_with_repeated_plates(self):
+        traffic_violations = [
+            TrafficViolation(
+                identity_card=IdentityCard('19.632.142-6', 'Takashi'),
+                license_plate=LicensePlate('IDE-3516')
+            ),
+            TrafficViolation(
+                identity_card=IdentityCard('19.632.142-6', 'Takashi'),
+                license_plate=LicensePlate('NAQ-5775')
+            ),
+            TrafficViolation(
+                identity_card=IdentityCard('13.386.966-0', 'Miho'),
+                license_plate=LicensePlate('RXO-0694')
+            ),
+            TrafficViolation(
+                identity_card=IdentityCard('13.386.966-0', 'Miho'),
+                license_plate=LicensePlate('RXO-0694')
+            ),
+            TrafficViolation(
+                identity_card=IdentityCard('19.632.142-6', 'Takashi'),
+                license_plate=LicensePlate('IDE-3516')
+            )
+        ]
+        violator_avaliation_builder = ViolatorsAvaliationsBuilder(
+            traffic_violations
+        )
+
+        violators_avaliations = (
+            violator_avaliation_builder.build_violators_avaliations()
+        )
+
+        self.assertEqual(
+            violators_avaliations, [
+                ViolatorAvaliation(
+                    identity_card=IdentityCard('19.632.142-6', 'Takashi'),
+                    license_plates=['IDE-3516', 'NAQ-5775']
+                ),
+                ViolatorAvaliation(
+                    identity_card=IdentityCard('13.386.966-0', 'Miho'),
+                    license_plates=['RXO-0694']
+                )
+            ]
+        )

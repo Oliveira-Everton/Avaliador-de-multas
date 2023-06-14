@@ -3,7 +3,6 @@ from .serializers import OutputSerializer
 from .builders import ViolatorsAvaliationsBuilder, TrafficViolationBuilder
 
 
-
 class PenaltyCalculate:
     def __init__(self, file_name):
         self._file_name = file_name
