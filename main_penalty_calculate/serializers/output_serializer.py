@@ -6,15 +6,10 @@ class OutputSerializer:
     _PATTERN_FOR_REGEX = r'\[|\]|\''
     _EMPTY_STRING = ''
 
-    def __init__(
-        self,
-        violators_avaliations
-    ):
+    def __init__(self, violators_avaliations):
         self._violators_avaliations = violators_avaliations
 
-    def output_string(
-        self
-    ):
+    def output_string(self):
         offender_data = []
         for violation in self._violators_avaliations:
             offender_data.append(

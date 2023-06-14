@@ -1,9 +1,5 @@
 class ViolatorAvaliation:
-    def __init__(
-        self,
-        identity_card,
-        license_plates
-    ):
+    def __init__(self, identity_card, license_plates):
         self._identity_card = identity_card
         self._license_plates = license_plates
 
@@ -27,6 +23,4 @@ class ViolatorAvaliation:
         ]
 
     def __eq__(self, other):
-        return (
-            self._properties_values() == other._properties_values()
-        )
+        return self._properties_values() == other._properties_values()

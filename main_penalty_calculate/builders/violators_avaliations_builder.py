@@ -1,7 +1,4 @@
-from ..models import (
-    ViolatorAvaliation,
-    IdentityCard
-)
+from ..models import ViolatorAvaliation, IdentityCard
 
 
 class ViolatorsAvaliationsBuilder:

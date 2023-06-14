@@ -1,9 +1,5 @@
 class TrafficViolation:
-    def __init__(
-        self,
-        identity_card,
-        license_plate
-    ):
+    def __init__(self, identity_card, license_plate):
         self._identity_card = identity_card
         self._license_plate = license_plate
 
@@ -27,6 +23,4 @@ class TrafficViolation:
         ]
 
     def __eq__(self, other):
-        return (
-            self._properties_values() == other._properties_values()
-        )
+        return self._properties_values() == other._properties_values()

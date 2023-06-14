@@ -1,9 +1,6 @@
 import unittest
 
-from main_penalty_calculate.models import (
-    ViolatorAvaliation,
-    IdentityCard
-)
+from main_penalty_calculate.models import ViolatorAvaliation, IdentityCard
 from main_penalty_calculate.serializers import OutputSerializer
 
 

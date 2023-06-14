@@ -1,8 +1,4 @@
-from ..models import (
-    TrafficViolation,
-    IdentityCard,
-    LicensePlate
-)
+from ..models import TrafficViolation, IdentityCard, LicensePlate
 
 
 class TrafficViolationBuilder:
