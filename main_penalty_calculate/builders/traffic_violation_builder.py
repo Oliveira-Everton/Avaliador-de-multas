@@ -29,5 +29,4 @@ class TrafficViolationBuilder:
                         )
                     )
                 )
-
         return traffic_violations
