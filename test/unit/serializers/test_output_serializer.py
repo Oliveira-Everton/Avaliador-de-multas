@@ -1,32 +1,28 @@
 import unittest
 
-from main_penalty_calculate.models import (
-    TrafficViolation,
-    IdentityCard,
-    LicensePlate,
-)
+from main_penalty_calculate.models import ViolatorAvaliation, IdentityCard
 from main_penalty_calculate.serializers import OutputSerializer
 
 
 class TestOutputSerializer(unittest.TestCase):
-    def test_output_serializer_output_string(self):
-        first_traffic_violation = TrafficViolation(
-            IdentityCard("22.193.598-8", "Ericka"),
-            LicensePlate("QTB-0067")
+    def test_output_string(self):
+        first_violator_avaliation = ViolatorAvaliation(
+            identity_card=IdentityCard('29.441.369-8', 'Aoki'),
+            license_plates=['UCH-6237']
         )
-        second_traffic_violation = TrafficViolation(
-            IdentityCard("35.595.089-3", "José de Queiroz"),
-            LicensePlate("OXH-2070")
+        second_violator_avaliation = ViolatorAvaliation(
+            identity_card=IdentityCard('19.632.142-6', 'Takashi'),
+            license_plates=['IDE-3516']
         )
-        traffic_violations = [
-            first_traffic_violation, second_traffic_violation
+        violators_avaliations = [
+            first_violator_avaliation, second_violator_avaliation
         ]
 
-        output_string = OutputSerializer(traffic_violations).output_string()
+        output_string = OutputSerializer(violators_avaliations).output_string()
 
         self.assertEqual(
             output_string, [
-                "22.193.598-8; Ericka; QTB-0067",
-                "35.595.089-3; José de Queiroz; OXH-2070"
+                '29.441.369-8; Aoki; UCH-6237',
+                '19.632.142-6; Takashi; IDE-3516'
             ]
         )

@@ -8,9 +8,9 @@ from main_penalty_calculate.models import (
 
 
 class TestTrafficViolation(unittest.TestCase):
-    def test_traffic_violation_identity_card_name(self):
+    def test_identity_card_name(self):
         traffic_violation = TrafficViolation(
-            identity_card=IdentityCard("13.386.966-0", "Miho"),
+            identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694')
         )
 
@@ -18,9 +18,9 @@ class TestTrafficViolation(unittest.TestCase):
 
         self.assertEqual(identity_card_name, 'Miho')
 
-    def test_traffic_violation_identity_card_number(self):
+    def test_identity_card_number(self):
         traffic_violation = TrafficViolation(
-            identity_card=IdentityCard("13.386.966-0", "Miho"),
+            identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694')
         )
 
@@ -28,12 +28,12 @@ class TestTrafficViolation(unittest.TestCase):
 
         self.assertEqual(identity_card_number, '13.386.966-0')
 
-    def test_traffic_violation_license_plate_number(self):
+    def test_license_plate_number(self):
         traffic_violation = TrafficViolation(
-            identity_card=IdentityCard("13.386.966-0", "Miho"),
+            identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694')
         )
 
-        license_plate = traffic_violation.license_plate_number
+        license_plate_number = traffic_violation.license_plate_number
 
-        self.assertEqual(license_plate, 'RXO-0694')
+        self.assertEqual(license_plate_number, 'RXO-0694')
