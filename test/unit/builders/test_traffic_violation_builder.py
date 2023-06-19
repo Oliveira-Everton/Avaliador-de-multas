@@ -48,7 +48,8 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                     ),
                     license_plate=LicensePlate(
                         number='MGN-9130'
-                    )
+                    ),
+                    type_infraction='Gravíssima'
                 )
             ]
         )

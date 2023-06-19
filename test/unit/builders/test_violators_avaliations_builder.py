@@ -14,11 +14,13 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('IDE-3516')
+                license_plate=LicensePlate('IDE-3516'),
+                type_infraction='grave'
             ),
             TrafficViolation(
                 identity_card=IdentityCard('13.386.966-0', 'Miho'),
-                license_plate=LicensePlate('RXO-0694')
+                license_plate=LicensePlate('RXO-0694'),
+                type_infraction='leve'
             )
         ]
         violator_avaliation_builder = ViolatorsAvaliationsBuilder(
@@ -46,11 +48,13 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('IDE-3516')
+                license_plate=LicensePlate('IDE-3516'),
+                type_infraction='grave'
             ),
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('NAQ-5775')
+                license_plate=LicensePlate('NAQ-5775'),
+                type_infraction='leve'
             ),
         ]
         violator_avaliation_builder = ViolatorsAvaliationsBuilder(
@@ -74,23 +78,28 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('IDE-3516')
+                license_plate=LicensePlate('IDE-3516'),
+                type_infraction='leve'
             ),
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('NAQ-5775')
+                license_plate=LicensePlate('NAQ-5775'),
+                type_infraction='grave'
             ),
             TrafficViolation(
                 identity_card=IdentityCard('13.386.966-0', 'Miho'),
-                license_plate=LicensePlate('RXO-0694')
+                license_plate=LicensePlate('RXO-0694'),
+                type_infraction='leve'
             ),
             TrafficViolation(
                 identity_card=IdentityCard('13.386.966-0', 'Miho'),
-                license_plate=LicensePlate('RXO-0694')
+                license_plate=LicensePlate('RXO-0694'),
+                type_infraction='leve'
             ),
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('IDE-3516')
+                license_plate=LicensePlate('IDE-3516'),
+                type_infraction='grave'
             )
         ]
         violator_avaliation_builder = ViolatorsAvaliationsBuilder(

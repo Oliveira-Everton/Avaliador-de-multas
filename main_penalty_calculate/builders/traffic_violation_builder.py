@@ -6,6 +6,8 @@ class TrafficViolationBuilder:
     _IDENTITY_NUMBER = 5
     _LICENSE_PLATE = 0
     _FIRST_LINE = 0
+    _TYPE_INFRACTION = 1
+
 
     def __init__(self, file):
         self._file = file
@@ -22,7 +24,8 @@ class TrafficViolationBuilder:
                         ),
                         license_plate=LicensePlate(
                             number=column[self._LICENSE_PLATE]
-                        )
+                        ),
+                        type_infraction=column[self._TYPE_INFRACTION]
                     )
                 )
         return traffic_violations
