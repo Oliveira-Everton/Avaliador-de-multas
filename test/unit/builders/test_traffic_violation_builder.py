@@ -49,7 +49,9 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                     license_plate=LicensePlate(
                         number='MGN-9130'
                     ),
-                    type_infraction='Gravíssima'
+                    type_infraction='Gravíssima',
+                    notification_date='975-01-30 15:00:00',
+                    infraction_date='975-02-01 10:00:00'
                 )
             ]
         )
