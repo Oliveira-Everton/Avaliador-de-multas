@@ -13,8 +13,8 @@ class TestIntegration(unittest.TestCase):
 
         self.assertEqual(
             violators_avaliations, [
-                '467191153; Josevaldo Cal. O. Teiro; ARE-9420, KVI-2310',
-                '276787067; Osvaldo Plinio; BIO-9626',
-                '149178360; Gerusa Juventina; SOS-3257'
+                '467191153; Josevaldo Cal. O. Teiro; ARE-9420, KVI-2310; 26',
+                '276787067; Osvaldo Plinio; BIO-9626; 5',
+                '149178360; Gerusa Juventina; SOS-3257; 4'
             ]
         )

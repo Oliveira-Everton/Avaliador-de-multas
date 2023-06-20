@@ -2,7 +2,7 @@ import re
 
 
 class OutputSerializer:
-    _OFFENDER_DATA = '{0}; {1}; {2}'
+    _OFFENDER_DATA = '{0}; {1}; {2}; {3}'
     _PATTERN_FOR_REGEX = r'\[|\]|\''
     _EMPTY_STRING = ''
 
@@ -20,7 +20,8 @@ class OutputSerializer:
                         self._PATTERN_FOR_REGEX,
                         self._EMPTY_STRING,
                         str(violation.license_plate_numbers)
-                    )
+                    ),
+                    violation.demerit_points
                 )
             )
         return offender_data

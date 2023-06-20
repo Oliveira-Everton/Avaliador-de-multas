@@ -8,11 +8,13 @@ class TestOutputSerializer(unittest.TestCase):
     def test_output_string(self):
         first_violator_avaliation = ViolatorAvaliation(
             identity_card=IdentityCard('29.441.369-8', 'Aoki'),
-            license_plates=['UCH-6237']
+            license_plates=['UCH-6237'],
+            demerit_points=4
         )
         second_violator_avaliation = ViolatorAvaliation(
             identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-            license_plates=['IDE-3516']
+            license_plates=['IDE-3516'],
+            demerit_points=7
         )
         violators_avaliations = [
             first_violator_avaliation, second_violator_avaliation
@@ -22,7 +24,7 @@ class TestOutputSerializer(unittest.TestCase):
 
         self.assertEqual(
             output_string, [
-                '29.441.369-8; Aoki; UCH-6237',
-                '19.632.142-6; Takashi; IDE-3516'
+                '29.441.369-8; Aoki; UCH-6237; 4',
+                '19.632.142-6; Takashi; IDE-3516; 7'
             ]
         )

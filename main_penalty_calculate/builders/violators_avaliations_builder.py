@@ -4,6 +4,12 @@ from ..models import ViolatorAvaliation, IdentityCard
 class ViolatorsAvaliationsBuilder:
     _LICENSE_PLATE_IN_LIST = 0
     _FIRST_TRAFFIC_VIOLATION = 0
+    _INFRACTION_PENALTIES = {
+        'Leve': 3,
+        'Média': 4,
+        'Grave': 5,
+        'Gravíssima': 7
+    }
 
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
@@ -50,6 +56,16 @@ class ViolatorsAvaliationsBuilder:
                         license_plate_in_review
                     )
 
+    def _aggregate_demerit_points(
+        self,
+        violators_list,
+        violator_in_review,
+        sum_value
+    ):
+        for violator in violators_list:
+            if violator.identity_card_number == violator_in_review:
+                violator.sum_demerit_points(sum_value)
+
     def build_violators_avaliations(self):
         violators_avaliations = []
         for traffic_violation in self._traffic_violations:
@@ -62,6 +78,14 @@ class ViolatorsAvaliationsBuilder:
                     violators_avaliations,
                     traffic_violation.identity_card_number
                 )
+                self._aggregate_demerit_points(
+                    violators_avaliations,
+                    traffic_violation.identity_card_number,
+                    self._INFRACTION_PENALTIES[
+                        traffic_violation.type_infraction
+                    ]
+                )
+
             else:
                 violators_avaliations.append(
                     ViolatorAvaliation(
@@ -71,6 +95,9 @@ class ViolatorsAvaliationsBuilder:
                         ),
                         license_plates=[
                             traffic_violation.license_plate_number
+                        ],
+                        demerit_points=self._INFRACTION_PENALTIES[
+                            traffic_violation.type_infraction
                         ]
                     )
                 )

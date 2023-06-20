@@ -8,7 +8,6 @@ class TrafficViolationBuilder:
     _FIRST_LINE = 0
     _TYPE_INFRACTION = 1
 
-
     def __init__(self, file):
         self._file = file
 
