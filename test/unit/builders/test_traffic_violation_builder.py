@@ -50,8 +50,8 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                         number='MGN-9130'
                     ),
                     type_infraction='Gravíssima',
-                    notification_date='975-01-30 15:00:00',
-                    infraction_date='975-02-01 10:00:00'
+                    infraction_date='975-01-30 15:00:00',
+                    notification_date='975-02-01 10:00:00'
                 )
             ]
         )

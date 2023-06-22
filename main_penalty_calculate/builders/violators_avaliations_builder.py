@@ -1,9 +1,14 @@
+from datetime import datetime
+
 from ..models import ViolatorAvaliation, IdentityCard
 
 
 class ViolatorsAvaliationsBuilder:
     _LICENSE_PLATE_IN_LIST = 0
     _FIRST_TRAFFIC_VIOLATION = 0
+    _DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
+    _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
+    _INVALID_DEMERIT_POINTS = 0
     _INFRACTION_PENALTIES = {
         'Leve': 3,
         'Média': 4,
@@ -66,6 +71,26 @@ class ViolatorsAvaliationsBuilder:
             if violator.identity_card_number == violator_in_review:
                 violator.sum_demerit_points(sum_value)
 
+    def _validate_penalty(self, notification_date, infraction_date):
+        if (
+            datetime.strptime(notification_date, self._DATE_FORMAT) -
+            datetime.strptime(infraction_date, self._DATE_FORMAT)
+        ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT:
+            return True
+        else:
+            return False
+
+    def _calculate_demerit_points(self, traffic_violation):
+        if self._validate_penalty(
+            traffic_violation.notification_date,
+            traffic_violation.infraction_date
+        ):
+            return self._INFRACTION_PENALTIES[
+                traffic_violation.type_infraction
+            ]
+        else:
+            return self._INVALID_DEMERIT_POINTS
+
     def build_violators_avaliations(self):
         violators_avaliations = []
         for traffic_violation in self._traffic_violations:
@@ -78,14 +103,17 @@ class ViolatorsAvaliationsBuilder:
                     violators_avaliations,
                     traffic_violation.identity_card_number
                 )
-                self._aggregate_demerit_points(
-                    violators_avaliations,
-                    traffic_violation.identity_card_number,
-                    self._INFRACTION_PENALTIES[
-                        traffic_violation.type_infraction
-                    ]
-                )
-
+                if self._validate_penalty(
+                    traffic_violation.notification_date,
+                    traffic_violation.infraction_date
+                ):
+                    self._aggregate_demerit_points(
+                        violators_avaliations,
+                        traffic_violation.identity_card_number,
+                        self._INFRACTION_PENALTIES[
+                            traffic_violation.type_infraction
+                        ]
+                    )
             else:
                 violators_avaliations.append(
                     ViolatorAvaliation(
@@ -96,9 +124,9 @@ class ViolatorsAvaliationsBuilder:
                         license_plates=[
                             traffic_violation.license_plate_number
                         ],
-                        demerit_points=self._INFRACTION_PENALTIES[
-                            traffic_violation.type_infraction
-                        ]
+                        demerit_points=self._calculate_demerit_points(
+                            traffic_violation
+                        )
                     )
                 )
         return violators_avaliations

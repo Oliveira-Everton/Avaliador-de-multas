@@ -40,7 +40,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 ViolatorAvaliation(
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                     license_plates=['IDE-3516'],
-                    demerit_points=5
+                    demerit_points=0
                 ),
                 ViolatorAvaliation(
                     identity_card=IdentityCard('13.386.966-0', 'Miho'),
@@ -64,7 +64,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 license_plate=LicensePlate('NAQ-5775'),
                 type_infraction='Leve',
                 infraction_date='1999-10-11 06:12:22',
-                notification_date='1999-11-06 08:00:00'
+                notification_date='1999-10-16 08:00:00'
             ),
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
@@ -80,7 +80,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 ViolatorAvaliation(
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                     license_plates=['IDE-3516', 'NAQ-5775'],
-                    demerit_points=8
+                    demerit_points=3
                 )
             ]
         )
@@ -136,7 +136,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 ViolatorAvaliation(
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                     license_plates=['IDE-3516', 'NAQ-5775'],
-                    demerit_points=13
+                    demerit_points=5
                 ),
                 ViolatorAvaliation(
                     identity_card=IdentityCard('13.386.966-0', 'Miho'),
@@ -182,6 +182,81 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                     license_plates=['QBJ-6840'],
                     demerit_points=4
+                )
+            ]
+        )
+
+    def test_build_violator_avaliation_invalid_demerit_points(self):
+        traffic_violations = [
+            TrafficViolation(
+                identity_card=IdentityCard('13.846.994-5', 'Morgan'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction='Gravíssima',
+                infraction_date='1750-01-01 12:00:00',
+                notification_date='1750-05-04 07:00:00'
+            ),
+            TrafficViolation(
+                identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
+                license_plate=LicensePlate('QBJ-6840'),
+                type_infraction='Média',
+                infraction_date='1890-01-01 12:00:00',
+                notification_date='1890-03-28 07:00:00'
+            )
+        ]
+        violators_avaliations_builder = ViolatorsAvaliationsBuilder(
+            traffic_violations
+        )
+
+        violators_avaliations = (
+            violators_avaliations_builder.build_violators_avaliations()
+        )
+
+        self.assertEqual(
+            violators_avaliations, [
+                ViolatorAvaliation(
+                    identity_card=IdentityCard('13.846.994-5', 'Morgan'),
+                    license_plates=['MGN-9130'],
+                    demerit_points=0
+                ),
+                ViolatorAvaliation(
+                    identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
+                    license_plates=['QBJ-6840'],
+                    demerit_points=0
+                )
+            ]
+        )
+
+    def test_build_violator_avaliation_sum_demerit_points(self):
+        traffic_violations = [
+            TrafficViolation(
+                identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
+                license_plate=LicensePlate('QBJ-6840'),
+                type_infraction='Média',
+                infraction_date='1890-01-01 12:00:00',
+                notification_date='1890-01-03 07:00:00'
+            ),
+            TrafficViolation(
+                identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
+                license_plate=LicensePlate('QBJ-6840'),
+                type_infraction='Média',
+                infraction_date='1890-09-03 12:00:00',
+                notification_date='1890-09-06 07:00:00'
+            )
+        ]
+        violators_avaliations_builder = ViolatorsAvaliationsBuilder(
+            traffic_violations
+        )
+
+        violators_avaliations = (
+            violators_avaliations_builder.build_violators_avaliations()
+        )
+
+        self.assertEqual(
+            violators_avaliations, [
+                ViolatorAvaliation(
+                    identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
+                    license_plates=['QBJ-6840'],
+                    demerit_points=8
                 )
             ]
         )

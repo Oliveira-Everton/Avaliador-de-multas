@@ -27,8 +27,8 @@ class TrafficViolationBuilder:
                             number=column[self._LICENSE_PLATE]
                         ),
                         type_infraction=column[self._TYPE_INFRACTION],
-                        notification_date=column[self._INFRACTION_DATE],
-                        infraction_date=column[self._NOTIFICATION_DATE]
+                        infraction_date=column[self._INFRACTION_DATE],
+                        notification_date=column[self._NOTIFICATION_DATE]
                     )
                 )
         return traffic_violations
