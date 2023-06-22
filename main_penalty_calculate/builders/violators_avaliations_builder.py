@@ -18,13 +18,13 @@ class ViolatorsAvaliationsBuilder:
 
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
+        self._violators_avaliations = []
 
     def _is_identity_card_number_already_present(
         self,
-        identity_card_number_to_be_checked,
-        identity_card_number_list
+        identity_card_number_to_be_checked
     ):
-        for identity_card in identity_card_number_list:
+        for identity_card in self._violators_avaliations:
             if (
                 identity_card.identity_card_number ==
                 identity_card_number_to_be_checked
@@ -48,10 +48,9 @@ class ViolatorsAvaliationsBuilder:
     def _agroup_license_plates(
         self,
         license_plate_in_review,
-        violators_list,
         violator_in_review
     ):
-        for violator in violators_list:
+        for violator in self._violators_avaliations:
             if violator.identity_card_number == violator_in_review:
                 if not self._is_license_plate_number_already_present(
                     license_plate_in_review,
@@ -63,11 +62,10 @@ class ViolatorsAvaliationsBuilder:
 
     def _aggregate_demerit_points(
         self,
-        violators_list,
         violator_in_review,
         sum_value
     ):
-        for violator in violators_list:
+        for violator in self._violators_avaliations:
             if violator.identity_card_number == violator_in_review:
                 violator.sum_demerit_points(sum_value)
 
@@ -92,15 +90,12 @@ class ViolatorsAvaliationsBuilder:
             return self._INVALID_DEMERIT_POINTS
 
     def build_violators_avaliations(self):
-        violators_avaliations = []
         for traffic_violation in self._traffic_violations:
             if self._is_identity_card_number_already_present(
-                traffic_violation.identity_card_number,
-                violators_avaliations,
+                traffic_violation.identity_card_number
             ):
                 self._agroup_license_plates(
                     traffic_violation.license_plate_number,
-                    violators_avaliations,
                     traffic_violation.identity_card_number
                 )
                 if self._validate_demerit_points(
@@ -108,14 +103,13 @@ class ViolatorsAvaliationsBuilder:
                     traffic_violation.infraction_date
                 ):
                     self._aggregate_demerit_points(
-                        violators_avaliations,
                         traffic_violation.identity_card_number,
                         self._INFRACTION_PENALTIES[
                             traffic_violation.type_infraction
                         ]
                     )
             else:
-                violators_avaliations.append(
+                self._violators_avaliations.append(
                     ViolatorAvaliation(
                         identity_card=IdentityCard(
                             number=traffic_violation.identity_card_number,
@@ -129,4 +123,4 @@ class ViolatorsAvaliationsBuilder:
                         )
                     )
                 )
-        return violators_avaliations
+        return self._violators_avaliations
