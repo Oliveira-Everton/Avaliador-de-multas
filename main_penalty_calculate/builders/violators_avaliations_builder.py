@@ -43,7 +43,10 @@ class ViolatorsAvaliationsBuilder:
 
     def _agroup_license_plates(self):
         for violator in self._violators_avaliations:
-            if violator.identity_card_number == self._traffic_violation.identity_card_number:
+            if (
+                violator.identity_card_number ==
+                self._traffic_violation.identity_card_number
+            ):
                 if not self._is_license_plate_number_already_present(
                     violator.license_plate_numbers
                 ):
@@ -51,15 +54,26 @@ class ViolatorsAvaliationsBuilder:
                         self._traffic_violation.license_plate_number
                     )
 
-    def _aggregate_demerit_points(self, sum_value):
+    def _aggregate_demerit_points(self):
         for violator in self._violators_avaliations:
-            if violator.identity_card_number == self._traffic_violation.identity_card_number:
-                violator.sum_demerit_points(sum_value)
+            if (
+                violator.identity_card_number ==
+                self._traffic_violation.identity_card_number
+            ):
+                violator.sum_demerit_points(
+                    self._INFRACTION_PENALTIES[
+                        self._traffic_violation.type_infraction
+                    ]
+                )
 
     def _validate_demerit_points(self):
         if (
-            datetime.strptime(self._traffic_violation.notification_date, self._DATE_FORMAT) -
-            datetime.strptime(self._traffic_violation.infraction_date, self._DATE_FORMAT)
+            datetime.strptime(
+                self._traffic_violation.notification_date, self._DATE_FORMAT
+            ) -
+            datetime.strptime(
+                self._traffic_violation.infraction_date, self._DATE_FORMAT
+            )
         ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT:
             return True
         else:
@@ -78,11 +92,7 @@ class ViolatorsAvaliationsBuilder:
             if self._is_identity_card_number_already_present():
                 self._agroup_license_plates()
                 if self._validate_demerit_points():
-                    self._aggregate_demerit_points(
-                        self._INFRACTION_PENALTIES[
-                            self._traffic_violation.type_infraction
-                        ]
-                    )
+                    self._aggregate_demerit_points()
             else:
                 self._violators_avaliations.append(
                     ViolatorAvaliation(
