@@ -71,7 +71,7 @@ class ViolatorsAvaliationsBuilder:
             if violator.identity_card_number == violator_in_review:
                 violator.sum_demerit_points(sum_value)
 
-    def _validate_penalty(self, notification_date, infraction_date):
+    def _validate_demerit_points(self, notification_date, infraction_date):
         if (
             datetime.strptime(notification_date, self._DATE_FORMAT) -
             datetime.strptime(infraction_date, self._DATE_FORMAT)
@@ -81,7 +81,7 @@ class ViolatorsAvaliationsBuilder:
             return False
 
     def _calculate_demerit_points(self, traffic_violation):
-        if self._validate_penalty(
+        if self._validate_demerit_points(
             traffic_violation.notification_date,
             traffic_violation.infraction_date
         ):
@@ -103,7 +103,7 @@ class ViolatorsAvaliationsBuilder:
                     violators_avaliations,
                     traffic_violation.identity_card_number
                 )
-                if self._validate_penalty(
+                if self._validate_demerit_points(
                     traffic_violation.notification_date,
                     traffic_violation.infraction_date
                 ):
