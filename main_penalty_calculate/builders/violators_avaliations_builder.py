@@ -59,10 +59,12 @@ class ViolatorsAvaliationsBuilder:
     def _validate_demerit_points(self):
         if (
             datetime.strptime(
-                self._traffic_violation.notification_date, self._DATE_FORMAT
+                self._traffic_violation.notification_date,
+                self._DATE_FORMAT
             ) -
             datetime.strptime(
-                self._traffic_violation.infraction_date, self._DATE_FORMAT
+                self._traffic_violation.infraction_date,
+                self._DATE_FORMAT
             )
         ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT:
             return True
