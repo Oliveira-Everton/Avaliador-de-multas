@@ -21,7 +21,8 @@ class ViolatorsAvaliationsBuilder:
         self._violators_avaliations = []
 
     def _is_identity_card_number_already_present(self):
-        for self._violator in self._violators_avaliations:
+        for violator in self._violators_avaliations:
+            self._violator = violator
             if (
                 self._violator.identity_card_number ==
                 self._traffic_violation.identity_card_number
@@ -86,7 +87,8 @@ class ViolatorsAvaliationsBuilder:
                 self._aggregate_demerit_points()
 
     def build_violators_avaliations(self):
-        for self._traffic_violation in self._traffic_violations:
+        for traffic_violation in self._traffic_violations:
+            self._traffic_violation = traffic_violation
             if self._is_identity_card_number_already_present():
                 self._aggregate_values_by_identity_card_number()
             else:
