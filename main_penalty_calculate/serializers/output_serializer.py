@@ -3,9 +3,9 @@ import re
 
 class OutputSerializer:
     _OFFENDER_DATA = (
-        '{violation.identity_card_number}; '\
-        '{violation.identity_card_name}; '\
-        '{license_plate_numbers}; '\
+        '{violation.identity_card_number}; '
+        '{violation.identity_card_name}; '
+        '{license_plate_numbers}; '
         '{violation.demerit_points}'
     )
     _PATTERN_FOR_REGEX = r'\[|\]|\''
