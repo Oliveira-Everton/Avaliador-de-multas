@@ -42,7 +42,7 @@ class ViolatorsAvaliationsBuilder:
                 return True
         return False
 
-    def _agroup_license_plates(self):
+    def _aggregate_license_plates(self):
         if not self._is_license_plate_number_already_present(
             self._violator.license_plate_numbers
         ):
@@ -57,7 +57,7 @@ class ViolatorsAvaliationsBuilder:
             ]
         )
 
-    def _validate_demerit_points(self):
+    def _is_demerit_points_valid(self):
         if (
             datetime.strptime(
                 self._traffic_violation.notification_date,
@@ -72,8 +72,8 @@ class ViolatorsAvaliationsBuilder:
         else:
             return False
 
-    def _calculate_demerit_points(self):
-        if self._validate_demerit_points():
+    def _convert_demerit_points(self):
+        if self._is_demerit_points_valid():
             return self._INFRACTION_PENALTIES[
                 self._traffic_violation.type_infraction
             ]
@@ -82,8 +82,8 @@ class ViolatorsAvaliationsBuilder:
 
     def _aggregate_values_by_identity_card_number(self):
         if self._is_identity_card_number_already_present():
-            self._agroup_license_plates()
-            if self._validate_demerit_points():
+            self._aggregate_license_plates()
+            if self._is_demerit_points_valid():
                 self._aggregate_demerit_points()
 
     def build_violators_avaliations(self):
@@ -103,7 +103,7 @@ class ViolatorsAvaliationsBuilder:
                         license_plates=[
                             self._traffic_violation.license_plate_number
                         ],
-                        demerit_points=self._calculate_demerit_points()
+                        demerit_points=self._convert_demerit_points()
                     )
                 )
         return self._violators_avaliations
