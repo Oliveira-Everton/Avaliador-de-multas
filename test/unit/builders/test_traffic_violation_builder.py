@@ -10,33 +10,19 @@ from main_penalty_calculate.models import (
 
 class TestTrafficViolationBuilder(unittest.TestCase):
     def test_build_traffic_violations(self):
-        converted_file = [
-            (
-                0, [
-                    'Placa',
-                    'Tipo de infração',
-                    'Data da infração',
-                    'Data da notificação',
-                    'Data de pagamento',
-                    'RG do infrator',
-                    'Nome do infrator',
-                ]
-            ),
-            (
-                1, [
-                    'MGN-9130',
-                    'Gravíssima',
-                    '975-01-30 15:00:00',
-                    '975-02-01 10:00:00',
-                    '',
-                    '138469945',
-                    'Morgan'
-                ]
-            )
+        pre_traffic_violations = [
+            {
+                'identity_card_name': 'Morgan',
+                'identity_card_number': '138469945',
+                'license_plate_number': 'MGN-9130',
+                'type_infraction': 'Gravíssima',
+                'infraction_date': '975-01-30 15:00:00',
+                'notification_date': '975-02-01 10:00:00'
+            }
         ]
 
         traffic_violations = TrafficViolationBuilder(
-            converted_file
+            pre_traffic_violations
         ).build_traffic_violations()
 
         self.assertEqual(
