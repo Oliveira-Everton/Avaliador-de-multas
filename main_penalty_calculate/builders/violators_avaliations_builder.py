@@ -51,11 +51,12 @@ class ViolatorsAvaliationsBuilder:
             )
 
     def _aggregate_demerit_points(self):
-        self._violator.sum_demerit_points(
-            self._INFRACTION_PENALTIES[
-                self._traffic_violation.type_infraction
-            ]
-        )
+        if self._is_demerit_points_valid():
+            self._violator.sum_demerit_points(
+                self._INFRACTION_PENALTIES[
+                    self._traffic_violation.type_infraction
+                ]
+            )
 
     def _is_demerit_points_valid(self):
         if (
@@ -82,8 +83,7 @@ class ViolatorsAvaliationsBuilder:
 
     def _aggregate_values_by_identity_card_number(self):
         self._aggregate_license_plates()
-        if self._is_demerit_points_valid():
-            self._aggregate_demerit_points()
+        self._aggregate_demerit_points()
 
     def build_violators_avaliations(self):
         for traffic_violation in self._traffic_violations:
