@@ -51,12 +51,9 @@ class ViolatorsAvaliationsBuilder:
             )
 
     def _aggregate_demerit_points(self):
-        if self._is_demerit_points_valid():
-            self._violator.sum_demerit_points(
-                self._INFRACTION_PENALTIES[
-                    self._traffic_violation.type_infraction
-                ]
-            )
+        self._violator.sum_demerit_points(
+            self._convert_demerit_points()
+        )
 
     def _is_demerit_points_valid(self):
         if (
