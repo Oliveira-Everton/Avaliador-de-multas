@@ -6,36 +6,89 @@ from main_penalty_calculate.parsers import FileParser
 class TestFileParser(unittest.TestCase):
     def test_convert_file(self):
         csv_parser = FileParser(
-            'Transit Ticket input 2.csv'
+            'Transit Ticket input 1.csv'
         )
 
-        pre_traffic_violation = csv_parser.pre_traffic_violations()
+        converted_file = csv_parser.convert_file()
 
         self.assertEqual(
-            pre_traffic_violation, [
-                {
-                    'identity_card_name': 'Dtcv. Olivera',
-                    'identity_card_number': '375944035',
-                    'license_plate_number': 'QBJ-6840',
-                    'type_infraction': 'Gravíssima',
-                    'infraction_date': '1890-01-01 12:00:00',
-                    'notification_date': '1890-03-28 07:00:00'
-                },
-                {
-                    'identity_card_name': 'Weihi Imawee',
-                    'identity_card_number': '475936607',
-                    'license_plate_number': 'NEK-6986',
-                    'type_infraction': 'Média',
-                    'infraction_date': '2030-05-19 16:00:00',
-                    'notification_date': '2030-06-30 12:00:00'
-                },
-                {
-                    'identity_card_name': 'Morgan Lyori',
-                    'identity_card_number': '138469945',
-                    'license_plate_number': 'MGN-9130',
-                    'type_infraction': 'Leve',
-                    'infraction_date': '1750-01-01 12:00:00',
-                    'notification_date': '1750-05-04 07:00:00'
-                }
+            converted_file, [
+                (
+                    0, [
+                        'Placa',
+                        'Tipo de infração',
+                        'Data da infração',
+                        'Data da notificação',
+                        'Data de pagamento',
+                        'RG do infrator',
+                        'Nome do infrator'
+                    ]
+                ),
+                (
+                    1, [
+                        'ARE-9420',
+                        'Gravíssima',
+                        '1999-11-05 15:00:00',
+                        '2000-01-25 10:00:00',
+                        '',
+                        '467191153',
+                        'Josevaldo Cal. O. Teiro'
+                    ]
+                ),
+                (
+                    2, [
+                        'KVI-2310',
+                        'Gravíssima',
+                        '2000-01-01 15:00:00',
+                        '2000-01-04 10:00:00',
+                        '',
+                        '467191153',
+                        'Josevaldo Cal. O. Teiro'
+                    ]
+                ),
+                (
+                    3, [
+                        'KVI-2310',
+                        'Grave',
+                        '2000-01-04 15:00:00',
+                        '2000-01-05 10:00:00',
+                        '',
+                        '467191153',
+                        'Josevaldo Cal. O. Teiro'
+                    ]
+                ),
+                (
+                    4, [
+                        'ARE-9420',
+                        'Gravíssima',
+                        '2000-01-10 15:00:00',
+                        '2000-01-25 10:00:00',
+                        '',
+                        '467191153',
+                        'Josevaldo Cal. O. Teiro'
+                    ]
+                ),
+                (
+                    5, [
+                        'BIO-9626',
+                        'Grave',
+                        '2000-02-05 14:00:00',
+                        '2000-02-10 11:00:00',
+                        '',
+                        '276787067',
+                        'Osvaldo Plinio'
+                    ]
+                ),
+                (
+                    6, [
+                        'SOS-3257',
+                        'Média',
+                        '2000-08-16 16:00:00',
+                        '2000-02-11 12:00:00',
+                        '',
+                        '149178360',
+                        'Gerusa Juventina'
+                    ]
+                )
             ]
         )
