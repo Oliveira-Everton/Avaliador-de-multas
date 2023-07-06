@@ -65,10 +65,10 @@ class ViolatorsAvaliationsBuilder:
                 self._traffic_violation.infraction_date,
                 self._DATE_FORMAT
             )
-        ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT:
-            return True
-        else:
+        ).days > self._VALIDITY_PERIOD_OF_INFRINGEMENT:
             return False
+        else:
+            return True
 
     def _convert_demerit_points(self):
         if self._is_demerit_points_valid():
