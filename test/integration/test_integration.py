@@ -21,7 +21,7 @@ class TestIntegration(unittest.TestCase):
 
     def test_evaluate_infractors_with_invalid_demerit_points(self):
         penalty_calculate = PenaltyCalculate(
-            'Transit Ticket input 2.csv'
+            'test/fixtures/Transit Ticket input 2.csv'
         )
 
         violators_avaliations = penalty_calculate.evaluate_infractors()
