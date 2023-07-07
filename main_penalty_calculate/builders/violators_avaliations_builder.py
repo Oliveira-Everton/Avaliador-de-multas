@@ -47,52 +47,36 @@ class ViolatorsAvaliationsBuilder:
 
     def _aggregate_license_plates(
         self,
-        identity_card_to_be_checked,
+        violator_registered,
         license_plate_to_be_checked
     ):
-        for violator in self._violators_avaliations:
-            if (
-                violator.identity_card_number ==
-                identity_card_to_be_checked
-            ):
-                if not self._is_license_plate_number_already_present(
-                    violator.license_plate_numbers,
-                    license_plate_to_be_checked
-                ):
-                    violator.license_plate_numbers.append(
-                        license_plate_to_be_checked
-                    )
+        if not self._is_license_plate_number_already_present(
+            violator_registered.license_plate_numbers,
+            license_plate_to_be_checked
+        ):
+            violator_registered.license_plate_numbers.append(
+                license_plate_to_be_checked
+            )
 
     def _aggregate_demerit_points(
         self,
-        violator_in_review,
+        violator_registered,
         notification_date,
         infraction_date,
         type_infraction
     ):
-        for violator in self._violators_avaliations:
-            if (
-                violator.identity_card_number ==
-                violator_in_review
-            ):
-                violator.sum_demerit_points(
-                    self._convert_demerit_points(
-                        notification_date,
-                        infraction_date,
-                        type_infraction
-                    )
-                )
+        violator_registered.sum_demerit_points(
+            self._convert_demerit_points(
+                notification_date,
+                infraction_date,
+                type_infraction
+            )
+        )
 
     def _is_demerit_points_valid(self, notification_date, infraction_date):
         return (
-            datetime.strptime(
-                notification_date,
-                self._DATE_FORMAT
-            ) -
-            datetime.strptime(
-                infraction_date,
-                self._DATE_FORMAT
-            )
+            datetime.strptime(notification_date, self._DATE_FORMAT) -
+            datetime.strptime(infraction_date, self._DATE_FORMAT)
         ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT
 
     def _convert_demerit_points(
@@ -102,23 +86,26 @@ class ViolatorsAvaliationsBuilder:
         type_infraction
     ):
         if self._is_demerit_points_valid(notification_date, infraction_date):
-            return self._INFRACTION_PENALTIES[
-                type_infraction
-            ]
+            return self._INFRACTION_PENALTIES[type_infraction]
         else:
             return self._INVALID_DEMERIT_POINTS
 
     def _aggregate_values_by_identity_card_number(self, violator_in_review):
-        self._aggregate_license_plates(
-            violator_in_review.identity_card_number,
-            violator_in_review.license_plate_number
-        )
-        self._aggregate_demerit_points(
-            violator_in_review.identity_card_number,
-            violator_in_review.notification_date,
-            violator_in_review.infraction_date,
-            violator_in_review.type_infraction
-        )
+        for violator_registered in self._violators_avaliations:
+            if (
+                violator_registered.identity_card_number ==
+                violator_in_review.identity_card_number
+            ):
+                self._aggregate_license_plates(
+                    violator_registered,
+                    violator_in_review.license_plate_number
+                )
+                self._aggregate_demerit_points(
+                    violator_registered,
+                    violator_in_review.notification_date,
+                    violator_in_review.infraction_date,
+                    violator_in_review.type_infraction
+                )
 
     def build_violators_avaliations(self):
         for traffic_violation in self._traffic_violations:
