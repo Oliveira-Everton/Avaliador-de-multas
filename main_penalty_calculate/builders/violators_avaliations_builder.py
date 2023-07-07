@@ -63,20 +63,28 @@ class ViolatorsAvaliationsBuilder:
                         license_plate_to_be_checked
                     )
 
-    def _aggregate_demerit_points(self, violator_in_review, type_infraction):
+    def _aggregate_demerit_points(
+        self,
+        violator_in_review,
+        notification_date,
+        infraction_date,
+        type_infraction
+    ):
         for violator in self._violators_avaliations:
             if (
                 violator.identity_card_number ==
                 violator_in_review
             ):
                 violator.sum_demerit_points(
-                    self._INFRACTION_PENALTIES[
+                    self._convert_demerit_points(
+                        notification_date,
+                        infraction_date,
                         type_infraction
-                    ]
+                    )
                 )
 
     def _is_demerit_points_valid(self, notification_date, infraction_date):
-        if (
+        return (
             datetime.strptime(
                 notification_date,
                 self._DATE_FORMAT
@@ -85,10 +93,7 @@ class ViolatorsAvaliationsBuilder:
                 infraction_date,
                 self._DATE_FORMAT
             )
-        ).days > self._VALIDITY_PERIOD_OF_INFRINGEMENT:
-            return False
-        else:
-            return True
+        ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT
 
     def _convert_demerit_points(
         self,
@@ -108,15 +113,12 @@ class ViolatorsAvaliationsBuilder:
             violator_in_review.identity_card_number,
             violator_in_review.license_plate_number
         )
-        if self._convert_demerit_points(
+        self._aggregate_demerit_points(
+            violator_in_review.identity_card_number,
             violator_in_review.notification_date,
             violator_in_review.infraction_date,
             violator_in_review.type_infraction
-        ):
-            self._aggregate_demerit_points(
-                violator_in_review.identity_card_number,
-                violator_in_review.type_infraction
-            )
+        )
 
     def build_violators_avaliations(self):
         for traffic_violation in self._traffic_violations:
