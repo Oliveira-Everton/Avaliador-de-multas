@@ -22,12 +22,12 @@ class ViolatorsAvaliationsBuilder:
 
     def _is_identity_card_number_already_present(
         self,
-        identity_card_to_be_checked
+        identity_card_in_review
     ):
         for identity_card in self._violators_avaliations:
             if (
                 identity_card.identity_card_number ==
-                identity_card_to_be_checked
+                identity_card_in_review
             ):
                 return True
         return False
@@ -35,12 +35,12 @@ class ViolatorsAvaliationsBuilder:
     def _is_license_plate_number_already_present(
         self,
         license_plate_list,
-        license_plate_to_be_checked
+        license_plate_in_review
     ):
         for license_plate_number in license_plate_list:
             if (
                 license_plate_number ==
-                license_plate_to_be_checked
+                license_plate_in_review
             ):
                 return True
         return False
@@ -48,28 +48,28 @@ class ViolatorsAvaliationsBuilder:
     def _aggregate_license_plates(
         self,
         violator_registered,
-        license_plate_to_be_checked
+        license_plate_in_review
     ):
         if not self._is_license_plate_number_already_present(
             violator_registered.license_plate_numbers,
-            license_plate_to_be_checked
+            license_plate_in_review
         ):
             violator_registered.license_plate_numbers.append(
-                license_plate_to_be_checked
+                license_plate_in_review
             )
 
     def _aggregate_demerit_points(
         self,
         violator_registered,
-        notification_date,
-        infraction_date,
-        type_infraction
+        notification_date_in_review,
+        infraction_date_in_review,
+        type_infraction_in_review
     ):
         violator_registered.sum_demerit_points(
             self._convert_demerit_points(
-                notification_date,
-                infraction_date,
-                type_infraction
+                notification_date_in_review,
+                infraction_date_in_review,
+                type_infraction_in_review
             )
         )
 
