@@ -61,15 +61,15 @@ class ViolatorsAvaliationsBuilder:
     def _aggregate_demerit_points(
         self,
         violator_registered,
-        notification_date_in_review,
-        infraction_date_in_review,
-        type_infraction_in_review
+        notification_date,
+        infraction_date,
+        type_infraction
     ):
         violator_registered.sum_demerit_points(
             self._convert_demerit_points(
-                notification_date_in_review,
-                infraction_date_in_review,
-                type_infraction_in_review
+                notification_date,
+                infraction_date,
+                type_infraction
             )
         )
 
