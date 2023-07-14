@@ -64,14 +64,18 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 license_plate=LicensePlate('IDE-3516'),
                 type_infraction=TypeInfraction('Grave'),
                 infraction_date=datetime.fromisoformat('1999-10-01 06:12:22'),
-                notification_date=datetime.fromisoformat('1999-11-04 08:00:00')
+                notification_date=datetime.fromisoformat(
+                    '1999-11-04 08:00:00'
+                )
             ),
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                 license_plate=LicensePlate('NAQ-5775'),
                 type_infraction=TypeInfraction('Leve'),
                 infraction_date=datetime.fromisoformat('1999-10-11 06:12:22'),
-                notification_date=datetime.fromisoformat('1999-10-16 08:00:00')
+                notification_date=datetime.fromisoformat(
+                    '1999-10-16 08:00:00'
+                )
             ),
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
