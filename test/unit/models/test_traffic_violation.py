@@ -5,7 +5,8 @@ from datetime import datetime
 from main_penalty_calculate.models import (
     TrafficViolation,
     IdentityCard,
-    LicensePlate
+    LicensePlate,
+    TypeInfraction
 )
 
 
@@ -14,7 +15,7 @@ class TestTrafficViolation(unittest.TestCase):
         traffic_violation = TrafficViolation(
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
-            type_infraction='Leve',
+            type_infraction=TypeInfraction('Leve'),
             infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
             notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
         )
@@ -27,7 +28,7 @@ class TestTrafficViolation(unittest.TestCase):
         traffic_violation = TrafficViolation(
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
-            type_infraction='Leve',
+            type_infraction=TypeInfraction('Leve'),
             infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
             notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
         )
@@ -40,7 +41,7 @@ class TestTrafficViolation(unittest.TestCase):
         traffic_violation = TrafficViolation(
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
-            type_infraction='Leve',
+            type_infraction=TypeInfraction('Leve'),
             infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
             notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
         )
@@ -53,20 +54,20 @@ class TestTrafficViolation(unittest.TestCase):
         traffic_violation = TrafficViolation(
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
-            type_infraction='Leve',
+            type_infraction=TypeInfraction('Leve'),
             infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
             notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
         )
 
         type_infraction = traffic_violation.type_infraction
 
-        self.assertEqual(type_infraction, 'Leve')
+        self.assertEqual(type_infraction, TypeInfraction('Leve'))
 
     def test_infraction_date(self):
         traffic_violation = TrafficViolation(
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
-            type_infraction='Leve',
+            type_infraction=TypeInfraction('Leve'),
             infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
             notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
         )
@@ -83,7 +84,7 @@ class TestTrafficViolation(unittest.TestCase):
         traffic_violation = TrafficViolation(
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
-            type_infraction='Leve',
+            type_infraction=TypeInfraction('Leve'),
             infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
             notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
         )

@@ -5,3 +5,6 @@ class TypeInfraction:
     @property
     def type(self):
         return self._type_infraction
+
+    def __eq__(self, other):
+        return self._type_infraction == other._type_infraction

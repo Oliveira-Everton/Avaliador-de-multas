@@ -42,7 +42,7 @@ class TrafficViolation:
             self.identity_card_number,
             self.identity_card_name,
             self.license_plate_number,
-            self.type_infraction.type,
+            self.type_infraction,
             self.infraction_date,
             self.notification_date
         ]
