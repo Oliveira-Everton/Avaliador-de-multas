@@ -6,7 +6,8 @@ from main_penalty_calculate.builders import TrafficViolationBuilder
 from main_penalty_calculate.models import (
     TrafficViolation,
     IdentityCard,
-    LicensePlate
+    LicensePlate,
+    TypeInfraction
 )
 
 
@@ -52,7 +53,7 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                     license_plate=LicensePlate(
                         number='MGN-9130'
                     ),
-                    type_infraction='Gravíssima',
+                    type_infraction=TypeInfraction('Gravíssima'),
                     infraction_date=datetime.fromisoformat(
                         '1275-01-30 15:00:00'
                     ),

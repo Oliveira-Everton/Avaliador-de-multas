@@ -1,6 +1,11 @@
 from datetime import datetime
 
-from ..models import TrafficViolation, IdentityCard, LicensePlate
+from ..models import (
+    TrafficViolation,
+    IdentityCard,
+    LicensePlate,
+    TypeInfraction
+)
 
 
 class TrafficViolationBuilder:
@@ -28,7 +33,9 @@ class TrafficViolationBuilder:
                         license_plate=LicensePlate(
                             number=column[self._LICENSE_PLATE]
                         ),
-                        type_infraction=column[self._TYPE_INFRACTION],
+                        type_infraction=TypeInfraction(
+                            column[self._TYPE_INFRACTION]
+                        ),
                         infraction_date=datetime.fromisoformat(
                             column[self._INFRACTION_DATE]
                         ),

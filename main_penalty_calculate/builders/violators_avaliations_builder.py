@@ -85,7 +85,7 @@ class ViolatorsAvaliationsBuilder:
         type_infraction
     ):
         if self._is_demerit_points_valid(notification_date, infraction_date):
-            return self._INFRACTION_PENALTIES[type_infraction]
+            return self._INFRACTION_PENALTIES[type_infraction.type]
         else:
             return self._INVALID_DEMERIT_POINTS
 
