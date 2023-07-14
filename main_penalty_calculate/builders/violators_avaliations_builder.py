@@ -75,8 +75,7 @@ class ViolatorsAvaliationsBuilder:
 
     def _is_demerit_points_valid(self, notification_date, infraction_date):
         return (
-            datetime.strptime(notification_date, self._DATE_FORMAT) -
-            datetime.strptime(infraction_date, self._DATE_FORMAT)
+            notification_date - infraction_date
         ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT
 
     def _convert_demerit_points(
@@ -109,7 +108,6 @@ class ViolatorsAvaliationsBuilder:
 
     def build_violators_avaliations(self):
         for traffic_violation in self._traffic_violations:
-
             if self._is_identity_card_number_already_present(
                 traffic_violation.identity_card_number
             ):

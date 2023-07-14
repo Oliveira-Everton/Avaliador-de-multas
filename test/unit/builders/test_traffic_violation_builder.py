@@ -1,5 +1,7 @@
 import unittest
 
+from datetime import datetime
+
 from main_penalty_calculate.builders import TrafficViolationBuilder
 from main_penalty_calculate.models import (
     TrafficViolation,
@@ -10,6 +12,7 @@ from main_penalty_calculate.models import (
 
 class TestTrafficViolationBuilder(unittest.TestCase):
     def test_build_traffic_violations(self):
+
         converted_file = [
             (
                 0, [
@@ -26,8 +29,8 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                 1, [
                     'MGN-9130',
                     'Gravíssima',
-                    '975-01-30 15:00:00',
-                    '975-02-01 10:00:00',
+                    '1275-01-30 15:00:00',
+                    '1275-02-01 10:00:00',
                     '',
                     '138469945',
                     'Morgan'
@@ -50,8 +53,12 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                         number='MGN-9130'
                     ),
                     type_infraction='Gravíssima',
-                    infraction_date='975-01-30 15:00:00',
-                    notification_date='975-02-01 10:00:00'
+                    infraction_date=datetime.fromisoformat(
+                        '1275-01-30 15:00:00'
+                    ),
+                    notification_date=datetime.fromisoformat(
+                        '1275-02-01 10:00:00'
+                    )
                 )
             ]
         )
