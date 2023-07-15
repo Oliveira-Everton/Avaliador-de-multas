@@ -1,12 +1,7 @@
-from datetime import datetime
-
 from ..models import ViolatorAvaliation, IdentityCard
 
 
 class ViolatorsAvaliationsBuilder:
-    _LICENSE_PLATE_IN_LIST = 0
-    _FIRST_TRAFFIC_VIOLATION = 0
-    _DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
     _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
     _INVALID_DEMERIT_POINTS = 0
     _INFRACTION_PENALTIES = {
