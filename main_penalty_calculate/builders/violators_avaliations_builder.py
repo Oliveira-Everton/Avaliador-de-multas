@@ -5,10 +5,10 @@ class ViolatorsAvaliationsBuilder:
     _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
     _INVALID_DEMERIT_POINTS = 0
     _INFRACTION_PENALTIES = {
-        'Leve': 3,
-        'Média': 4,
-        'Grave': 5,
-        'Gravíssima': 7
+        'Light': 3,
+        'Average': 4,
+        'Serious': 5,
+        'Very serious': 7
     }
 
     def __init__(self, traffic_violations):
@@ -80,7 +80,7 @@ class ViolatorsAvaliationsBuilder:
         type_infraction
     ):
         if self._is_demerit_points_valid(notification_date, infraction_date):
-            return self._INFRACTION_PENALTIES[type_infraction.type]
+            return self._INFRACTION_PENALTIES[type_infraction]
         else:
             return self._INVALID_DEMERIT_POINTS
 

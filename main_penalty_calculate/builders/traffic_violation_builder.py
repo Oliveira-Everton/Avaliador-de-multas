@@ -3,8 +3,7 @@ from datetime import datetime
 from ..models import (
     TrafficViolation,
     IdentityCard,
-    LicensePlate,
-    TypeInfraction
+    LicensePlate
 )
 
 
@@ -16,6 +15,12 @@ class TrafficViolationBuilder:
     _TYPE_INFRACTION = 1
     _INFRACTION_DATE = 2
     _NOTIFICATION_DATE = 3
+    _DEGREES_OF_PENALTY = {
+        'Leve': 'Light',
+        'Média': 'Average',
+        'Grave': 'Serious',
+        'Gravíssima': 'Very serious'
+    }
 
     def __init__(self, file):
         self._file = file
@@ -33,9 +38,9 @@ class TrafficViolationBuilder:
                         license_plate=LicensePlate(
                             number=column[self._LICENSE_PLATE]
                         ),
-                        type_infraction=TypeInfraction(
+                        type_infraction=self._DEGREES_OF_PENALTY[
                             column[self._TYPE_INFRACTION]
-                        ),
+                        ],
                         infraction_date=datetime.fromisoformat(
                             column[self._INFRACTION_DATE]
                         ),

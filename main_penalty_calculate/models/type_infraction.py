@@ -1,4 +1,11 @@
 class TypeInfraction:
+    _DEGREES_OF_PENALTY = {
+        'Leve': 'Light',
+        'Média': 'Average',
+        'Grave': 'Serious',
+        'Gravíssima': 'Very Serious'
+    }
+
     def __init__(self, type_infraction):
         self._type_infraction = type_infraction
 
