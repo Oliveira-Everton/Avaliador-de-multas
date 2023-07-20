@@ -42,25 +42,25 @@ class ViolatorsAvaliationsBuilder:
 
     def _aggregate_license_plates(
         self,
-        violator_registered,
+        violator_in_list,
         license_plate_in_review
     ):
         if not self._is_license_plate_number_already_present(
-            violator_registered.license_plate_numbers,
+            violator_in_list.license_plate_numbers,
             license_plate_in_review
         ):
-            violator_registered.license_plate_numbers.append(
+            violator_in_list.license_plate_numbers.append(
                 license_plate_in_review
             )
 
     def _aggregate_demerit_points(
         self,
-        violator_registered,
+        violator_in_list,
         notification_date,
         infraction_date,
         type_infraction
     ):
-        violator_registered.sum_demerit_points(
+        violator_in_list.sum_demerit_points(
             self._convert_demerit_points(
                 notification_date,
                 infraction_date,
@@ -85,17 +85,17 @@ class ViolatorsAvaliationsBuilder:
             return self._INVALID_DEMERIT_POINTS
 
     def _aggregate_values_by_identity_card_number(self, violator_in_review):
-        for violator_registered in self._violators_avaliations:
+        for violator_in_list in self._violators_avaliations:
             if (
-                violator_registered.identity_card_number ==
+                violator_in_list.identity_card_number ==
                 violator_in_review.identity_card_number
             ):
                 self._aggregate_license_plates(
-                    violator_registered,
+                    violator_in_list,
                     violator_in_review.license_plate_number
                 )
                 self._aggregate_demerit_points(
-                    violator_registered,
+                    violator_in_list,
                     violator_in_review.notification_date,
                     violator_in_review.infraction_date,
                     violator_in_review.type_infraction
