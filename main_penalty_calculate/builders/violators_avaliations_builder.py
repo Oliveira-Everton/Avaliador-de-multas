@@ -84,21 +84,21 @@ class ViolatorsAvaliationsBuilder:
         else:
             return self._INVALID_DEMERIT_POINTS
 
-    def _aggregate_values_by_identity_card_number(self, violator_in_review):
+    def _aggregate_values_by_identity_card_number(self, traffic_violation):
         for violator_avaliation in self._violators_avaliations:
             if (
                 violator_avaliation.identity_card_number ==
-                violator_in_review.identity_card_number
+                traffic_violation.identity_card_number
             ):
                 self._aggregate_license_plates(
                     violator_avaliation,
-                    violator_in_review.license_plate_number
+                    traffic_violation.license_plate_number
                 )
                 self._aggregate_demerit_points(
                     violator_avaliation,
-                    violator_in_review.notification_date,
-                    violator_in_review.infraction_date,
-                    violator_in_review.type_infraction
+                    traffic_violation.notification_date,
+                    traffic_violation.infraction_date,
+                    traffic_violation.type_infraction
                 )
 
     def build_violators_avaliations(self):
