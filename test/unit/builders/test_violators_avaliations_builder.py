@@ -57,7 +57,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_with_more_plates_in_identity_card(self):
+    def test_build_violator_avaliation_with_repeated_identity_card(self):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
@@ -167,12 +167,12 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_demerit_points(self):
+    def test_build_violator_avaliation_all_demerit_points(self):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                 license_plate=LicensePlate('MGN-9130'),
-                type_infraction=PenaltyStrings.VERY_SERIOUS,
+                type_infraction=PenaltyStrings.LIGHT,
                 infraction_date=datetime.fromisoformat('1750-01-01 12:00:00'),
                 notification_date=datetime.fromisoformat(
                     '1750-01-04 07:00:00'
@@ -185,6 +185,24 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 infraction_date=datetime.fromisoformat('1890-01-01 12:00:00'),
                 notification_date=datetime.fromisoformat(
                     '1890-01-02 07:00:00'
+                )
+            ),
+            TrafficViolation(
+                identity_card=IdentityCard('13.386.966-0', 'Miho'),
+                license_plate=LicensePlate('RXO-0694'),
+                type_infraction=PenaltyStrings.SERIOUS,
+                infraction_date=datetime.fromisoformat('2000-06-11 12:00:00'),
+                notification_date=datetime.fromisoformat(
+                    '2000-06-12 07:27:42'
+                )
+            ),
+            TrafficViolation(
+                identity_card=IdentityCard('19.632.142-6', 'Takashi'),
+                license_plate=LicensePlate('IDE-3516'),
+                type_infraction=PenaltyStrings.VERY_SERIOUS,
+                infraction_date=datetime.fromisoformat('2000-02-02 12:00:00'),
+                notification_date=datetime.fromisoformat(
+                    '2000-02-03 07:27:42'
                 )
             )
         ]
@@ -201,12 +219,22 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 ViolatorAvaliation(
                     identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                     license_plates=['MGN-9130'],
-                    demerit_points=7
+                    demerit_points=3
                 ),
                 ViolatorAvaliation(
                     identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                     license_plates=['QBJ-6840'],
                     demerit_points=4
+                ),
+                ViolatorAvaliation(
+                    identity_card=IdentityCard('13.386.966-0', 'Miho'),
+                    license_plates=['RXO-0694'],
+                    demerit_points=5
+                ),
+                ViolatorAvaliation(
+                    identity_card=IdentityCard('19.632.142-6', 'Takashi'),
+                    license_plates=['IDE-3516'],
+                    demerit_points=7
                 )
             ]
         )
@@ -290,6 +318,45 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                     license_plates=['QBJ-6840'],
                     demerit_points=8
+                )
+            ]
+        )
+
+    def test_build_violator_avaliation_sum_invalid_demerit_points(self):
+        traffic_violations = [
+            TrafficViolation(
+                identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
+                license_plate=LicensePlate('QBJ-6840'),
+                type_infraction=PenaltyStrings.AVERAGE,
+                infraction_date=datetime.fromisoformat('1890-01-01 12:00:00'),
+                notification_date=datetime.fromisoformat(
+                    '1890-01-03 07:00:00'
+                )
+            ),
+            TrafficViolation(
+                identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
+                license_plate=LicensePlate('OLV-7536'),
+                type_infraction=PenaltyStrings.LIGHT,
+                infraction_date=datetime.fromisoformat('1890-09-03 12:00:00'),
+                notification_date=datetime.fromisoformat(
+                    '1890-11-01 07:00:00'
+                )
+            )
+        ]
+        violators_avaliations_builder = ViolatorsAvaliationsBuilder(
+            traffic_violations
+        )
+
+        violators_avaliations = (
+            violators_avaliations_builder.build_violators_avaliations()
+        )
+
+        self.assertEqual(
+            violators_avaliations, [
+                ViolatorAvaliation(
+                    identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
+                    license_plates=['QBJ-6840', 'OLV-7536'],
+                    demerit_points=4
                 )
             ]
         )
