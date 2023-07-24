@@ -1,14 +1,15 @@
 from ..models import ViolatorAvaliation, IdentityCard
+from ..constants import PenaltyStrings
 
 
 class ViolatorsAvaliationsBuilder:
     _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
     _INVALID_DEMERIT_POINTS = 0
     _INFRACTION_PENALTIES = {
-        'light': 3,
-        'average': 4,
-        'serious': 5,
-        'very_serious': 7
+        PenaltyStrings.LIGHT: 3,
+        PenaltyStrings.AVERAGE: 4,
+        PenaltyStrings.SERIOUS: 5,
+        PenaltyStrings.VERY_SERIOUS: 7
     }
 
     def __init__(self, traffic_violations):

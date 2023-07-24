@@ -5,6 +5,7 @@ from ..models import (
     IdentityCard,
     LicensePlate
 )
+from ..constants import PenaltyStrings
 
 
 class TrafficViolationBuilder:
@@ -16,10 +17,10 @@ class TrafficViolationBuilder:
     _INFRACTION_DATE = 2
     _NOTIFICATION_DATE = 3
     _DEGREES_OF_PENALTY = {
-        'Leve': 'light',
-        'Média': 'average',
-        'Grave': 'serious',
-        'Gravíssima': 'very_serious'
+        'Leve': PenaltyStrings.LIGHT,
+        'Média': PenaltyStrings.AVERAGE,
+        'Grave': PenaltyStrings.SERIOUS,
+        'Gravíssima': PenaltyStrings.VERY_SERIOUS
     }
 
     def __init__(self, file):
