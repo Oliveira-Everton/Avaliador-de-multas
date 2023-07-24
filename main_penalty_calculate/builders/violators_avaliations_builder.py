@@ -5,10 +5,10 @@ class ViolatorsAvaliationsBuilder:
     _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
     _INVALID_DEMERIT_POINTS = 0
     _INFRACTION_PENALTIES = {
-        'Light': 3,
-        'Average': 4,
-        'Serious': 5,
-        'Very serious': 7
+        'light': 3,
+        'average': 4,
+        'serious': 5,
+        'very_serious': 7
     }
 
     def __init__(self, traffic_violations):

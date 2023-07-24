@@ -16,10 +16,10 @@ class TrafficViolationBuilder:
     _INFRACTION_DATE = 2
     _NOTIFICATION_DATE = 3
     _DEGREES_OF_PENALTY = {
-        'Leve': 'Light',
-        'Média': 'Average',
-        'Grave': 'Serious',
-        'Gravíssima': 'Very serious'
+        'Leve': 'light',
+        'Média': 'average',
+        'Grave': 'serious',
+        'Gravíssima': 'very_serious'
     }
 
     def __init__(self, file):

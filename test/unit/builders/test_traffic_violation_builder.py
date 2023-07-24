@@ -52,7 +52,7 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                     license_plate=LicensePlate(
                         number='MGN-9130'
                     ),
-                    type_infraction='Very serious',
+                    type_infraction='very_serious',
                     infraction_date=datetime.fromisoformat(
                         '1275-01-30 15:00:00'
                     ),
