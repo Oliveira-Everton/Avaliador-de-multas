@@ -13,7 +13,7 @@ from main_penalty_calculate.constants import PenaltyStrings
 
 
 class TestViolatorsAvaliationsBuilder(unittest.TestCase):
-    def test_build_violator_avaliation(self):
+    def test_build_violator_avaliation_with_different_identity_cards(self):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
@@ -96,7 +96,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_with_repeated_plates(self):
+    def test_build_violator_avaliation_with_repeated_license_plates(self):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
@@ -109,7 +109,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ),
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('NAQ-5775'),
+                license_plate=LicensePlate('IDE-3516'),
                 type_infraction=PenaltyStrings.SERIOUS,
                 infraction_date=datetime.fromisoformat('1999-10-01 06:12:22'),
                 notification_date=datetime.fromisoformat(
@@ -156,7 +156,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             violators_avaliations, [
                 ViolatorAvaliation(
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                    license_plates=['IDE-3516', 'NAQ-5775'],
+                    license_plates=['IDE-3516'],
                     demerit_points=5
                 ),
                 ViolatorAvaliation(
@@ -167,7 +167,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_all_demerit_points(self):
+    def test_build_violator_avaliation_all_type_infractions(self):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('13.846.994-5', 'Morgan'),
@@ -283,7 +283,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_sum_demerit_points(self):
+    def test_build_violator_avaliation_aggregate_demerit_points(self):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
@@ -322,7 +322,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_sum_invalid_demerit_points(self):
+    def test_build_violator_avaliation_aggregate_invalid_demerit_points(self):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
