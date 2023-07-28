@@ -31,12 +31,12 @@ class ViolatorsAvaliationsBuilder:
     def _is_license_plate_number_already_present(
         self,
         license_plate_list,
-        license_plate_in_review
+        traffic_violation
     ):
         for license_plate_number in license_plate_list:
             if (
                 license_plate_number ==
-                license_plate_in_review
+                traffic_violation.license_plate_number
             ):
                 return True
         return False
@@ -48,7 +48,7 @@ class ViolatorsAvaliationsBuilder:
     ):
         if not self._is_license_plate_number_already_present(
             violator_avaliation.license_plate_numbers,
-            traffic_violation.license_plate_number
+            traffic_violation
         ):
             violator_avaliation.license_plate_numbers.append(
                 traffic_violation.license_plate_number
