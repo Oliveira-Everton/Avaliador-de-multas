@@ -3,7 +3,7 @@ import unittest
 from datetime import datetime
 
 from main_penalty_calculate.builders import TrafficViolationBuilder
-from main_penalty_calculate.constants import PenaltyStrings
+from main_penalty_calculate.constants import TypeInfractionStrings
 from main_penalty_calculate.models import (
     TrafficViolation,
     IdentityCard,
@@ -52,7 +52,7 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                     license_plate=LicensePlate(
                         number='MGN-9130'
                     ),
-                    type_infraction=PenaltyStrings.VERY_SERIOUS,
+                    type_infraction=TypeInfractionStrings.VERY_SERIOUS,
                     infraction_date=datetime.fromisoformat(
                         '1275-01-30 15:00:00'
                     ),
@@ -103,7 +103,7 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                     license_plate=LicensePlate(
                         number='MGN-9130'
                     ),
-                    type_infraction=PenaltyStrings.SERIOUS,
+                    type_infraction=TypeInfractionStrings.SERIOUS,
                     infraction_date=datetime.fromisoformat(
                         '1275-01-30 15:00:00'
                     ),
@@ -154,7 +154,7 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                     license_plate=LicensePlate(
                         number='MGN-9130'
                     ),
-                    type_infraction=PenaltyStrings.AVERAGE,
+                    type_infraction=TypeInfractionStrings.AVERAGE,
                     infraction_date=datetime.fromisoformat(
                         '1275-01-30 15:00:00'
                     ),
@@ -205,7 +205,7 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                     license_plate=LicensePlate(
                         number='MGN-9130'
                     ),
-                    type_infraction=PenaltyStrings.LIGHT,
+                    type_infraction=TypeInfractionStrings.LIGHT,
                     infraction_date=datetime.fromisoformat(
                         '1275-01-30 15:00:00'
                     ),

@@ -1,4 +1,4 @@
-class PenaltyStrings:
+class TypeInfractionStrings:
     LIGHT = 'light',
     AVERAGE = 'average',
     SERIOUS = 'serious',

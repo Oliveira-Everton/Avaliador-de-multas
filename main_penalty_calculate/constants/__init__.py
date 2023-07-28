@@ -1,1 +1,1 @@
-from .penalty_strings import PenaltyStrings
+from .type_infraction_strings import TypeInfractionStrings
