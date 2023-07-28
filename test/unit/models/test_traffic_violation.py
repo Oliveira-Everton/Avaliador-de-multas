@@ -16,8 +16,8 @@ class TestTrafficViolation(unittest.TestCase):
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
             type_infraction=TypeInfractionStrings.LIGHT,
-            infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
-            notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
+            infraction_date=datetime(1865, 10, 6, 12),
+            notification_date=datetime(1865, 10, 10, 7, 27, 42)
         )
 
         identity_card_name = traffic_violation.identity_card_name
@@ -29,8 +29,8 @@ class TestTrafficViolation(unittest.TestCase):
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
             type_infraction=TypeInfractionStrings.LIGHT,
-            infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
-            notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
+            infraction_date=datetime(1865, 10, 6, 12),
+            notification_date=datetime(1865, 10, 10, 7, 27, 42)
         )
 
         identity_card_number = traffic_violation.identity_card_number
@@ -42,8 +42,8 @@ class TestTrafficViolation(unittest.TestCase):
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
             type_infraction=TypeInfractionStrings.LIGHT,
-            infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
-            notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
+            infraction_date=datetime(1865, 10, 6, 12),
+            notification_date=datetime(1865, 10, 10, 7, 27, 42)
         )
 
         license_plate_number = traffic_violation.license_plate_number
@@ -55,8 +55,8 @@ class TestTrafficViolation(unittest.TestCase):
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
             type_infraction=TypeInfractionStrings.LIGHT,
-            infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
-            notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
+            infraction_date=datetime(1865, 10, 6, 12),
+            notification_date=datetime(1865, 10, 10, 7, 27, 42)
         )
 
         type_infraction = traffic_violation.type_infraction
@@ -68,16 +68,14 @@ class TestTrafficViolation(unittest.TestCase):
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
             type_infraction=TypeInfractionStrings.LIGHT,
-            infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
-            notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
+            infraction_date=datetime(1865, 10, 6, 12),
+            notification_date=datetime(1865, 10, 10, 7, 27, 42)
         )
 
         infraction_date = traffic_violation.infraction_date
 
         self.assertEqual(
-            infraction_date, datetime.fromisoformat(
-                '1865-10-06 12:00:00'
-            )
+            infraction_date, datetime(1865, 10, 6, 12)
         )
 
     def test_notification_date(self):
@@ -85,14 +83,12 @@ class TestTrafficViolation(unittest.TestCase):
             identity_card=IdentityCard('13.386.966-0', 'Miho'),
             license_plate=LicensePlate('RXO-0694'),
             type_infraction=TypeInfractionStrings.LIGHT,
-            infraction_date=datetime.fromisoformat('1865-10-06 12:00:00'),
-            notification_date=datetime.fromisoformat('1865-10-10 07:27:42')
+            infraction_date=datetime(1865, 10, 6, 12),
+            notification_date=datetime(1865, 10, 10, 7, 27, 42)
         )
 
         notification_date = traffic_violation.notification_date
 
         self.assertEqual(
-            notification_date, datetime.fromisoformat(
-                '1865-10-10 07:27:42'
-            )
+            notification_date, datetime(1865, 10, 10, 7, 27, 42)
         )

@@ -53,12 +53,8 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                         number='MGN-9130'
                     ),
                     type_infraction=TypeInfractionStrings.VERY_SERIOUS,
-                    infraction_date=datetime.fromisoformat(
-                        '1275-01-30 15:00:00'
-                    ),
-                    notification_date=datetime.fromisoformat(
-                        '1275-02-01 10:00:00'
-                    )
+                    infraction_date=datetime(1275, 1, 30, 15),
+                    notification_date=datetime(1275, 2, 1, 10)
                 )
             ]
         )
@@ -104,12 +100,8 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                         number='MGN-9130'
                     ),
                     type_infraction=TypeInfractionStrings.SERIOUS,
-                    infraction_date=datetime.fromisoformat(
-                        '1275-01-30 15:00:00'
-                    ),
-                    notification_date=datetime.fromisoformat(
-                        '1275-02-01 10:00:00'
-                    )
+                    infraction_date=datetime(1275, 1, 30, 15),
+                    notification_date=datetime(1275, 2, 1, 10)
                 )
             ]
         )
@@ -155,12 +147,8 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                         number='MGN-9130'
                     ),
                     type_infraction=TypeInfractionStrings.AVERAGE,
-                    infraction_date=datetime.fromisoformat(
-                        '1275-01-30 15:00:00'
-                    ),
-                    notification_date=datetime.fromisoformat(
-                        '1275-02-01 10:00:00'
-                    )
+                    infraction_date=datetime(1275, 1, 30, 15),
+                    notification_date=datetime(1275, 2, 1, 10)
                 )
             ]
         )
@@ -206,12 +194,8 @@ class TestTrafficViolationBuilder(unittest.TestCase):
                         number='MGN-9130'
                     ),
                     type_infraction=TypeInfractionStrings.LIGHT,
-                    infraction_date=datetime.fromisoformat(
-                        '1275-01-30 15:00:00'
-                    ),
-                    notification_date=datetime.fromisoformat(
-                        '1275-02-01 10:00:00'
-                    )
+                    infraction_date=datetime(1275, 1, 30, 15),
+                    notification_date=datetime(1275, 2, 1, 10)
                 )
             ]
         )
