@@ -44,14 +44,14 @@ class ViolatorsAvaliationsBuilder:
     def _aggregate_license_plates(
         self,
         violator_avaliation,
-        license_plate_in_review
+        traffic_violation
     ):
         if not self._is_license_plate_number_already_present(
             violator_avaliation.license_plate_numbers,
-            license_plate_in_review
+            traffic_violation.license_plate_number
         ):
             violator_avaliation.license_plate_numbers.append(
-                license_plate_in_review
+                traffic_violation.license_plate_number
             )
 
     def _aggregate_demerit_points(
@@ -93,7 +93,7 @@ class ViolatorsAvaliationsBuilder:
             ):
                 self._aggregate_license_plates(
                     violator_avaliation,
-                    traffic_violation.license_plate_number
+                    traffic_violation
                 )
                 self._aggregate_demerit_points(
                     violator_avaliation,
