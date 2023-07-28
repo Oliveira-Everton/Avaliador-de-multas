@@ -5,9 +5,7 @@ from main_penalty_calculate.penalty_calculate import PenaltyCalculate
 
 class TestIntegration(unittest.TestCase):
     def test_evaluate_infractors(self):
-        penalty_calculate = PenaltyCalculate(
-            'Transit Ticket input 1.csv'
-        )
+        penalty_calculate = PenaltyCalculate('Transit Ticket input 1.csv')
 
         violators_avaliations = penalty_calculate.evaluate_infractors()
 

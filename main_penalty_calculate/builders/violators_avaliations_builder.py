@@ -16,10 +16,7 @@ class ViolatorsAvaliationsBuilder:
         self._traffic_violations = traffic_violations
         self._violators_avaliations = []
 
-    def _is_identity_card_number_already_present(
-        self,
-        traffic_violation
-    ):
+    def _is_identity_card_number_already_present(self, traffic_violation):
         for violator_avaliation in self._violators_avaliations:
             if (
                 violator_avaliation.identity_card_number ==
