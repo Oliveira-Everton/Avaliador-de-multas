@@ -19,15 +19,15 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                 license_plate=LicensePlate('IDE-3516'),
                 type_infraction=TypeInfractionStrings.VERY_SERIOUS,
-                infraction_date=datetime(1999, 10, 1, 6, 12, 22),
-                notification_date=datetime(1999, 11, 4, 8)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('13.386.966-0', 'Miho'),
                 license_plate=LicensePlate('RXO-0694'),
                 type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(2000, 1, 3, 12),
-                notification_date=datetime(2000, 1, 4, 7, 27, 42)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
             )
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
@@ -43,7 +43,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 ViolatorAvaliation(
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                     license_plates=['IDE-3516'],
-                    demerit_points=0
+                    demerit_points=7
                 ),
                 ViolatorAvaliation(
                     identity_card=IdentityCard('13.386.966-0', 'Miho'),
@@ -59,15 +59,15 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                 license_plate=LicensePlate('IDE-3516'),
                 type_infraction=TypeInfractionStrings.SERIOUS,
-                infraction_date=datetime(1999, 10, 1, 6, 12, 22),
-                notification_date=datetime(1999, 11, 4, 8)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                 license_plate=LicensePlate('NAQ-5775'),
                 type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(1999, 10, 11, 6, 12, 22),
-                notification_date=datetime(1999, 10, 16, 8)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
             ),
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
@@ -83,7 +83,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 ViolatorAvaliation(
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                     license_plates=['IDE-3516', 'NAQ-5775'],
-                    demerit_points=3
+                    demerit_points=8
                 )
             ]
         )
@@ -94,36 +94,36 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                 license_plate=LicensePlate('IDE-3516'),
                 type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(1999, 10, 1, 6, 12, 22),
-                notification_date=datetime(1999, 11, 4, 8)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 3, 4, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                 license_plate=LicensePlate('IDE-3516'),
                 type_infraction=TypeInfractionStrings.SERIOUS,
-                infraction_date=datetime(1999, 10, 1, 6, 12, 22),
-                notification_date=datetime(1999, 11, 4, 8)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 3, 4, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('13.386.966-0', 'Miho'),
                 license_plate=LicensePlate('RXO-0694'),
                 type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(2000, 1, 1, 12, 00, 00),
-                notification_date=datetime(2000, 1, 5, 7, 27, 42)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('13.386.966-0', 'Miho'),
                 license_plate=LicensePlate('RXO-0694'),
                 type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(2000, 6, 1, 12),
-                notification_date=datetime(2000, 6, 12, 7)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                 license_plate=LicensePlate('IDE-3516'),
                 type_infraction=TypeInfractionStrings.SERIOUS,
-                infraction_date=datetime(2000, 2, 2, 12),
-                notification_date=datetime(2000, 2, 3, 7)
+                infraction_date=datetime(1999, 2, 2, 12),
+                notification_date=datetime(1999, 2, 3, 7)
             )
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
@@ -155,29 +155,29 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                 license_plate=LicensePlate('MGN-9130'),
                 type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(1750, 1, 1, 12),
-                notification_date=datetime(1750, 1, 4, 7)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                 license_plate=LicensePlate('QBJ-6840'),
                 type_infraction=TypeInfractionStrings.AVERAGE,
-                infraction_date=datetime(1890, 1, 1, 12),
-                notification_date=datetime(1890, 1, 2, 7)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('13.386.966-0', 'Miho'),
                 license_plate=LicensePlate('RXO-0694'),
                 type_infraction=TypeInfractionStrings.SERIOUS,
-                infraction_date=datetime(2000, 6, 1, 12),
-                notification_date=datetime(2000, 6, 12, 7)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                 license_plate=LicensePlate('IDE-3516'),
                 type_infraction=TypeInfractionStrings.VERY_SERIOUS,
-                infraction_date=datetime(2000, 2, 2, 12),
-                notification_date=datetime(2000, 2, 3, 7)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
             )
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
@@ -221,8 +221,8 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                 license_plate=LicensePlate('MGN-9130'),
                 type_infraction=TypeInfractionStrings.VERY_SERIOUS,
-                infraction_date=datetime(1750, 1, 1, 12),
-                notification_date=datetime(1750, 1, 31, 7)
+                infraction_date=datetime(1999, 1, 1, 12),
+                notification_date=datetime(1999, 1, 31, 7)
             )
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
@@ -251,8 +251,8 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                 license_plate=LicensePlate('MGN-9130'),
                 type_infraction=TypeInfractionStrings.VERY_SERIOUS,
-                infraction_date=datetime(1750, 1, 1, 12),
-                notification_date=datetime(1750, 2, 1, 7)
+                infraction_date=datetime(1999, 1, 1, 12),
+                notification_date=datetime(1999, 2, 1, 7)
             )
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
@@ -281,8 +281,8 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                 license_plate=LicensePlate('MGN-9130'),
                 type_infraction=TypeInfractionStrings.VERY_SERIOUS,
-                infraction_date=datetime(1750, 1, 1, 12),
-                notification_date=datetime(1750, 2, 2, 7)
+                infraction_date=datetime(1999, 1, 1, 12),
+                notification_date=datetime(1999, 2, 2, 7)
             )
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
@@ -309,15 +309,15 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                 license_plate=LicensePlate('QBJ-6840'),
                 type_infraction=TypeInfractionStrings.AVERAGE,
-                infraction_date=datetime(1890, 1, 1, 12),
-                notification_date=datetime(1890, 1, 3, 7)
+                infraction_date=datetime(1999, 1, 1, 12),
+                notification_date=datetime(1999, 1, 3, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                 license_plate=LicensePlate('QBJ-6840'),
                 type_infraction=TypeInfractionStrings.AVERAGE,
-                infraction_date=datetime(1890, 9, 3, 12),
-                notification_date=datetime(1890, 9, 6, 7)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 6, 7)
             )
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
@@ -344,15 +344,15 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                 license_plate=LicensePlate('QBJ-6840'),
                 type_infraction=TypeInfractionStrings.AVERAGE,
-                infraction_date=datetime(1890, 1, 1, 12),
-                notification_date=datetime(1890, 1, 3, 7)
+                infraction_date=datetime(1999, 1, 1, 12),
+                notification_date=datetime(1999, 1, 3, 7)
             ),
             TrafficViolation(
                 identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                 license_plate=LicensePlate('OLV-7536'),
                 type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(1890, 9, 3, 12),
-                notification_date=datetime(1890, 11, 1, 7)
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 9, 3, 7)
             )
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
