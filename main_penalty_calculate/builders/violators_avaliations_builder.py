@@ -27,10 +27,10 @@ class ViolatorsAvaliationsBuilder:
 
     def _is_license_plate_number_already_present(
         self,
-        license_plate_list,
+        license_plates,
         traffic_violation
     ):
-        for license_plate_number in license_plate_list:
+        for license_plate_number in license_plates:
             if (
                 license_plate_number ==
                 traffic_violation.license_plate_number
