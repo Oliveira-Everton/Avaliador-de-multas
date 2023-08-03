@@ -213,21 +213,16 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_invalid_demerit_points(self):
+    def test_build_violator_avaliation_demerit_points_29th_infrigement_period(
+        self
+    ):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                 license_plate=LicensePlate('MGN-9130'),
                 type_infraction=TypeInfractionStrings.VERY_SERIOUS,
                 infraction_date=datetime(1750, 1, 1, 12),
-                notification_date=datetime(1750, 5, 4, 7)
-            ),
-            TrafficViolation(
-                identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
-                license_plate=LicensePlate('QBJ-6840'),
-                type_infraction=TypeInfractionStrings.AVERAGE,
-                infraction_date=datetime(1890, 1, 1, 12),
-                notification_date=datetime(1890, 3, 28, 7)
+                notification_date=datetime(1750, 1, 31, 7)
             )
         ]
         violators_avaliations_builder = ViolatorsAvaliationsBuilder(
@@ -243,11 +238,66 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 ViolatorAvaliation(
                     identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                     license_plates=['MGN-9130'],
-                    demerit_points=0
-                ),
+                    demerit_points=7
+                )
+            ]
+        )
+
+    def test_build_violator_avaliation_demerit_points_30th_infrigement_period(
+        self
+    ):
+        traffic_violations = [
+            TrafficViolation(
+                identity_card=IdentityCard('13.846.994-5', 'Morgan'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.VERY_SERIOUS,
+                infraction_date=datetime(1750, 1, 1, 12),
+                notification_date=datetime(1750, 2, 1, 7)
+            )
+        ]
+        violators_avaliations_builder = ViolatorsAvaliationsBuilder(
+            traffic_violations
+        )
+
+        violators_avaliations = (
+            violators_avaliations_builder.build_violators_avaliations()
+        )
+
+        self.assertEqual(
+            violators_avaliations, [
                 ViolatorAvaliation(
-                    identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
-                    license_plates=['QBJ-6840'],
+                    identity_card=IdentityCard('13.846.994-5', 'Morgan'),
+                    license_plates=['MGN-9130'],
+                    demerit_points=7
+                )
+            ]
+        )
+
+    def test_build_violator_avaliation_demerit_points_31th_infrigement_period(
+        self
+    ):
+        traffic_violations = [
+            TrafficViolation(
+                identity_card=IdentityCard('13.846.994-5', 'Morgan'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.VERY_SERIOUS,
+                infraction_date=datetime(1750, 1, 1, 12),
+                notification_date=datetime(1750, 2, 2, 7)
+            )
+        ]
+        violators_avaliations_builder = ViolatorsAvaliationsBuilder(
+            traffic_violations
+        )
+
+        violators_avaliations = (
+            violators_avaliations_builder.build_violators_avaliations()
+        )
+
+        self.assertEqual(
+            violators_avaliations, [
+                ViolatorAvaliation(
+                    identity_card=IdentityCard('13.846.994-5', 'Morgan'),
+                    license_plates=['MGN-9130'],
                     demerit_points=0
                 )
             ]
