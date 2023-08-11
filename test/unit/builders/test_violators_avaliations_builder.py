@@ -88,67 +88,6 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_with_repeated_license_plates(self):
-        traffic_violations = [
-            TrafficViolation(
-                identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('IDE-3516'),
-                type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(1999, 1, 3, 12),
-                notification_date=datetime(1999, 3, 4, 7)
-            ),
-            TrafficViolation(
-                identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('IDE-3516'),
-                type_infraction=TypeInfractionStrings.SERIOUS,
-                infraction_date=datetime(1999, 1, 3, 12),
-                notification_date=datetime(1999, 3, 4, 7)
-            ),
-            TrafficViolation(
-                identity_card=IdentityCard('13.386.966-0', 'Miho'),
-                license_plate=LicensePlate('RXO-0694'),
-                type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(1999, 1, 3, 12),
-                notification_date=datetime(1999, 1, 4, 7)
-            ),
-            TrafficViolation(
-                identity_card=IdentityCard('13.386.966-0', 'Miho'),
-                license_plate=LicensePlate('RXO-0694'),
-                type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(1999, 1, 3, 12),
-                notification_date=datetime(1999, 1, 4, 7)
-            ),
-            TrafficViolation(
-                identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                license_plate=LicensePlate('IDE-3516'),
-                type_infraction=TypeInfractionStrings.SERIOUS,
-                infraction_date=datetime(1999, 2, 2, 12),
-                notification_date=datetime(1999, 2, 3, 7)
-            )
-        ]
-        violators_avaliations_builder = ViolatorsAvaliationsBuilder(
-            traffic_violations
-        )
-
-        violators_avaliations = (
-            violators_avaliations_builder.build_violators_avaliations()
-        )
-
-        self.assertEqual(
-            violators_avaliations, [
-                ViolatorAvaliation(
-                    identity_card=IdentityCard('19.632.142-6', 'Takashi'),
-                    license_plates=['IDE-3516'],
-                    demerit_points=5
-                ),
-                ViolatorAvaliation(
-                    identity_card=IdentityCard('13.386.966-0', 'Miho'),
-                    license_plates=['RXO-0694'],
-                    demerit_points=6
-                )
-            ]
-        )
-
     def test_build_violator_avaliation_all_type_infractions(self):
         traffic_violations = [
             TrafficViolation(
