@@ -242,7 +242,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_aggregate_demerit_points(self):
+    def test_build_violator_avaliation_with_repeated_license_plates(self):
         traffic_violations = [
             TrafficViolation(
                 identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
