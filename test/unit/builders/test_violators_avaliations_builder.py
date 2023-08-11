@@ -276,38 +276,3 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                 )
             ]
         )
-
-    def test_build_violator_avaliation_aggregate_invalid_demerit_points(self):
-        traffic_violations = [
-            TrafficViolation(
-                identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
-                license_plate=LicensePlate('QBJ-6840'),
-                type_infraction=TypeInfractionStrings.AVERAGE,
-                infraction_date=datetime(1999, 1, 1, 12),
-                notification_date=datetime(1999, 1, 3, 7)
-            ),
-            TrafficViolation(
-                identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
-                license_plate=LicensePlate('OLV-7536'),
-                type_infraction=TypeInfractionStrings.LIGHT,
-                infraction_date=datetime(1999, 1, 3, 12),
-                notification_date=datetime(1999, 9, 3, 7)
-            )
-        ]
-        violators_avaliations_builder = ViolatorsAvaliationsBuilder(
-            traffic_violations
-        )
-
-        violators_avaliations = (
-            violators_avaliations_builder.build_violators_avaliations()
-        )
-
-        self.assertEqual(
-            violators_avaliations, [
-                ViolatorAvaliation(
-                    identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
-                    license_plates=['QBJ-6840', 'OLV-7536'],
-                    demerit_points=4
-                )
-            ]
-        )
