@@ -2,7 +2,12 @@ import re
 
 
 class OutputSerializer:
-    _OFFENDER_DATA = '{0}; {1}; {2}'
+    _OFFENDER_DATA = (
+        '{violation.identity_card_number}; '
+        '{violation.identity_card_name}; '
+        '{license_plate_numbers}; '
+        '{violation.demerit_points}'
+    )
     _PATTERN_FOR_REGEX = r'\[|\]|\''
     _EMPTY_STRING = ''
 
@@ -14,9 +19,8 @@ class OutputSerializer:
         for violation in self._violators_avaliations:
             offender_data.append(
                 self._OFFENDER_DATA.format(
-                    violation.identity_card_number,
-                    violation.identity_card_name,
-                    re.sub(
+                    violation=violation,
+                    license_plate_numbers=re.sub(
                         self._PATTERN_FOR_REGEX,
                         self._EMPTY_STRING,
                         str(violation.license_plate_numbers)
