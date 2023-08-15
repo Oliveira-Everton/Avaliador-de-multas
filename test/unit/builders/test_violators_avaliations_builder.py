@@ -86,7 +86,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                     license_plates=['IDE-3516', 'NAQ-5775'],
                     demerit_points=8,
-                    penalty_amount=195.23
+                    penalty_amount=283.61
                 )
             ]
         )
@@ -283,7 +283,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                     license_plates=['QBJ-6840'],
                     demerit_points=8,
-                    penalty_amount=130.16
+                    penalty_amount=260.32
                 )
             ]
         )

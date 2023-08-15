@@ -40,6 +40,29 @@ class ViolatorsAvaliationsBuilder:
                 return True
         return False
 
+    def _is_demerit_points_valid(self, notification_date, infraction_date):
+        return (
+            notification_date - infraction_date
+        ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT
+
+    def _convert_demerit_points(
+        self,
+        notification_date,
+        infraction_date,
+        type_infraction
+    ):
+        if self._is_demerit_points_valid(notification_date, infraction_date):
+            return self._INFRACTION_PENALTIES[
+                type_infraction
+            ][self._DEMERIT_POINTS_INDEX]
+        else:
+            return self._INVALID_DEMERIT_POINTS
+
+    def _convert_penalty_amount(self, type_infraction):
+        return self._INFRACTION_PENALTIES[
+            type_infraction
+        ][self._PENALTY_AMOUNT_INDEX]
+
     def _aggregate_license_plates(
         self,
         violator_avaliation,
@@ -66,28 +89,16 @@ class ViolatorsAvaliationsBuilder:
             )
         )
 
-    def _is_demerit_points_valid(self, notification_date, infraction_date):
-        return (
-            notification_date - infraction_date
-        ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT
-
-    def _convert_demerit_points(
+    def _aggregate_penalty_amount(
         self,
-        notification_date,
-        infraction_date,
-        type_infraction
+        violator_avaliation,
+        traffic_violation
     ):
-        if self._is_demerit_points_valid(notification_date, infraction_date):
-            return self._INFRACTION_PENALTIES[
-                type_infraction
-            ][self._DEMERIT_POINTS_INDEX]
-        else:
-            return self._INVALID_DEMERIT_POINTS
-
-    def _convert_penalty_amount(self, type_infraction):
-        return self._INFRACTION_PENALTIES[
-            type_infraction
-        ][self._PENALTY_AMOUNT_INDEX]
+        violator_avaliation.sum_penalty_amount(
+            self._convert_penalty_amount(
+                traffic_violation.type_infraction
+            )
+        )
 
     def _aggregate_values_by_identity_card_number(self, traffic_violation):
         for violator_avaliation in self._violators_avaliations:
@@ -100,6 +111,10 @@ class ViolatorsAvaliationsBuilder:
                     traffic_violation
                 )
                 self._aggregate_demerit_points(
+                    violator_avaliation,
+                    traffic_violation
+                )
+                self._aggregate_penalty_amount(
                     violator_avaliation,
                     traffic_violation
                 )
