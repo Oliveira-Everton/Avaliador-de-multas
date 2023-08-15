@@ -6,6 +6,7 @@ class ViolatorsAvaliationsBuilder:
     _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
     _INVALID_DEMERIT_POINTS = 0
     _DEMERIT_POINTS_INDEX = 0
+    _PENALTY_AMOUNT_INDEX = 1
     _INFRACTION_PENALTIES = {
         TypeInfractionStrings.LIGHT: [3, 88.38],
         TypeInfractionStrings.AVERAGE: [4, 130.16],
@@ -77,9 +78,16 @@ class ViolatorsAvaliationsBuilder:
         type_infraction
     ):
         if self._is_demerit_points_valid(notification_date, infraction_date):
-            return self._INFRACTION_PENALTIES[type_infraction][self._DEMERIT_POINTS_INDEX]
+            return self._INFRACTION_PENALTIES[
+                type_infraction
+            ][self._DEMERIT_POINTS_INDEX]
         else:
             return self._INVALID_DEMERIT_POINTS
+
+    def _convert_penalty_amount(self, type_infraction):
+        return self._INFRACTION_PENALTIES[
+            type_infraction
+        ][self._PENALTY_AMOUNT_INDEX]
 
     def _aggregate_values_by_identity_card_number(self, traffic_violation):
         for violator_avaliation in self._violators_avaliations:
@@ -121,7 +129,9 @@ class ViolatorsAvaliationsBuilder:
                             traffic_violation.infraction_date,
                             traffic_violation.type_infraction
                         ),
-                        penalty_amount=0
+                        penalty_amount=self._convert_penalty_amount(
+                            traffic_violation.type_infraction
+                        )
                     )
                 )
         return self._violators_avaliations

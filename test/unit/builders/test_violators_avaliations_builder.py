@@ -44,13 +44,13 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                     license_plates=['IDE-3516'],
                     demerit_points=7,
-                    penalty_amount=0
+                    penalty_amount=293.47
                 ),
                 ViolatorAvaliation(
                     identity_card=IdentityCard('13.386.966-0', 'Miho'),
                     license_plates=['RXO-0694'],
                     demerit_points=3,
-                    penalty_amount=0
+                    penalty_amount=88.38
                 )
             ]
         )
@@ -86,7 +86,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                     license_plates=['IDE-3516', 'NAQ-5775'],
                     demerit_points=8,
-                    penalty_amount=0
+                    penalty_amount=195.23
                 )
             ]
         )
@@ -136,25 +136,25 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                     license_plates=['MGN-9130'],
                     demerit_points=3,
-                    penalty_amount=0
+                    penalty_amount=88.38
                 ),
                 ViolatorAvaliation(
                     identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                     license_plates=['QBJ-6840'],
                     demerit_points=4,
-                    penalty_amount=0
+                    penalty_amount=130.16
                 ),
                 ViolatorAvaliation(
                     identity_card=IdentityCard('13.386.966-0', 'Miho'),
                     license_plates=['RXO-0694'],
                     demerit_points=5,
-                    penalty_amount=0
+                    penalty_amount=195.23
                 ),
                 ViolatorAvaliation(
                     identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                     license_plates=['IDE-3516'],
                     demerit_points=7,
-                    penalty_amount=0
+                    penalty_amount=293.47
                 )
             ]
         )
@@ -185,7 +185,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                     license_plates=['MGN-9130'],
                     demerit_points=7,
-                    penalty_amount=0
+                    penalty_amount=293.47
                 )
             ]
         )
@@ -216,7 +216,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                     license_plates=['MGN-9130'],
                     demerit_points=7,
-                    penalty_amount=0
+                    penalty_amount=293.47
                 )
             ]
         )
@@ -247,7 +247,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                     license_plates=['MGN-9130'],
                     demerit_points=0,
-                    penalty_amount=0
+                    penalty_amount=293.47
                 )
             ]
         )
@@ -283,7 +283,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('37.594.403-5', 'Det. Olivera'),
                     license_plates=['QBJ-6840'],
                     demerit_points=8,
-                    penalty_amount=0
+                    penalty_amount=130.16
                 )
             ]
         )
