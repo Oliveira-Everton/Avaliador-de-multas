@@ -119,7 +119,8 @@ class ViolatorsAvaliationsBuilder:
                             traffic_violation.notification_date,
                             traffic_violation.infraction_date,
                             traffic_violation.type_infraction
-                        )
+                        ),
+                        penalty_amount=0
                     )
                 )
         return self._violators_avaliations

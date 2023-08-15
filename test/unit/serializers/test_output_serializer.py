@@ -10,12 +10,14 @@ class TestOutputSerializer(unittest.TestCase):
             ViolatorAvaliation(
                 identity_card=IdentityCard('29.441.369-8', 'Aoki'),
                 license_plates=['UCH-6237'],
-                demerit_points=4
+                demerit_points=4,
+                penalty_amount=88.38
             ),
             ViolatorAvaliation(
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                 license_plates=['IDE-3516'],
-                demerit_points=7
+                demerit_points=7,
+                penalty_amount=88.38
             )
         ]
 
@@ -35,7 +37,8 @@ class TestOutputSerializer(unittest.TestCase):
             ViolatorAvaliation(
                 identity_card=IdentityCard('29.441.369-8', 'Aoki'),
                 license_plates=['UCH-6237', 'HUG-2023'],
-                demerit_points=7
+                demerit_points=7,
+                penalty_amount=88.38
             )
         ]
 

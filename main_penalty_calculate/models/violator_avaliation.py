@@ -1,8 +1,15 @@
 class ViolatorAvaliation:
-    def __init__(self, identity_card, license_plates, demerit_points):
+    def __init__(
+        self,
+        identity_card,
+        license_plates,
+        demerit_points,
+        penalty_amount
+    ):
         self._identity_card = identity_card
         self._license_plates = license_plates
         self._demerit_points = demerit_points
+        self._penalty_amount = penalty_amount
 
     @property
     def identity_card_number(self):
@@ -20,6 +27,10 @@ class ViolatorAvaliation:
     def demerit_points(self):
         return self._demerit_points
 
+    @property
+    def penalty_amount(self):
+        return self._penalty_amount
+
     def sum_demerit_points(self, sum_value):
         self._demerit_points += sum_value
 
@@ -28,7 +39,8 @@ class ViolatorAvaliation:
             self.identity_card_number,
             self.identity_card_name,
             self.license_plate_numbers,
-            self.demerit_points
+            self.demerit_points,
+            self._penalty_amount
         ]
 
     def __eq__(self, other):
