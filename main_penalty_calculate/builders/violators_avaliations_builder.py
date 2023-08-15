@@ -5,11 +5,12 @@ from ..constants import TypeInfractionStrings
 class ViolatorsAvaliationsBuilder:
     _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
     _INVALID_DEMERIT_POINTS = 0
+    _DEMERIT_POINTS_INDEX = 0
     _INFRACTION_PENALTIES = {
-        TypeInfractionStrings.LIGHT: 3,
-        TypeInfractionStrings.AVERAGE: 4,
-        TypeInfractionStrings.SERIOUS: 5,
-        TypeInfractionStrings.VERY_SERIOUS: 7
+        TypeInfractionStrings.LIGHT: [3, 88.38],
+        TypeInfractionStrings.AVERAGE: [4, 130.16],
+        TypeInfractionStrings.SERIOUS: [5, 195.23],
+        TypeInfractionStrings.VERY_SERIOUS: [7, 293.47]
     }
 
     def __init__(self, traffic_violations):
@@ -76,7 +77,7 @@ class ViolatorsAvaliationsBuilder:
         type_infraction
     ):
         if self._is_demerit_points_valid(notification_date, infraction_date):
-            return self._INFRACTION_PENALTIES[type_infraction]
+            return self._INFRACTION_PENALTIES[type_infraction][self._DEMERIT_POINTS_INDEX]
         else:
             return self._INVALID_DEMERIT_POINTS
 
