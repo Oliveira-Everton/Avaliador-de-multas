@@ -34,6 +34,9 @@ class ViolatorAvaliation:
     def sum_demerit_points(self, sum_value):
         self._demerit_points += sum_value
 
+    def sum_penalty_amount(self, sum_value):
+        self._penalty_amount += sum_value
+
     def _properties_values(self):
         return [
             self.identity_card_number,

@@ -54,3 +54,16 @@ class TestViolatorAvaliation(unittest.TestCase):
         penalty_amount = violator_avaliation.penalty_amount
 
         self.assertEqual(penalty_amount, 88.38)
+
+    def test_sum_penalty_amount(self):
+        violator_avaliation = ViolatorAvaliation(
+            identity_card=IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
+            license_plates=['MVC-4848', 'NEK-6986', 'MXK-0463'],
+            demerit_points=5,
+            penalty_amount=88.38
+        )
+
+        violator_avaliation.sum_penalty_amount(10)
+
+        penalty_amount = violator_avaliation.penalty_amount
+        self.assertEqual(penalty_amount, 98.38)
