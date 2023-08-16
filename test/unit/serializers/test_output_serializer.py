@@ -17,7 +17,7 @@ class TestOutputSerializer(unittest.TestCase):
                 identity_card=IdentityCard('19.632.142-6', 'Takashi'),
                 license_plates=['IDE-3516'],
                 demerit_points=7,
-                penalty_amount=88.38
+                penalty_amount=293.47
             )
         ]
 
@@ -25,8 +25,8 @@ class TestOutputSerializer(unittest.TestCase):
 
         self.assertEqual(
             output_string, [
-                '29.441.369-8; Aoki; UCH-6237; 4',
-                '19.632.142-6; Takashi; IDE-3516; 7'
+                '29.441.369-8; Aoki; UCH-6237; 4; 88.38',
+                '19.632.142-6; Takashi; IDE-3516; 7; 293.47'
             ]
         )
 
@@ -38,7 +38,7 @@ class TestOutputSerializer(unittest.TestCase):
                 identity_card=IdentityCard('29.441.369-8', 'Aoki'),
                 license_plates=['UCH-6237', 'HUG-2023'],
                 demerit_points=7,
-                penalty_amount=88.38
+                penalty_amount=293.47
             )
         ]
 
@@ -46,6 +46,6 @@ class TestOutputSerializer(unittest.TestCase):
 
         self.assertEqual(
             output_string, [
-                '29.441.369-8; Aoki; UCH-6237, HUG-2023; 7'
+                '29.441.369-8; Aoki; UCH-6237, HUG-2023; 7; 293.47'
             ]
         )
