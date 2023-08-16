@@ -43,7 +43,7 @@ class ViolatorAvaliation:
             self.identity_card_name,
             self.license_plate_numbers,
             self.demerit_points,
-            self._penalty_amount
+            self.penalty_amount
         ]
 
     def __eq__(self, other):
