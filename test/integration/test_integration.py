@@ -30,3 +30,16 @@ class TestIntegration(unittest.TestCase):
                 '375944035; Dtcv. Olivera; QBJ-6840; 0; 293.47'
             ]
         )
+
+    def test_evaluate_infractors_aggregate_penalty_amount(self):
+        penalty_calculate = PenaltyCalculate(
+            'test/fixtures/Transit Ticket input 3.csv'
+        )
+
+        violators_avaliations = penalty_calculate.evaluate_infractors()
+
+        self.assertEqual(
+            violators_avaliations, [
+                '138469945; Morgan; MGN-9130; 8; 283.61'
+            ]
+        )
