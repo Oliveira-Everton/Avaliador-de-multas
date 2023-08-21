@@ -46,7 +46,7 @@ class TestTrafficViolation(unittest.TestCase):
             notification_date=datetime(1999, 1, 4, 7)
         )
 
-        license_plate_number = traffic_violation.license_plate_number
+        license_plate_number = traffic_violation.license_plate.number
 
         self.assertEqual(license_plate_number, 'RXO-0694')
 
