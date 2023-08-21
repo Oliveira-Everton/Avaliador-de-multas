@@ -1,4 +1,4 @@
-from ..models import ViolatorAvaliation, IdentityCard
+from ..models import ViolatorAvaliation
 from ..constants import TypeInfractionStrings
 
 
