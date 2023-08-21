@@ -10,3 +10,9 @@ class IdentityCard:
     @property
     def name(self):
         return self._name
+
+    def _properties_values(self):
+        [self.name, self.number]
+
+    def __eq__(self, other):
+        return self._properties_values() == other._properties_values()
