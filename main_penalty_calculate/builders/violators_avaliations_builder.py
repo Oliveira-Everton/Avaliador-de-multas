@@ -130,12 +130,7 @@ class ViolatorsAvaliationsBuilder:
             else:
                 self._violators_avaliations.append(
                     ViolatorAvaliation(
-                        identity_card=IdentityCard(
-                            number=(
-                                traffic_violation.identity_card_number
-                            ),
-                            name=traffic_violation.identity_card_name
-                        ),
+                        identity_card=traffic_violation.identity_card,
                         license_plates=[
                             traffic_violation.license_plate_number
                         ],

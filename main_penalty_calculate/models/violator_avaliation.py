@@ -16,14 +16,6 @@ class ViolatorAvaliation:
         return self._identity_card
 
     @property
-    def identity_card_number(self):
-        return self._identity_card.number
-
-    @property
-    def identity_card_name(self):
-        return self._identity_card.name
-
-    @property
     def license_plate_numbers(self):
         return self._license_plates
 
@@ -43,8 +35,7 @@ class ViolatorAvaliation:
 
     def _properties_values(self):
         return [
-            self.identity_card_number,
-            self.identity_card_name,
+            self.identity_card,
             self.license_plate_numbers,
             self.demerit_points,
             self.penalty_amount
