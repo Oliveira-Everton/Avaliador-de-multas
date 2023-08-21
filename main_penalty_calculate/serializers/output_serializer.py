@@ -3,8 +3,8 @@ import re
 
 class OutputSerializer:
     _OFFENDER_DATA = (
-        '{violation.identity_card_number}; '
-        '{violation.identity_card_name}; '
+        '{violation.identity_card.number}; '
+        '{violation.identity_card.name}; '
         '{license_plate_numbers}; '
         '{violation.demerit_points}; '
         '{violation.penalty_amount}'
