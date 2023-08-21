@@ -18,8 +18,8 @@ class TrafficViolation:
         return self._identity_card
 
     @property
-    def license_plate_number(self):
-        return self._license_plate.number
+    def license_plate(self):
+        return self._license_plate
 
     @property
     def type_infraction(self):
@@ -36,7 +36,7 @@ class TrafficViolation:
     def _properties_values(self):
         return [
             self.identity_card,
-            self.license_plate_number,
+            self.license_plate,
             self.type_infraction,
             self.infraction_date,
             self.notification_date
