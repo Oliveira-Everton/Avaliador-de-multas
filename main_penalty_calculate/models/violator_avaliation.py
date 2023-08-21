@@ -12,6 +12,10 @@ class ViolatorAvaliation:
         self._penalty_amount = penalty_amount
 
     @property
+    def identity_card(self):
+        return self._identity_card
+
+    @property
     def identity_card_number(self):
         return self._identity_card.number
 

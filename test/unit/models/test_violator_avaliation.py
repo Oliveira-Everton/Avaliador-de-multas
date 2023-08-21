@@ -4,6 +4,20 @@ from main_penalty_calculate.models import IdentityCard, ViolatorAvaliation
 
 
 class TestViolatorAvaliation(unittest.TestCase):
+    def test_identity_card(self):
+        violator_avaliation = ViolatorAvaliation(
+            identity_card=IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
+            license_plates=['MVC-4848', 'NEK-6986', 'MXK-0463'],
+            demerit_points=5,
+            penalty_amount=88.38
+        )
+
+        identity_card = violator_avaliation.identity_card
+
+        self.assertEqual(
+            identity_card, IdentityCard('30.286.415-5', 'Vonkuzi Amelnay')
+        )
+
     def test_license_plate_numbers(self):
         violator_avaliation = ViolatorAvaliation(
             identity_card=IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
