@@ -14,6 +14,10 @@ class TrafficViolation:
         self._notification_date = notification_date
 
     @property
+    def identity_card(self):
+        return self._identity_card
+
+    @property
     def identity_card_number(self):
         return self._identity_card.number
 
