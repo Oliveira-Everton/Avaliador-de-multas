@@ -18,11 +18,11 @@ class ViolatorsAvaliationsBuilder:
         self._traffic_violations = traffic_violations
         self._violators_avaliations = []
 
-    def _is_identity_card_number_already_present(self, traffic_violation):
+    def _is_identity_card_already_present(self, traffic_violation):
         for violator_avaliation in self._violators_avaliations:
             if (
-                violator_avaliation.identity_card_number ==
-                traffic_violation.identity_card_number
+                violator_avaliation.identity_card ==
+                traffic_violation.identity_card
             ):
                 return True
         return False
@@ -100,11 +100,11 @@ class ViolatorsAvaliationsBuilder:
             )
         )
 
-    def _aggregate_values_by_identity_card_number(self, traffic_violation):
+    def _aggregate_values_by_identity_card(self, traffic_violation):
         for violator_avaliation in self._violators_avaliations:
             if (
-                violator_avaliation.identity_card_number ==
-                traffic_violation.identity_card_number
+                violator_avaliation.identity_card ==
+                traffic_violation.identity_card
             ):
                 self._aggregate_license_plates(
                     violator_avaliation,
@@ -121,10 +121,10 @@ class ViolatorsAvaliationsBuilder:
 
     def build_violators_avaliations(self):
         for traffic_violation in self._traffic_violations:
-            if self._is_identity_card_number_already_present(
+            if self._is_identity_card_already_present(
                 traffic_violation
             ):
-                self._aggregate_values_by_identity_card_number(
+                self._aggregate_values_by_identity_card(
                     traffic_violation
                 )
             else:
