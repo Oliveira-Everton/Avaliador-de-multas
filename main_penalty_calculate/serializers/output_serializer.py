@@ -24,8 +24,18 @@ class OutputSerializer:
                     license_plate_numbers=re.sub(
                         self._PATTERN_FOR_REGEX,
                         self._EMPTY_STRING,
-                        str(violation.license_plate_numbers)
+                        str(
+                            list(
+                                map(
+                                    self._license_plate_number,
+                                    violation.license_plate_numbers
+                                )
+                            )
+                        )
                     )
                 )
             )
         return offender_data
+
+    def _license_plate_number(self, license_plate):
+        return license_plate.number
