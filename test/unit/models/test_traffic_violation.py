@@ -20,7 +20,7 @@ class TestTrafficViolation(unittest.TestCase):
             notification_date=datetime(1999, 1, 4, 7)
         )
 
-        identity_card_name = traffic_violation.identity_card_name
+        identity_card_name = traffic_violation.identity_card.name
 
         self.assertEqual(identity_card_name, 'Miho')
 
@@ -33,7 +33,7 @@ class TestTrafficViolation(unittest.TestCase):
             notification_date=datetime(1999, 1, 4, 7)
         )
 
-        identity_card_number = traffic_violation.identity_card_number
+        identity_card_number = traffic_violation.identity_card.number
 
         self.assertEqual(identity_card_number, '13.386.966-0')
 
