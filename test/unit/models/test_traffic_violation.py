@@ -107,3 +107,18 @@ class TestTrafficViolation(unittest.TestCase):
         self.assertEqual(
             identity_card, IdentityCard('13.386.966-0', 'Miho')
         )
+
+    def test_license_plate(self):
+        traffic_violation = TrafficViolation(
+            identity_card=IdentityCard('13.386.966-0', 'Miho'),
+            license_plate=LicensePlate('RXO-0694'),
+            type_infraction=TypeInfractionStrings.LIGHT,
+            infraction_date=datetime(1999, 1, 3, 12),
+            notification_date=datetime(1999, 1, 4, 7)
+        )
+
+        license_plate = traffic_violation.license_plate
+
+        self.assertEqual(
+            license_plate, LicensePlate('RXO-0694')
+        )
