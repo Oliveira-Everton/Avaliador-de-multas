@@ -1,7 +1,7 @@
 from ..constants import TypeInfractionStrings
 
 
-class InfractionPenalties:
+class InfractionPenaltiesValues:
     _DEMERIT_POINTS = 'demerit_points'
     _PENALTY_AMOUNT = 'penalty_amount'
     _INFRACTION_PENALTIES = {

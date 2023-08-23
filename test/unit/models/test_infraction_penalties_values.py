@@ -1,12 +1,12 @@
 import unittest
 
-from main_penalty_calculate.models import InfractionPenalties
+from main_penalty_calculate.models import InfractionPenaltiesValues
 from main_penalty_calculate.constants import TypeInfractionStrings
 
 
-class TestInfractionPenalties(unittest.TestCase):
+class TestInfractionPenaltiesValues(unittest.TestCase):
     def test_demerit_points_light(self):
-        infraction_penalties = InfractionPenalties(
+        infraction_penalties = InfractionPenaltiesValues(
             TypeInfractionStrings.LIGHT
         )
 
@@ -15,7 +15,7 @@ class TestInfractionPenalties(unittest.TestCase):
         self.assertEqual(demerit_points_light, 3)
 
     def test_penalty_amount_light(self):
-        infraction_penalties = InfractionPenalties(
+        infraction_penalties = InfractionPenaltiesValues(
             TypeInfractionStrings.LIGHT
         )
 
@@ -24,7 +24,7 @@ class TestInfractionPenalties(unittest.TestCase):
         self.assertEqual(penalty_amount_light, 88.38)
 
     def test_demerit_points_average(self):
-        infraction_penalties = InfractionPenalties(
+        infraction_penalties = InfractionPenaltiesValues(
             TypeInfractionStrings.AVERAGE
         )
 
@@ -33,7 +33,7 @@ class TestInfractionPenalties(unittest.TestCase):
         self.assertEqual(demerit_points_average, 4)
 
     def test_penalty_amount_average(self):
-        infraction_penalties = InfractionPenalties(
+        infraction_penalties = InfractionPenaltiesValues(
             TypeInfractionStrings.AVERAGE
         )
 
@@ -42,7 +42,7 @@ class TestInfractionPenalties(unittest.TestCase):
         self.assertEqual(penalty_amount_average, 130.16)
 
     def test_demerit_points_serious(self):
-        infraction_penalties = InfractionPenalties(
+        infraction_penalties = InfractionPenaltiesValues(
             TypeInfractionStrings.SERIOUS
         )
 
@@ -51,7 +51,7 @@ class TestInfractionPenalties(unittest.TestCase):
         self.assertEqual(demerit_points_serious, 5)
 
     def test_penalty_amount_serious(self):
-        infraction_penalties = InfractionPenalties(
+        infraction_penalties = InfractionPenaltiesValues(
             TypeInfractionStrings.SERIOUS
         )
 
@@ -60,7 +60,7 @@ class TestInfractionPenalties(unittest.TestCase):
         self.assertEqual(penalty_amount_serious, 195.23)
 
     def test_demerit_points_very_serious(self):
-        infraction_penalties = InfractionPenalties(
+        infraction_penalties = InfractionPenaltiesValues(
             TypeInfractionStrings.VERY_SERIOUS
         )
 
@@ -69,7 +69,7 @@ class TestInfractionPenalties(unittest.TestCase):
         self.assertEqual(demerit_points_very_serious, 7)
 
     def test_penalty_amount_very_serious(self):
-        infraction_penalties = InfractionPenalties(
+        infraction_penalties = InfractionPenaltiesValues(
             TypeInfractionStrings.VERY_SERIOUS
         )
 
