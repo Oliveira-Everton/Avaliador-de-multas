@@ -1,5 +1,4 @@
 from ..models import ViolatorAvaliation, InfractionPenalties
-from ..constants import TypeInfractionStrings
 
 
 class ViolatorsAvaliationsBuilder:
@@ -7,12 +6,6 @@ class ViolatorsAvaliationsBuilder:
     _INVALID_DEMERIT_POINTS = 0
     _DEMERIT_POINTS_INDEX = 0
     _PENALTY_AMOUNT_INDEX = 1
-    _INFRACTION_PENALTIES = {
-        TypeInfractionStrings.LIGHT: [3, 88.38],
-        TypeInfractionStrings.AVERAGE: [4, 130.16],
-        TypeInfractionStrings.SERIOUS: [5, 195.23],
-        TypeInfractionStrings.VERY_SERIOUS: [7, 293.47]
-    }
 
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
