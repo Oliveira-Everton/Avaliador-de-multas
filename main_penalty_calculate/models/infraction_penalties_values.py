@@ -4,6 +4,7 @@ from ..constants import TypeInfractionStrings
 class InfractionPenaltiesValues:
     _DEMERIT_POINTS = 'demerit_points'
     _PENALTY_AMOUNT = 'penalty_amount'
+    _INVALID_DEMERIT_POINTS = 0
     _INFRACTION_PENALTIES = {
         TypeInfractionStrings.LIGHT: {
             _DEMERIT_POINTS: 3, _PENALTY_AMOUNT: 88.38
