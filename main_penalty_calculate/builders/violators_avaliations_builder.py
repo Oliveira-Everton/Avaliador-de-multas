@@ -3,8 +3,6 @@ from ..models import ViolatorAvaliation, InfractionPenaltiesValues
 
 class ViolatorsAvaliationsBuilder:
     _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
-    _DEMERIT_POINTS_INDEX = 0
-    _PENALTY_AMOUNT_INDEX = 1
 
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
