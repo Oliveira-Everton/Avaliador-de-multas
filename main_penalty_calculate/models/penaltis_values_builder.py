@@ -1,7 +1,7 @@
 from ..constants import TypeInfractionStrings
 
 
-class InfractionPenaltiesValues:
+class PenaltiesValuesBuilder:
     _DEMERIT_POINTS = 'demerit_points'
     _PENALTY_AMOUNT = 'penalty_amount'
     _INVALID_DEMERIT_POINTS = 0

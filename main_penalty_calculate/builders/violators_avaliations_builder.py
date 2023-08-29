@@ -1,4 +1,4 @@
-from ..models import ViolatorAvaliation, InfractionPenaltiesValues
+from ..models import ViolatorAvaliation, PenaltiesValuesBuilder
 
 
 class ViolatorsAvaliationsBuilder:
@@ -42,12 +42,12 @@ class ViolatorsAvaliationsBuilder:
         type_infraction
     ):
         if self._is_demerit_points_valid(notification_date, infraction_date):
-            return InfractionPenaltiesValues(type_infraction).demerit_points
+            return PenaltiesValuesBuilder(type_infraction).demerit_points
         else:
-            return InfractionPenaltiesValues._INVALID_DEMERIT_POINTS
+            return PenaltiesValuesBuilder._INVALID_DEMERIT_POINTS
 
     def _convert_penalty_amount(self, type_infraction):
-        return InfractionPenaltiesValues(type_infraction).penalty_amount
+        return PenaltiesValuesBuilder(type_infraction).penalty_amount
 
     def _aggregate_license_plates(
         self,
