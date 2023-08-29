@@ -3,7 +3,6 @@ from ..models import ViolatorAvaliation, InfractionPenaltiesValues
 
 class ViolatorsAvaliationsBuilder:
     _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
-    _INVALID_DEMERIT_POINTS = 0
     _DEMERIT_POINTS_INDEX = 0
     _PENALTY_AMOUNT_INDEX = 1
 
@@ -47,7 +46,7 @@ class ViolatorsAvaliationsBuilder:
         if self._is_demerit_points_valid(notification_date, infraction_date):
             return InfractionPenaltiesValues(type_infraction).demerit_points
         else:
-            return self._INVALID_DEMERIT_POINTS
+            return InfractionPenaltiesValues._INVALID_DEMERIT_POINTS
 
     def _convert_penalty_amount(self, type_infraction):
         return InfractionPenaltiesValues(type_infraction).penalty_amount
