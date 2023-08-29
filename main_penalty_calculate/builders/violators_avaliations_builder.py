@@ -1,4 +1,5 @@
-from ..models import ViolatorAvaliation, PenaltiesValuesBuilder
+from ..models import ViolatorAvaliation
+from .penalties_values_builder import PenaltiesValuesBuilder
 
 
 class ViolatorsAvaliationsBuilder:

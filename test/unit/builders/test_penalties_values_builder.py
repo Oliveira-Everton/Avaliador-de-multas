@@ -1,6 +1,6 @@
 import unittest
 
-from main_penalty_calculate.models import PenaltiesValuesBuilder
+from main_penalty_calculate.builders import PenaltiesValuesBuilder
 from main_penalty_calculate.constants import TypeInfractionStrings
 
 
