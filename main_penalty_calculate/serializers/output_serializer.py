@@ -11,6 +11,7 @@ class OutputSerializer:
     )
     _PATTERN_FOR_REGEX = r'\[|\]|\''
     _EMPTY_STRING = ''
+    _LINE_BREAK = '\n'
 
     def __init__(self, violators_avaliations):
         self._violators_avaliations = violators_avaliations
@@ -32,7 +33,7 @@ class OutputSerializer:
                     )
                 )
             )
-        return offender_data
+        return self._LINE_BREAK.join(offender_data)
 
     def _license_plates_strings(self, license_plates):
         license_plates_strings = []
