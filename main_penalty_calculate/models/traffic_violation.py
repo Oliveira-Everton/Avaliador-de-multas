@@ -33,7 +33,7 @@ class TrafficViolation:
     def notification_date(self):
         return self._notification_date
 
-    def _properties_values(self):
+    def properties_values(self):
         return [
             self.identity_card,
             self.license_plate,
@@ -43,4 +43,4 @@ class TrafficViolation:
         ]
 
     def __eq__(self, other):
-        return self._properties_values() == other._properties_values()
+        return self.properties_values() == other.properties_values()

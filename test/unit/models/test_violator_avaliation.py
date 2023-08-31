@@ -8,7 +8,7 @@ from main_penalty_calculate.models import (
 
 
 class TestViolatorAvaliation(unittest.TestCase):
-    def test_identity_card(self):
+    def test_violator_avaliation_identity_card(self):
         violator_avaliation = ViolatorAvaliation(
             identity_card=IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
             license_plates=[
@@ -27,7 +27,7 @@ class TestViolatorAvaliation(unittest.TestCase):
             identity_card, IdentityCard('30.286.415-5', 'Vonkuzi Amelnay')
         )
 
-    def test_license_plate_numbers(self):
+    def test_violator_avaliation_license_plate_numbers(self):
         violator_avaliation = ViolatorAvaliation(
             identity_card=IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
             license_plates=[
@@ -49,7 +49,7 @@ class TestViolatorAvaliation(unittest.TestCase):
             ]
         )
 
-    def test_demerit_points(self):
+    def test_violator_avaliation_demerit_points(self):
         violator_avaliation = ViolatorAvaliation(
             identity_card=IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
             license_plates=[
@@ -65,7 +65,7 @@ class TestViolatorAvaliation(unittest.TestCase):
 
         self.assertEqual(demerit_points, 5)
 
-    def test_sum_demerit_points(self):
+    def test_violator_avaliation_sum_demerit_points(self):
         violator_avaliation = ViolatorAvaliation(
             identity_card=IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
             license_plates=[
@@ -82,7 +82,7 @@ class TestViolatorAvaliation(unittest.TestCase):
         total_demerit_points = violator_avaliation.demerit_points
         self.assertEqual(total_demerit_points, 8)
 
-    def test_penalty_amount(self):
+    def test_violator_avaliation_penalty_amount(self):
         violator_avaliation = ViolatorAvaliation(
             identity_card=IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
             license_plates=[
@@ -98,7 +98,7 @@ class TestViolatorAvaliation(unittest.TestCase):
 
         self.assertEqual(penalty_amount, 88.38)
 
-    def test_sum_penalty_amount(self):
+    def test_violator_avaliation_sum_penalty_amount(self):
         violator_avaliation = ViolatorAvaliation(
             identity_card=IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
             license_plates=[
@@ -114,3 +114,25 @@ class TestViolatorAvaliation(unittest.TestCase):
 
         penalty_amount = violator_avaliation.penalty_amount
         self.assertEqual(penalty_amount, 98.38)
+
+    def test_violator_avaliation_properties_values(self):
+        violator_avaliation = ViolatorAvaliation(
+            identity_card=IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
+            license_plates=[
+                LicensePlate('MVC-4848'), LicensePlate('NEK-6986')
+            ],
+            demerit_points=5,
+            penalty_amount=88.38
+        )
+
+        properties_values = violator_avaliation.properties_values()
+
+        expected_demerit_points = 5
+        expected_penalty_amount = 88.38
+        expected_properties_values = [
+            IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
+            [LicensePlate('MVC-4848'), LicensePlate('NEK-6986')],
+            expected_demerit_points,
+            expected_penalty_amount
+        ]
+        self.assertEqual(properties_values, expected_properties_values)

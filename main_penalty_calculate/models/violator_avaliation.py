@@ -33,7 +33,7 @@ class ViolatorAvaliation:
     def sum_penalty_amount(self, sum_value):
         self._penalty_amount += sum_value
 
-    def _properties_values(self):
+    def properties_values(self):
         return [
             self.identity_card,
             self.license_plate_numbers,
@@ -42,4 +42,4 @@ class ViolatorAvaliation:
         ]
 
     def __eq__(self, other):
-        return self._properties_values() == other._properties_values()
+        return self.properties_values() == other.properties_values()

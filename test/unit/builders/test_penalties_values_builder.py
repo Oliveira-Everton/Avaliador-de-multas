@@ -13,20 +13,14 @@ from main_penalty_calculate.models import (
 
 class TestPenaltiesValuesBuilder(unittest.TestCase):
     def test_convert_demerit_points_light(self):
-
         infraction_penalties = PenaltiesValuesBuilder(
             TrafficViolation(
-                    identity_card=IdentityCard(
-                        name='Morgan',
-                        number='138469945'
-                    ),
-                    license_plate=LicensePlate(
-                        number='MGN-9130'
-                    ),
-                    type_infraction=TypeInfractionStrings.LIGHT,
-                    infraction_date=datetime(1999, 1, 3, 12),
-                    notification_date=datetime(1999, 1, 4, 7)
-                )
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.LIGHT,
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
+            )
         )
 
         demerit_points_light = infraction_penalties.convert_demerit_points()
@@ -36,17 +30,12 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
     def test_convert_penalty_amount_light(self):
         infraction_penalties = PenaltiesValuesBuilder(
             TrafficViolation(
-                    identity_card=IdentityCard(
-                        name='Morgan',
-                        number='138469945'
-                    ),
-                    license_plate=LicensePlate(
-                        number='MGN-9130'
-                    ),
-                    type_infraction=TypeInfractionStrings.LIGHT,
-                    infraction_date=datetime(1999, 1, 3, 12),
-                    notification_date=datetime(1999, 1, 4, 7)
-                )
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.LIGHT,
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
+            )
         )
 
         penalty_amount_light = infraction_penalties.convert_penalty_amount()
@@ -56,17 +45,12 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
     def test_convert_demerit_points_average(self):
         infraction_penalties = PenaltiesValuesBuilder(
             TrafficViolation(
-                    identity_card=IdentityCard(
-                        name='Morgan',
-                        number='138469945'
-                    ),
-                    license_plate=LicensePlate(
-                        number='MGN-9130'
-                    ),
-                    type_infraction=TypeInfractionStrings.AVERAGE,
-                    infraction_date=datetime(1999, 1, 3, 12),
-                    notification_date=datetime(1999, 1, 4, 7)
-                )
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.AVERAGE,
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
+            )
         )
 
         demerit_points_average = infraction_penalties.convert_demerit_points()
@@ -76,17 +60,12 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
     def test_convert_penalty_amount_average(self):
         infraction_penalties = PenaltiesValuesBuilder(
             TrafficViolation(
-                    identity_card=IdentityCard(
-                        name='Morgan',
-                        number='138469945'
-                    ),
-                    license_plate=LicensePlate(
-                        number='MGN-9130'
-                    ),
-                    type_infraction=TypeInfractionStrings.AVERAGE,
-                    infraction_date=datetime(1999, 1, 3, 12),
-                    notification_date=datetime(1999, 1, 4, 7)
-                )
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.AVERAGE,
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
+            )
         )
 
         penalty_amount_average = infraction_penalties.convert_penalty_amount()
@@ -96,17 +75,12 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
     def test_convert_demerit_points_serious(self):
         infraction_penalties = PenaltiesValuesBuilder(
             TrafficViolation(
-                    identity_card=IdentityCard(
-                        name='Morgan',
-                        number='138469945'
-                    ),
-                    license_plate=LicensePlate(
-                        number='MGN-9130'
-                    ),
-                    type_infraction=TypeInfractionStrings.SERIOUS,
-                    infraction_date=datetime(1999, 1, 3, 12),
-                    notification_date=datetime(1999, 1, 4, 7)
-                )
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.SERIOUS,
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
+            )
         )
 
         demerit_points_serious = infraction_penalties.convert_demerit_points()
@@ -116,17 +90,12 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
     def test_convert_penalty_amount_serious(self):
         infraction_penalties = PenaltiesValuesBuilder(
             TrafficViolation(
-                    identity_card=IdentityCard(
-                        name='Morgan',
-                        number='138469945'
-                    ),
-                    license_plate=LicensePlate(
-                        number='MGN-9130'
-                    ),
-                    type_infraction=TypeInfractionStrings.SERIOUS,
-                    infraction_date=datetime(1999, 1, 3, 12),
-                    notification_date=datetime(1999, 1, 4, 7)
-                )
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.SERIOUS,
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
+            )
         )
 
         penalty_amount_serious = infraction_penalties.convert_penalty_amount()
@@ -136,57 +105,46 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
     def test_convert_demerit_points_very_serious(self):
         infraction_penalties = PenaltiesValuesBuilder(
             TrafficViolation(
-                    identity_card=IdentityCard(
-                        name='Morgan',
-                        number='138469945'
-                    ),
-                    license_plate=LicensePlate(
-                        number='MGN-9130'
-                    ),
-                    type_infraction=TypeInfractionStrings.VERY_SERIOUS,
-                    infraction_date=datetime(1999, 1, 3, 12),
-                    notification_date=datetime(1999, 1, 4, 7)
-                )
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.VERY_SERIOUS,
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
+            )
         )
 
-        demerit_points_very_serious = infraction_penalties.convert_demerit_points()
+        demerit_points_very_serious = (
+            infraction_penalties.convert_demerit_points()
+        )
 
         self.assertEqual(demerit_points_very_serious, 7)
 
     def test_convert_penalty_amount_very_serious(self):
         infraction_penalties = PenaltiesValuesBuilder(
             TrafficViolation(
-                    identity_card=IdentityCard(
-                        name='Morgan',
-                        number='138469945'
-                    ),
-                    license_plate=LicensePlate(
-                        number='MGN-9130'
-                    ),
-                    type_infraction=TypeInfractionStrings.VERY_SERIOUS,
-                    infraction_date=datetime(1999, 1, 3, 12),
-                    notification_date=datetime(1999, 1, 4, 7)
-                )
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.VERY_SERIOUS,
+                infraction_date=datetime(1999, 1, 3, 12),
+                notification_date=datetime(1999, 1, 4, 7)
+            )
         )
 
-        penalty_amount_very_serious = infraction_penalties.convert_penalty_amount()
+        penalty_amount_very_serious = (
+            infraction_penalties.convert_penalty_amount()
+        )
 
         self.assertEqual(penalty_amount_very_serious, 293.47)
 
     def test_convert_demerit_points_30th_infrigement_period(self):
         infraction_penalties = PenaltiesValuesBuilder(
             TrafficViolation(
-                    identity_card=IdentityCard(
-                        name='Morgan',
-                        number='138469945'
-                    ),
-                    license_plate=LicensePlate(
-                        number='MGN-9130'
-                    ),
-                    type_infraction=TypeInfractionStrings.VERY_SERIOUS,
-                    infraction_date=datetime(1999, 1, 1, 12),
-                    notification_date=datetime(1999, 2, 1, 7)
-                )
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.VERY_SERIOUS,
+                infraction_date=datetime(1999, 1, 1, 12),
+                notification_date=datetime(1999, 2, 1, 7)
+            )
         )
 
         invalid_demerit_points = infraction_penalties.convert_demerit_points()
@@ -196,17 +154,12 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
     def test_convert_demerit_points_31th_infrigement_period(self):
         infraction_penalties = PenaltiesValuesBuilder(
             TrafficViolation(
-                    identity_card=IdentityCard(
-                        name='Morgan',
-                        number='138469945'
-                    ),
-                    license_plate=LicensePlate(
-                        number='MGN-9130'
-                    ),
-                    type_infraction=TypeInfractionStrings.VERY_SERIOUS,
-                    infraction_date=datetime(1999, 1, 1, 12),
-                    notification_date=datetime(1999, 2, 2, 7)
-                )
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.VERY_SERIOUS,
+                infraction_date=datetime(1999, 1, 1, 12),
+                notification_date=datetime(1999, 2, 2, 7)
+            )
         )
 
         invalid_demerit_points = infraction_penalties.convert_demerit_points()
