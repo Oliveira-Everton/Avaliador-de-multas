@@ -57,7 +57,10 @@ class ViolatorsAvaliationsBuilder:
 
     def _aggregate_values_by_identity_card(self, traffic_violation):
         for violator_avaliation in self._violators_avaliations:
-            if traffic_violation.identity_card == violator_avaliation.identity_card:
+            if (
+                traffic_violation.identity_card ==
+                violator_avaliation.identity_card
+            ):
                 self._aggregate_license_plates(
                     violator_avaliation,
                     traffic_violation
