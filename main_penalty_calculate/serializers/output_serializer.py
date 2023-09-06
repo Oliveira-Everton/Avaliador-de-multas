@@ -7,7 +7,7 @@ class OutputSerializer:
         '{identity_card.name}; '
         '{license_plate_numbers}; '
         '{demerit_points}; '
-        '{penalty_amount}'
+        '{penalty_amount:.2f}'
     )
     _PATTERN_FOR_REGEX = r'\[|\]|\''
     _EMPTY_STRING = ''
