@@ -5,6 +5,7 @@ class PenaltiesValuesBuilder:
     _DEMERIT_POINTS = 'demerit_points'
     _PENALTY_AMOUNT = 'penalty_amount'
     _INVALID_DEMERIT_POINTS = 0
+    _INVALID_PENALTY_AMOUNT = 0.0
     _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
     _INFRACTION_PENALTIES = {
         TypeInfractionStrings.LIGHT: {
@@ -39,6 +40,9 @@ class PenaltiesValuesBuilder:
             return self._INVALID_DEMERIT_POINTS
 
     def convert_penalty_amount(self):
-        return self._INFRACTION_PENALTIES[
-            self._traffic_violation.type_infraction
-        ][self._PENALTY_AMOUNT]
+        if self._is_penalty_valid():
+            return self._INFRACTION_PENALTIES[
+                self._traffic_violation.type_infraction
+            ][self._PENALTY_AMOUNT]
+        else:
+            return self._INVALID_PENALTY_AMOUNT

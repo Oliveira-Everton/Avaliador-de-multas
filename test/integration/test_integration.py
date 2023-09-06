@@ -26,7 +26,7 @@ class TestIntegration(unittest.TestCase):
 
         self.assertEqual(
             violators_avaliations,
-            '375944035; Dtcv. Olivera; QBJ-6840; 0; 293.47'
+            '375944035; Dtcv. Olivera; QBJ-6840; 0; 0.0'
         )
 
     def test_evaluate_infractors_aggregate_penalty_amount(self):
