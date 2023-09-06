@@ -147,9 +147,9 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        invalid_demerit_points = infraction_penalties.convert_demerit_points()
+        demerit_points = infraction_penalties.convert_demerit_points()
 
-        self.assertEqual(invalid_demerit_points, 7)
+        self.assertEqual(demerit_points, 7)
 
     def test_convert_demerit_points_31th_infrigement_period(self):
         infraction_penalties = PenaltiesValuesBuilder(
@@ -165,3 +165,33 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
         invalid_demerit_points = infraction_penalties.convert_demerit_points()
 
         self.assertEqual(invalid_demerit_points, 0)
+
+    def test_convert_penalty_amount_30th_infrigement_period(self):
+        infraction_penalties = PenaltiesValuesBuilder(
+            TrafficViolation(
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.VERY_SERIOUS,
+                infraction_date=datetime(1999, 1, 1, 12),
+                notification_date=datetime(1999, 2, 1, 7)
+            )
+        )
+
+        penalty_amount = infraction_penalties.convert_penalty_amount()
+
+        self.assertEqual(penalty_amount, 293.47)
+
+    def test_convert_penalty_amount_31th_infrigement_period(self):
+        infraction_penalties = PenaltiesValuesBuilder(
+            TrafficViolation(
+                identity_card=IdentityCard('Morgan', '138469945'),
+                license_plate=LicensePlate('MGN-9130'),
+                type_infraction=TypeInfractionStrings.VERY_SERIOUS,
+                infraction_date=datetime(1999, 1, 1, 12),
+                notification_date=datetime(1999, 2, 2, 7)
+            )
+        )
+
+        invalid_penalty_amount = infraction_penalties.convert_penalty_amount()
+
+        self.assertEqual(invalid_penalty_amount, 0.0)

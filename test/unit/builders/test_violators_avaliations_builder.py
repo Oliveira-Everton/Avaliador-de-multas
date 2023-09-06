@@ -161,7 +161,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_demerit_points_29th_infrigement_period(
+    def test_build_violator_avaliation_penalties_29th_infrigement_period(
         self
     ):
         traffic_violations = [
@@ -192,7 +192,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_demerit_points_30th_infrigement_period(
+    def test_build_violator_avaliation_penalties_30th_infrigement_period(
         self
     ):
         traffic_violations = [
@@ -223,7 +223,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
             ]
         )
 
-    def test_build_violator_avaliation_demerit_points_31th_infrigement_period(
+    def test_build_violator_avaliation_penalties_31th_infrigement_period(
         self
     ):
         traffic_violations = [
@@ -249,7 +249,7 @@ class TestViolatorsAvaliationsBuilder(unittest.TestCase):
                     identity_card=IdentityCard('13.846.994-5', 'Morgan'),
                     license_plates=[LicensePlate('MGN-9130')],
                     demerit_points=0,
-                    penalty_amount=293.47
+                    penalty_amount=0.0
                 )
             ]
         )
