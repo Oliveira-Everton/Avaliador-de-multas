@@ -24,14 +24,14 @@ class PenaltiesValuesBuilder:
     def __init__(self, traffic_violation):
         self._traffic_violation = traffic_violation
 
-    def _is_demerit_points_valid(self):
+    def _is_penalty_valid(self):
         return (
             self._traffic_violation.notification_date -
             self._traffic_violation.infraction_date
         ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT
 
     def convert_demerit_points(self):
-        if self._is_demerit_points_valid():
+        if self._is_penalty_valid():
             return self._INFRACTION_PENALTIES[
                 self._traffic_violation.type_infraction
             ][self._DEMERIT_POINTS]
