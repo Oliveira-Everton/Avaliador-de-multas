@@ -134,14 +134,11 @@ class TestTrafficViolation(unittest.TestCase):
 
         properties_values = traffic_violation.properties_values
 
-        expected_infraction_date = datetime(1999, 1, 3, 12)
-        expected_notification_date = datetime(1999, 1, 4, 7)
-        expected_type_infraction = TypeInfractionStrings.LIGHT
         expected_properties_values = [
             IdentityCard('13.386.966-0', 'Miho'),
             LicensePlate('RXO-0694'),
-            expected_type_infraction,
-            expected_infraction_date,
-            expected_notification_date
+            TypeInfractionStrings.LIGHT,
+            datetime(1999, 1, 3, 12),
+            datetime(1999, 1, 4, 7)
         ]
         self.assertEqual(properties_values, expected_properties_values)
