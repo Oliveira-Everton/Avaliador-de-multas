@@ -9,8 +9,8 @@ class OutputSerializer:
         '{violation.demerit_points}; '
         '{violation.penalty_amount:.2f}'
     )
-    _PATTERN_FOR_REGEX = r'\[|\]|\''
-    _EMPTY_STRING = ''
+    _STRINGS_TO_BE_REPLACED = r'\[|\]|\''
+    _REPLACEMENT_STRING = ''
     _LINE_BREAK = '\n'
 
     def __init__(self, violators_avaliations):
@@ -23,8 +23,8 @@ class OutputSerializer:
                 self._OFFENDER_DATA.format(
                     violation=violation,
                     license_plate_numbers=re.sub(
-                        self._PATTERN_FOR_REGEX,
-                        self._EMPTY_STRING,
+                        self._STRINGS_TO_BE_REPLACED,
+                        self._REPLACEMENT_STRING,
                         self._license_plates_strings(
                             violation.license_plate_numbers
                         )
