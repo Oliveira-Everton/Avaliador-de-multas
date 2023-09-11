@@ -16,7 +16,6 @@ class TestViolatorAvaliation(unittest.TestCase):
                 LicensePlate('NEK-6986'),
                 LicensePlate('MXK-0463')
             ],
-
             demerit_points=5,
             penalty_amount=88.38
         )

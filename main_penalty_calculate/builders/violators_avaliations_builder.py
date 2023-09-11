@@ -79,16 +79,19 @@ class ViolatorsAvaliationsBuilder:
     def build_violators_avaliations(self):
         for traffic_violation in self._traffic_violations:
             if not self._aggregate_values_by_identity_card(traffic_violation):
+                penalties_values_builder = PenaltiesValuesBuilder(
+                    traffic_violation
+                )
                 self._violators_avaliations.append(
                     ViolatorAvaliation(
                         identity_card=traffic_violation.identity_card,
                         license_plates=[traffic_violation.license_plate],
-                        demerit_points=PenaltiesValuesBuilder(
-                            traffic_violation
-                        ).convert_demerit_points(),
-                        penalty_amount=PenaltiesValuesBuilder(
-                            traffic_violation
-                        ).convert_penalty_amount()
+                        demerit_points=(
+                            penalties_values_builder.convert_demerit_points()
+                        ),
+                        penalty_amount=(
+                            penalties_values_builder.convert_penalty_amount()
+                        )
                     )
                 )
         return self._violators_avaliations
