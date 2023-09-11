@@ -126,12 +126,10 @@ class TestViolatorAvaliation(unittest.TestCase):
 
         properties_values = violator_avaliation.properties_values
 
-        expected_demerit_points = 5
-        expected_penalty_amount = 88.38
         expected_properties_values = [
             IdentityCard('30.286.415-5', 'Vonkuzi Amelnay'),
             [LicensePlate('MVC-4848'), LicensePlate('NEK-6986')],
-            expected_demerit_points,
-            expected_penalty_amount
+            5,
+            88.38
         ]
         self.assertEqual(properties_values, expected_properties_values)
