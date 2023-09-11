@@ -21,7 +21,7 @@ class TestIdentityCard(unittest.TestCase):
     def test_identity_card_properties_values(self):
         identity_card = IdentityCard('37.594.403-5', 'Dtcv. Olivera')
 
-        properties_values = identity_card.properties_values()
+        properties_values = identity_card.properties_values
 
         self.assertEqual(
             properties_values, ['37.594.403-5', 'Dtcv. Olivera']

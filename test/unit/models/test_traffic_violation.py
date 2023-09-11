@@ -132,7 +132,7 @@ class TestTrafficViolation(unittest.TestCase):
             notification_date=datetime(1999, 1, 4, 7)
         )
 
-        properties_values = traffic_violation.properties_values()
+        properties_values = traffic_violation.properties_values
 
         expected_infraction_date = datetime(1999, 1, 3, 12)
         expected_notification_date = datetime(1999, 1, 4, 7)

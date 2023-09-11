@@ -124,7 +124,7 @@ class TestViolatorAvaliation(unittest.TestCase):
             penalty_amount=88.38
         )
 
-        properties_values = violator_avaliation.properties_values()
+        properties_values = violator_avaliation.properties_values
 
         expected_demerit_points = 5
         expected_penalty_amount = 88.38

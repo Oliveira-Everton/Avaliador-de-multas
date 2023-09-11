@@ -11,8 +11,9 @@ class IdentityCard:
     def name(self):
         return self._name
 
+    @property
     def properties_values(self):
         return [self.number, self.name]
 
     def __eq__(self, other):
-        return self.properties_values() == other.properties_values()
+        return self.properties_values == other.properties_values
