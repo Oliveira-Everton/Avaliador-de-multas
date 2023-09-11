@@ -25,7 +25,6 @@ class PenaltiesValuesBuilder:
     def __init__(self, traffic_violation):
         self._traffic_violation = traffic_violation
 
-    
     @property
     def _penalty_by_type_infraction(self):
         return self._INFRACTION_PENALTIES[
