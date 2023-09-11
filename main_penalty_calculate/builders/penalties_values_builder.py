@@ -31,18 +31,24 @@ class PenaltiesValuesBuilder:
             self._traffic_violation.infraction_date
         ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT
 
+    @property
+    def _penalty_by_type_infraction(self):
+        return self._INFRACTION_PENALTIES[
+            self._traffic_violation.type_infraction
+        ]
+
     def convert_demerit_points(self):
         if self._is_penalty_valid():
-            return self._INFRACTION_PENALTIES[
-                self._traffic_violation.type_infraction
-            ][self._DEMERIT_POINTS]
+            return self._penalty_by_type_infraction[
+                self._DEMERIT_POINTS
+            ]
         else:
             return self._INVALID_DEMERIT_POINTS
 
     def convert_penalty_amount(self):
         if self._is_penalty_valid():
-            return self._INFRACTION_PENALTIES[
-                self._traffic_violation.type_infraction
-            ][self._PENALTY_AMOUNT]
+            return self._penalty_by_type_infraction[
+                self._PENALTY_AMOUNT
+            ]
         else:
             return self._INVALID_PENALTY_AMOUNT
