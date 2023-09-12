@@ -11,7 +11,7 @@ class OutputSerializer:
     )
     _STRINGS_TO_BE_REPLACED = r'\[|\]|\''
     _REPLACEMENT_STRING = ''
-    _LINE_BREAK = '\n'
+    _LINE_BREAK_TO_NEXT_OFFENDER = '\n'
 
     def __init__(self, violators_avaliations):
         self._violators_avaliations = violators_avaliations
@@ -25,15 +25,15 @@ class OutputSerializer:
                     license_plate_numbers=re.sub(
                         self._STRINGS_TO_BE_REPLACED,
                         self._REPLACEMENT_STRING,
-                        self._license_plates_strings(
+                        self._convert_license_plates_strings(
                             violation.license_plate_numbers
                         )
                     )
                 )
             )
-        return self._LINE_BREAK.join(offender_data)
+        return self._LINE_BREAK_TO_NEXT_OFFENDER.join(offender_data)
 
-    def _license_plates_strings(self, license_plates):
+    def _convert_license_plates_strings(self, license_plates):
         license_plates_strings = []
         for license_plate in license_plates:
             license_plates_strings.append(license_plate.number)
