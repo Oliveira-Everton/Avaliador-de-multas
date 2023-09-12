@@ -16,10 +16,10 @@ class OutputSerializer:
     def __init__(self, violators_avaliations):
         self._violators_avaliations = violators_avaliations
 
-    def output_string(self):
-        offender_data = []
+    def _build_offenders_data(self):
+        offenders_data = []
         for violation in self._violators_avaliations:
-            offender_data.append(
+            offenders_data.append(
                 self._OFFENDER_DATA.format(
                     violation=violation,
                     license_plate_numbers=re.sub(
@@ -31,10 +31,14 @@ class OutputSerializer:
                     )
                 )
             )
-        return self._LINE_BREAK_TO_NEXT_OFFENDER.join(offender_data)
+        return offenders_data
 
     def _convert_license_plates_strings(self, license_plates):
         license_plates_strings = []
         for license_plate in license_plates:
             license_plates_strings.append(license_plate.number)
         return str(license_plates_strings)
+
+    def output_string(self):
+        offenders_datas = self._build_offenders_data()
+        return self._LINE_BREAK_TO_NEXT_OFFENDER.join(offenders_datas)
