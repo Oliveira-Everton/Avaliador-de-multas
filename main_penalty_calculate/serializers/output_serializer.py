@@ -19,16 +19,13 @@ class OutputSerializer:
     def _build_offenders_data(self):
         offenders_data = []
         for violation in self._violators_avaliations:
-            license_plates = []
-            for license_plate in violation.license_plate_numbers:
-                license_plates.append(license_plate.number)
             offenders_data.append(
                 self._OFFENDER_DATA.format(
                     violation=violation,
                     license_plate_numbers=re.sub(
                         self._STRINGS_TO_BE_REPLACED,
                         self._REPLACEMENT_STRING,
-                        str(license_plates)
+                        str(violation.license_plate_numbers)
                     )
                 )
             )
