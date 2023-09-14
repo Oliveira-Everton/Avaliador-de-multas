@@ -13,7 +13,7 @@ from main_penalty_calculate.models import (
 
 class TestPenaltiesValuesBuilder(unittest.TestCase):
     def test_convert_demerit_points_light(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -23,12 +23,14 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        demerit_points_light = infraction_penalties.convert_demerit_points()
+        demerit_points_light = (
+            penalties_values_builder.convert_demerit_points()
+        )
 
         self.assertEqual(demerit_points_light, 3)
 
     def test_convert_penalty_amount_light(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -38,12 +40,14 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        penalty_amount_light = infraction_penalties.convert_penalty_amount()
+        penalty_amount_light = (
+            penalties_values_builder.convert_penalty_amount()
+        )
 
         self.assertEqual(penalty_amount_light, 88.38)
 
     def test_convert_demerit_points_average(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -53,12 +57,14 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        demerit_points_average = infraction_penalties.convert_demerit_points()
+        demerit_points_average = (
+            penalties_values_builder.convert_demerit_points()
+        )
 
         self.assertEqual(demerit_points_average, 4)
 
     def test_convert_penalty_amount_average(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -68,12 +74,14 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        penalty_amount_average = infraction_penalties.convert_penalty_amount()
+        penalty_amount_average = (
+            penalties_values_builder.convert_penalty_amount()
+        )
 
         self.assertEqual(penalty_amount_average, 130.16)
 
     def test_convert_demerit_points_serious(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -83,12 +91,14 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        demerit_points_serious = infraction_penalties.convert_demerit_points()
+        demerit_points_serious = (
+            penalties_values_builder.convert_demerit_points()
+        )
 
         self.assertEqual(demerit_points_serious, 5)
 
     def test_convert_penalty_amount_serious(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -98,12 +108,14 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        penalty_amount_serious = infraction_penalties.convert_penalty_amount()
+        penalty_amount_serious = (
+            penalties_values_builder.convert_penalty_amount()
+        )
 
         self.assertEqual(penalty_amount_serious, 195.23)
 
     def test_convert_demerit_points_very_serious(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -114,13 +126,13 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
         )
 
         demerit_points_very_serious = (
-            infraction_penalties.convert_demerit_points()
+            penalties_values_builder.convert_demerit_points()
         )
 
         self.assertEqual(demerit_points_very_serious, 7)
 
     def test_convert_penalty_amount_very_serious(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -131,13 +143,13 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
         )
 
         penalty_amount_very_serious = (
-            infraction_penalties.convert_penalty_amount()
+            penalties_values_builder.convert_penalty_amount()
         )
 
         self.assertEqual(penalty_amount_very_serious, 293.47)
 
     def test_convert_demerit_points_30th_infrigement_period(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -147,12 +159,12 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        demerit_points = infraction_penalties.convert_demerit_points()
+        demerit_points = penalties_values_builder.convert_demerit_points()
 
         self.assertEqual(demerit_points, 7)
 
     def test_convert_demerit_points_31th_infrigement_period(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -162,12 +174,14 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        invalid_demerit_points = infraction_penalties.convert_demerit_points()
+        invalid_demerit_points = (
+            penalties_values_builder.convert_demerit_points()
+        )
 
         self.assertEqual(invalid_demerit_points, 0)
 
     def test_convert_penalty_amount_30th_infrigement_period(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -177,12 +191,12 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        penalty_amount = infraction_penalties.convert_penalty_amount()
+        penalty_amount = penalties_values_builder.convert_penalty_amount()
 
         self.assertEqual(penalty_amount, 293.47)
 
     def test_convert_penalty_amount_31th_infrigement_period(self):
-        infraction_penalties = PenaltiesValuesBuilder(
+        penalties_values_builder = PenaltiesValuesBuilder(
             TrafficViolation(
                 identity_card=IdentityCard('Morgan', '138469945'),
                 license_plate=LicensePlate('MGN-9130'),
@@ -192,6 +206,8 @@ class TestPenaltiesValuesBuilder(unittest.TestCase):
             )
         )
 
-        invalid_penalty_amount = infraction_penalties.convert_penalty_amount()
+        invalid_penalty_amount = (
+            penalties_values_builder.convert_penalty_amount()
+        )
 
         self.assertEqual(invalid_penalty_amount, 0.0)
