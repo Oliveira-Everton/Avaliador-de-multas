@@ -17,7 +17,7 @@ class TestIntegration(unittest.TestCase):
             '149178360; Gerusa Juventina; SOS-3257; 4; 130.16'
         )
 
-    def test_evaluate_infractors_with_invalid_demerit_points(self):
+    def test_evaluate_infractors_with_invalid_penalty(self):
         penalty_calculate = PenaltyCalculate(
             'test/fixtures/Transit Ticket input 2.csv'
         )
@@ -29,7 +29,7 @@ class TestIntegration(unittest.TestCase):
             '375944035; Dtcv. Olivera; QBJ-6840; 0; 0.00'
         )
 
-    def test_evaluate_infractors_aggregate_penalty_amount(self):
+    def test_evaluate_infractors_aggregate_penalty(self):
         penalty_calculate = PenaltyCalculate(
             'test/fixtures/Transit Ticket input 3.csv'
         )
