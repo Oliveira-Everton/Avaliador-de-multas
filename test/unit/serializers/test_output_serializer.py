@@ -3,8 +3,7 @@ import unittest
 from main_penalty_calculate.serializers import OutputSerializer
 from main_penalty_calculate.models import (
     ViolatorAvaliation,
-    IdentityCard,
-    LicensePlate
+    IdentityCard
 )
 
 
@@ -26,6 +25,7 @@ class TestOutputSerializer(unittest.TestCase):
         ]
 
         output_string = OutputSerializer(violators_avaliations).output_string()
+
         self.assertEqual(
             output_string,
             '29.441.369-8; Aoki; UCH-6237; 4; 88.38\n' +
