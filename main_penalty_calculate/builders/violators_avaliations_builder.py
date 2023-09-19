@@ -27,10 +27,10 @@ class ViolatorsAvaliationsBuilder:
     ):
         if not self._is_license_plate_already_present(
             violator_avaliation.license_plate_numbers,
-            traffic_violation.license_plate.number
+            traffic_violation.license_plate
         ):
             violator_avaliation.license_plate_numbers.append(
-                traffic_violation.license_plate.number
+                traffic_violation.license_plate
             )
 
     def _aggregate_demerit_points(
@@ -85,9 +85,7 @@ class ViolatorsAvaliationsBuilder:
                 self._violators_avaliations.append(
                     ViolatorAvaliation(
                         identity_card=traffic_violation.identity_card,
-                        license_plates=[
-                            traffic_violation.license_plate.number
-                        ],
+                        license_plates=[traffic_violation.license_plate],
                         demerit_points=(
                             penalties_values_builder.convert_demerit_points()
                         ),
