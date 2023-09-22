@@ -14,16 +14,12 @@ class TrafficViolation:
         self._notification_date = notification_date
 
     @property
-    def identity_card_number(self):
-        return self._identity_card.number
+    def identity_card(self):
+        return self._identity_card
 
     @property
-    def identity_card_name(self):
-        return self._identity_card.name
-
-    @property
-    def license_plate_number(self):
-        return self._license_plate.number
+    def license_plate(self):
+        return self._license_plate
 
     @property
     def type_infraction(self):
@@ -37,15 +33,15 @@ class TrafficViolation:
     def notification_date(self):
         return self._notification_date
 
-    def _properties_values(self):
+    @property
+    def properties_values(self):
         return [
-            self.identity_card_number,
-            self.identity_card_name,
-            self.license_plate_number,
+            self.identity_card,
+            self.license_plate,
             self.type_infraction,
             self.infraction_date,
             self.notification_date
         ]
 
     def __eq__(self, other):
-        return self._properties_values() == other._properties_values()
+        return self.properties_values == other.properties_values

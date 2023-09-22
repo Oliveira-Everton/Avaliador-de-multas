@@ -5,3 +5,6 @@ class LicensePlate:
     @property
     def number(self):
         return self._number
+
+    def __eq__(self, other):
+        return self.number == other.number

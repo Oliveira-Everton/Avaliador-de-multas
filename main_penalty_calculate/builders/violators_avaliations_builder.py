@@ -1,39 +1,21 @@
-from ..models import ViolatorAvaliation, IdentityCard
-from ..constants import TypeInfractionStrings
+from ..models import ViolatorAvaliation
+from .penalties_values_builder import PenaltiesValuesBuilder
 
 
 class ViolatorsAvaliationsBuilder:
-    _VALIDITY_PERIOD_OF_INFRINGEMENT = 30
-    _INVALID_DEMERIT_POINTS = 0
-    _INFRACTION_PENALTIES = {
-        TypeInfractionStrings.LIGHT: 3,
-        TypeInfractionStrings.AVERAGE: 4,
-        TypeInfractionStrings.SERIOUS: 5,
-        TypeInfractionStrings.VERY_SERIOUS: 7
-    }
-
     def __init__(self, traffic_violations):
         self._traffic_violations = traffic_violations
         self._violators_avaliations = []
 
-    def _is_identity_card_number_already_present(self, traffic_violation):
-        for violator_avaliation in self._violators_avaliations:
-            if (
-                violator_avaliation.identity_card_number ==
-                traffic_violation.identity_card_number
-            ):
-                return True
-        return False
-
-    def _is_license_plate_number_already_present(
+    def _is_license_plate_already_present(
         self,
         license_plates,
-        traffic_violation
+        license_plate_number
     ):
-        for license_plate_number in license_plates:
+        for license_plate in license_plates:
             if (
-                license_plate_number ==
-                traffic_violation.license_plate_number
+                license_plate ==
+                license_plate_number
             ):
                 return True
         return False
@@ -43,12 +25,12 @@ class ViolatorsAvaliationsBuilder:
         violator_avaliation,
         traffic_violation
     ):
-        if not self._is_license_plate_number_already_present(
+        if not self._is_license_plate_already_present(
             violator_avaliation.license_plate_numbers,
-            traffic_violation
+            traffic_violation.license_plate
         ):
             violator_avaliation.license_plate_numbers.append(
-                traffic_violation.license_plate_number
+                traffic_violation.license_plate
             )
 
     def _aggregate_demerit_points(
@@ -57,34 +39,27 @@ class ViolatorsAvaliationsBuilder:
         traffic_violation
     ):
         violator_avaliation.sum_demerit_points(
-            self._convert_demerit_points(
-                traffic_violation.notification_date,
-                traffic_violation.infraction_date,
-                traffic_violation.type_infraction
-            )
+            PenaltiesValuesBuilder(
+                traffic_violation
+            ).convert_demerit_points()
         )
 
-    def _is_demerit_points_valid(self, notification_date, infraction_date):
-        return (
-            notification_date - infraction_date
-        ).days <= self._VALIDITY_PERIOD_OF_INFRINGEMENT
-
-    def _convert_demerit_points(
+    def _aggregate_penalty_amount(
         self,
-        notification_date,
-        infraction_date,
-        type_infraction
+        violator_avaliation,
+        traffic_violation
     ):
-        if self._is_demerit_points_valid(notification_date, infraction_date):
-            return self._INFRACTION_PENALTIES[type_infraction]
-        else:
-            return self._INVALID_DEMERIT_POINTS
+        violator_avaliation.sum_penalty_amount(
+            PenaltiesValuesBuilder(
+                traffic_violation
+            ).convert_penalty_amount()
+        )
 
-    def _aggregate_values_by_identity_card_number(self, traffic_violation):
+    def _aggregate_values_by_identity_card(self, traffic_violation):
         for violator_avaliation in self._violators_avaliations:
             if (
-                violator_avaliation.identity_card_number ==
-                traffic_violation.identity_card_number
+                traffic_violation.identity_card ==
+                violator_avaliation.identity_card
             ):
                 self._aggregate_license_plates(
                     violator_avaliation,
@@ -94,31 +69,28 @@ class ViolatorsAvaliationsBuilder:
                     violator_avaliation,
                     traffic_violation
                 )
+                self._aggregate_penalty_amount(
+                    violator_avaliation,
+                    traffic_violation
+                )
+                return True
+        return False
 
     def build_violators_avaliations(self):
         for traffic_violation in self._traffic_violations:
-            if self._is_identity_card_number_already_present(
-                traffic_violation
-            ):
-                self._aggregate_values_by_identity_card_number(
+            if not self._aggregate_values_by_identity_card(traffic_violation):
+                penalties_values_builder = PenaltiesValuesBuilder(
                     traffic_violation
                 )
-            else:
                 self._violators_avaliations.append(
                     ViolatorAvaliation(
-                        identity_card=IdentityCard(
-                            number=(
-                                traffic_violation.identity_card_number
-                            ),
-                            name=traffic_violation.identity_card_name
+                        identity_card=traffic_violation.identity_card,
+                        license_plates=[traffic_violation.license_plate],
+                        demerit_points=(
+                            penalties_values_builder.convert_demerit_points()
                         ),
-                        license_plates=[
-                            traffic_violation.license_plate_number
-                        ],
-                        demerit_points=self._convert_demerit_points(
-                            traffic_violation.notification_date,
-                            traffic_violation.infraction_date,
-                            traffic_violation.type_infraction
+                        penalty_amount=(
+                            penalties_values_builder.convert_penalty_amount()
                         )
                     )
                 )

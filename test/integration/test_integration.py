@@ -10,14 +10,14 @@ class TestIntegration(unittest.TestCase):
         violators_avaliations = penalty_calculate.evaluate_infractors()
 
         self.assertEqual(
-            violators_avaliations, [
-                '467191153; Josevaldo Cal. O. Teiro; ARE-9420, KVI-2310; 19',
-                '276787067; Osvaldo Plinio; BIO-9626; 5',
-                '149178360; Gerusa Juventina; SOS-3257; 4'
-            ]
+            violators_avaliations,
+            '467191153; Josevaldo Cal. O. Teiro; ARE-9420, KVI-2310; 19;' +
+            ' 782.17\n'
+            '276787067; Osvaldo Plinio; BIO-9626; 5; 195.23\n'
+            '149178360; Gerusa Juventina; SOS-3257; 4; 130.16'
         )
 
-    def test_evaluate_infractors_with_invalid_demerit_points(self):
+    def test_evaluate_infractors_with_invalid_penalty(self):
         penalty_calculate = PenaltyCalculate(
             'test/fixtures/Transit Ticket input 2.csv'
         )
@@ -25,7 +25,17 @@ class TestIntegration(unittest.TestCase):
         violators_avaliations = penalty_calculate.evaluate_infractors()
 
         self.assertEqual(
-            violators_avaliations, [
-                '375944035; Dtcv. Olivera; QBJ-6840; 0'
-            ]
+            violators_avaliations,
+            '375944035; Dtcv. Olivera; QBJ-6840; 0; 0.00'
+        )
+
+    def test_evaluate_infractors_aggregate_penalty(self):
+        penalty_calculate = PenaltyCalculate(
+            'test/fixtures/Transit Ticket input 3.csv'
+        )
+
+        violators_avaliations = penalty_calculate.evaluate_infractors()
+
+        self.assertEqual(
+            violators_avaliations, '138469945; Morgan; MGN-9130; 8; 283.61'
         )
